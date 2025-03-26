@@ -11,6 +11,15 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
      
+
+     <div className="relative w-full overflow-hidden bg-white text-[#29A0D8] py-1 text-xs">
+  <div className="whitespace-nowrap animate-marquee">
+    ⚠️ Note: nstHr never charges candidates. If you have any complaints, kindly mail us at 
+    <a href="mailto:help@nsthr.in" className="font-bold underline mx-1">help@nsthr.in</a> ⚠️
+  </div>
+</div>
+  
+
       {/* Contact info bar */}
       <div className="bg-[#29A0D8] py-2 px-4">
         <div className="container mx-auto flex flex-wrap justify-between items-center">

@@ -10,11 +10,11 @@ export default function Footer() {
           <div>
             <div className="mb-4">
               <Image
-                src="/placeholder.svg?height=60&width=150"
+                src="/white logo.svg?height=60&width=150"
                 alt="nstHr Logo"
                 width={150}
                 height={60}
-                className="h-16 w-auto"
+                className=""
               />
             </div>
             <h3 className="text-xl font-bold mb-4">Why nstHr?</h3>
@@ -60,7 +60,7 @@ export default function Footer() {
   <h4 className="font-bold mb-2">FOLLOW US:</h4>
   <div className="flex gap-2">
     <Link
-      href="https://facebook.com"
+      href="https://www.facebook.com/nsthrsolutions"
       className="bg-white text-[#29A0D8] p-2 rounded-full transition-all duration-300 transform hover:bg-[#1E90D8] hover:text-white hover:scale-110"
     >
       <Facebook className="w-5 h-5" />
@@ -72,19 +72,19 @@ export default function Footer() {
       <Twitter className="w-5 h-5" />
     </Link>
     <Link
-      href="https://instagram.com"
+      href="https://www.instagram.com/nsthrsolutions/"
       className="bg-white text-[#29A0D8] p-2 rounded-full transition-all duration-300 transform hover:bg-[#1E90D8] hover:text-white hover:scale-110"
     >
       <Instagram className="w-5 h-5" />
     </Link>
     <Link
-      href="https://linkedin.com"
+      href="https://www.linkedin.com/company/nsthrsolutions"
       className="bg-white text-[#29A0D8] p-2 rounded-full transition-all duration-300 transform hover:bg-[#1E90D8] hover:text-white hover:scale-110"
     >
       <Linkedin className="w-5 h-5" />
     </Link>
     <Link
-      href="https://youtube.com"
+      href="https://www.youtube.com/@nsthr208"
       className="bg-white text-[#29A0D8] p-2 rounded-full transition-all duration-300 transform hover:bg-[#1E90D8] hover:text-white hover:scale-110"
     >
       <Youtube className="w-5 h-5" />

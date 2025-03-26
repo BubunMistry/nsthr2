@@ -29,19 +29,14 @@ body {
   @apply bg-gradient-to-r from-[#1E90D8] to-[#29A0D8] text-white py-1 px-4 text-center overflow-hidden whitespace-nowrap;
 }
 
-.moving-text {
-  display: inline-block;
-  animation: moveText 20s linear infinite;
-  padding-right: 50px;
+@keyframes marquee {
+0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
-
-@keyframes moveText {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 30s linear infinite;
+  padding-right: 50px;
 }
 
 .contact-info {

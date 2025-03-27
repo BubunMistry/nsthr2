@@ -1,215 +1,166 @@
 import Link from "next/link"
 import Image from "next/image"
-import { UserRound, Search, Briefcase, Users, Clock, Cpu } from "lucide-react"
+import {
+  UserRound, Search, Briefcase, Users, Clock, Cpu, Stethoscope,
+  Hammer,
+  Bus,
+  Car,
+  Banknote,
+  Settings,
+  Fuel,
+  Megaphone,
+  Code,
+  Bolt
+} from "lucide-react"
+
 import Carousel from "@/components/carousel"
 import HeroSection from "@/components/ui/hero-section"
+
+const industries = [
+  { name: "Insurance", icon: <Stethoscope className="w-8 h-8" /> },
+  { name: "Construction", icon: <Hammer className="w-8 h-8" /> },
+  { name: "Tour & Travel", icon: <Bus className="w-8 h-8" /> },
+  { name: "Automobile", icon: <Car className="w-8 h-8" /> },
+  { name: "Banking", icon: <Banknote className="w-8 h-8" /> },
+  { name: "Technical", icon: <Settings className="w-8 h-8" /> },
+  { name: "Oil & Gas", icon: <Fuel className="w-8 h-8" /> },
+  { name: "Advertising", icon: <Megaphone className="w-8 h-8" /> },
+  { name: "IT Software", icon: <Code className="w-8 h-8" /> },
+  { name: "Power and Energy", icon: <Bolt className="w-8 h-8" /> },
+];
+
+const testimonials = [
+  {
+    id: 1,
+    name: "Rajesh Kumar",
+    position: "HR Manager, Tech Solutions",
+    image: "/client1.jpg",
+    text: "nstHr has been instrumental in helping us find the right talent for our technical positions. Their understanding of our requirements and quick turnaround time is impressive.",
+  },
+  {
+    id: 2,
+    name: "Priya Sharma",
+    position: "Director, Global Finance",
+    image: "/client6.jpg",
+    text: "We've been working with nstHr for over two years now, and they consistently deliver quality candidates. Their team is professional, responsive, and truly understands our company culture.",
+  },
+  {
+    id: 3,
+    name: "Amit Patel",
+    position: "CEO, Innovate Solutions",
+    image: "/client3.jpg",
+    text: "nstHr's approach to recruitment is refreshing. They take the time to understand our business needs and provide candidates who not only have the right skills but also fit our company culture.",
+  },
+  {
+    id: 4,
+    name: "Sneha Gupta",
+    position: "Team Lead, Digital Marketing",
+    image: "/client5.jpg",
+    text: "The quality of candidates provided by nstHr is exceptional. They have helped us build a strong team of digital marketers who have contributed significantly to our growth.",
+  },
+  {
+    id: 5,
+    name: "Vikram Singh",
+    position: "Operations Manager, Logistics Inc.",
+    image: "/client2.jpg",
+    text: "nstHr's industry knowledge and professional approach make them our preferred recruitment partner. They have consistently delivered on their promises.",
+  },
+  {
+    id: 6,
+    name: "Arjun Mehta",
+    position: "CTO, Software Innovations",
+    image: "/client4.jpg",
+    text: "nstHr's technical screening process saved us countless hours. The candidates they sent were all interview-ready and perfectly matched our requirements.",
+  }
+];
+const clients = [
+  { id: 1, name: "Asian Paints", logo: "/Asian Paints.svg?height=100&width=150" },
+  { id: 2, name: "Bosch logo", logo: "/Bosch-logo.svg?height=100&width=150" },
+  { id: 3, name: "Dominos Pizza", logo: "/Dominos Pizza.svg?height=100&width=150" },
+  { id: 4, name: "Hover New", logo: "/Hover New.svg?height=100&width=150" },
+  { id: 5, name: "Kfc.", logo: "/kfc.svg?height=100&width=150" },
+  { id: 6, name: "Leggs New", logo: "/Leggs New.svg?height=100&width=150" },
+  { id: 7, name: "Panareha", logo: "/Panareha.svg?height=100&width=150" },
+  { id: 8, name: "TATA Cliq New", logo: "/TATA Cliq New.svg?height=100&width=150" },
+];
+
 export default function Home() {
-  // Testimonial data
-  const testimonials = [
-    {
-      id: 1,
-      name: "Rajesh Kumar",
-      position: "HR Manager, Tech Solutions",
-      image: "/placeholder.svg?height=80&width=80",
-      text: "nstHr has been instrumental in helping us find the right talent for our technical positions. Their understanding of our requirements and quick turnaround time is impressive.",
-    },
-    {
-      id: 2,
-      name: "Priya Sharma",
-      position: "Director, Global Finance",
-      image: "/placeholder.svg?height=80&width=80",
-      text: "We've been working with nstHr for over two years now, and they consistently deliver quality candidates. Their team is professional, responsive, and truly understands our company culture.",
-    },
-    {
-      id: 3,
-      name: "Amit Patel",
-      position: "CEO, Innovate Solutions",
-      image: "/placeholder.svg?height=80&width=80",
-      text: "nstHr's approach to recruitment is refreshing. They take the time to understand our business needs and provide candidates who not only have the right skills but also fit our company culture.",
-    },
-    {
-      id: 4,
-      name: "Sneha Gupta",
-      position: "Team Lead, Digital Marketing",
-      image: "/placeholder.svg?height=80&width=80",
-      text: "The quality of candidates provided by nstHr is exceptional. They have helped us build a strong team of digital marketers who have contributed significantly to our growth.",
-    },
-    {
-      id: 5,
-      name: "Vikram Singh",
-      position: "Operations Manager, Logistics Inc.",
-      image: "/placeholder.svg?height=80&width=80",
-      text: "nstHr's industry knowledge and professional approach make them our preferred recruitment partner. They have consistently delivered on their promises.",
-    },
-  ]
-
-  // Client data
-  const clients = [
-    { id: 1, name: "Asian Paints", logo: "/Asian Paints.svg?height=100&width=150" },
-    { id: 2, name: "Bosch logo", logo: "/Bosch-logo.svg?height=100&width=150" },
-    { id: 3, name: "Dominos Pizza", logo: "/Dominos Pizza.svg?height=100&width=150" },
-    { id: 4, name: "Hover New", logo: "/Hover New.svg?height=100&width=150" },
-    { id: 5, name: "Kfc.", logo: "/kfc.svg?height=100&width=150" },
-    { id: 6, name: "Leggs New", logo: "/Leggs New.svg?height=100&width=150" },
-    { id: 7, name: "Panareha", logo: "/Panareha.svg?height=100&width=150" },
-    { id: 8, name: "TATA Cliq New", logo: "/TATA Cliq New.svg?height=100&width=150" },
-  ]
-
   return (
     <div>
       {/* Hero Section */}
       <HeroSection />
 
-{/* Job Search Section */}
-<section className="bg-[#29A0D8] text-white py-6">
-  <div className="container mx-auto px-4">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <Link
-        href="/jobs"
-        className="bg-[#1E90D8] hover:bg-[#1682C8] transition-colors p-4 rounded-md flex items-center justify-center gap-2"
-      >
-        <Search className="w-5 h-5" />
-        <span className="font-medium">FIND YOUR DREAM JOB</span>
-      </Link>
-      <Link
-        href="/employer-form"
-        className="bg-[#1E90D8] hover:bg-[#1682C8] transition-colors p-4 rounded-md flex items-center justify-center gap-2"
-      >
-        <UserRound className="w-5 h-5" />
-        <span className="font-medium">FIND YOUR BEST EMPLOYEES</span>
-      </Link>
-    </div>
-  </div>
-</section>
-
- {/* Services Section */}
-<section className="py-16 bg-gray-50">
-  <div className="container mx-auto px-4">
-    <h2 className="section-title">Services</h2>
-
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-12">
-      <div className="service-card">
-        <div className="p-6 flex flex-col items-center text-center">
-          <div className="w-20 h-20 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
-            <Users className="w-10 h-10 text-white" />
-          </div>
-          <h3 className="font-bold mb-2">Recruitment Services</h3>
-        </div>
-      </div>
-
-      <div className="service-card">
-        <div className="p-6 flex flex-col items-center text-center">
-          <div className="w-20 h-20 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
-            <Search className="w-10 h-10 text-white" />
-          </div>
-          <h3 className="font-bold mb-2">IT Staffing</h3>
-        </div>
-      </div>
-
-      <div className="service-card">
-        <div className="p-6 flex flex-col items-center text-center">
-          <div className="w-20 h-20 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
-            <Briefcase className="w-10 h-10 text-white" />
-          </div>
-          <h3 className="font-bold mb-2">Project Hiring</h3>
-        </div>
-      </div>
-
-      <div className="service-card">
-        <div className="p-6 flex flex-col items-center text-center">
-          <div className="w-20 h-20 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
-            <Clock className="w-10 h-10 text-white" />
-          </div>
-          <h3 className="font-bold mb-2">Temporary Staffing</h3>
-        </div>
-      </div>
-
-      <div className="service-card">
-        <div className="p-6 flex flex-col items-center text-center">
-          <div className="w-20 h-20 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
-            <Cpu className="w-10 h-10 text-white" />
-          </div>
-          <h3 className="font-bold mb-2">RPO</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-      {/* Industries Section */}
-      <section className="py-16">
+      {/* Job Search Section */}
+      <section className="bg-[#29A0D8] text-white py-6">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">Industries We Serve</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Link
+              href="/jobs"
+              className="bg-[#1E90D8] hover:bg-[#1682C8] transition-colors p-4 rounded-md flex items-center justify-center gap-2"
+            >
+              <Search className="w-5 h-5" />
+              <span className="font-medium">FIND YOUR DREAM JOB</span>
+            </Link>
+            <Link
+              href="/employer-form"
+              className="bg-[#1E90D8] hover:bg-[#1682C8] transition-colors p-4 rounded-md flex items-center justify-center gap-2"
+            >
+              <UserRound className="w-5 h-5" />
+              <span className="font-medium">FIND YOUR BEST EMPLOYEES</span>
+            </Link>
+          </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mt-12">
-            <div className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4">
-                <i className="fas fa-user-injured text-2xl"></i>
+      {/* Services Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="section-title">Services</h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-12">
+            <div className="service-card">
+              <div className="p-6 flex flex-col items-center text-center">
+                <div className="w-20 h-20 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
+                  <Users className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="font-bold mb-2">Recruitment Services</h3>
               </div>
-              <h3 className="font-medium">Insurance</h3>
             </div>
 
-            <div className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4">
-                <i className="fas fa-construction text-2xl"></i>
+            <div className="service-card">
+              <div className="p-6 flex flex-col items-center text-center">
+                <div className="w-20 h-20 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
+                  <Search className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="font-bold mb-2">IT Staffing</h3>
               </div>
-              <h3 className="font-medium">Construction</h3>
             </div>
 
-            <div className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4">
-                <i className="fas fa-bus text-2xl"></i>
+            <div className="service-card">
+              <div className="p-6 flex flex-col items-center text-center">
+                <div className="w-20 h-20 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
+                  <Briefcase className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="font-bold mb-2">Project Hiring</h3>
               </div>
-              <h3 className="font-medium">Tour & Travel</h3>
             </div>
 
-            <div className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4">
-                <i className="fas fa-car-mechanic text-2xl"></i>
+            <div className="service-card">
+              <div className="p-6 flex flex-col items-center text-center">
+                <div className="w-20 h-20 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
+                  <Clock className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="font-bold mb-2">Temporary Staffing</h3>
               </div>
-              <h3 className="font-medium">Automobile</h3>
             </div>
 
-            <div className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4">
-                <i className="fas fa-university text-2xl"></i>
+            <div className="service-card">
+              <div className="p-6 flex flex-col items-center text-center">
+                <div className="w-20 h-20 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
+                  <Cpu className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="font-bold mb-2">RPO</h3>
               </div>
-              <h3 className="font-medium">Banking</h3>
-            </div>
-
-            <div className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4">
-                <i className="fas fa-cogs text-2xl"></i>
-              </div>
-              <h3 className="font-medium">Technical</h3>
-            </div>
-
-            <div className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4">
-                <i className="fas fa-gas-pump text-2xl"></i>
-              </div>
-              <h3 className="font-medium">Oil & Gas</h3>
-            </div>
-
-            <div className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4">
-                <i className="fas fa-ad text-2xl"></i>
-              </div>
-              <h3 className="font-medium">Advertising</h3>
-            </div>
-
-            <div className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4">
-                <i className="fas fa-laptop-code text-2xl"></i>
-              </div>
-              <h3 className="font-medium">IT Software</h3>
-            </div>
-
-            <div className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4">
-                <i className="fas fa-wind-turbine text-2xl"></i>
-              </div>
-              <h3 className="font-medium">Power and Energy</h3>
             </div>
           </div>
         </div>
@@ -288,7 +239,56 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Industries Section - Improved Hover */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="section-title">Industries We Serve</h2>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mt-12">
+            {industries.map((industry, index) => (
+              <div
+                key={index}
+                className="group bg-white shadow-md rounded-lg p-6 flex flex-col items-center text-center transition-all duration-300 hover:bg-[#29A0D8] hover:text-white hover:shadow-lg"
+              >
+                <div className="w-16 h-16 bg-[#29A0D8]/10 text-[#29A0D8] rounded-full flex items-center justify-center mb-4 group-hover:bg-white group-hover:text-[#29A0D8] transition-colors duration-300">
+                  {industry.icon}
+                </div>
+                <h3 className="font-medium">{industry.name}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Clients Section - Unchanged */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="section-title">Our Clients</h2>
+
+          <div className="mt-12">
+            <Carousel autoSlideInterval={3000}>
+              {/* Group clients in sets of 4 for desktop, 2 for mobile */}
+              {[0, 1].map((startIdx) => (
+                <div key={startIdx} className="grid grid-cols-2 md:grid-cols-4 gap-6 px-4">
+                  {clients.slice(startIdx * 4, startIdx * 4 + 4).map((client) => (
+                    <div key={client.id} className="flex items-center justify-center p-4">
+                      <Image
+                        src={client.logo || "/placeholder.svg"}
+                        alt={client.name}
+                        width={150}
+                        height={100}
+                        className="client-logo"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </Carousel>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Testimonials Section - Unchanged */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="section-title">Testimonial</h2>
@@ -321,34 +321,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Clients Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title">Our Clients</h2>
 
-          <div className="mt-12">
-            <Carousel autoSlideInterval={3000}>
-              {/* Group clients in sets of 4 for desktop, 2 for mobile */}
-              {[0, 1].map((startIdx) => (
-                <div key={startIdx} className="grid grid-cols-2 md:grid-cols-4 gap-6 px-4">
-                  {clients.slice(startIdx * 4, startIdx * 4 + 4).map((client) => (
-                    <div key={client.id} className="flex items-center justify-center p-4">
-                      <Image
-                        src={client.logo || "/placeholder.svg"}
-                        alt={client.name}
-                        width={150}
-                        height={100}
-                        className="client-logo"
-                      />
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </Carousel>
-          </div>
-        </div>
-      </section>
     </div>
   )
 }
-

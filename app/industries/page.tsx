@@ -78,7 +78,7 @@ export default function Industries() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-blue-600 text-white py-16">
+      <section className="bg-[#29A0D8] text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-4">Industries We Serve</h1>
           <p className="text-xl">Specialized recruitment solutions for various sectors</p>
@@ -90,16 +90,22 @@ export default function Industries() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {industries.map((industry) => (
-              <div key={industry.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div 
+                key={industry.id} 
+                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+              >
                 <div className="p-6">
                   <div className="flex items-center mb-4">
-                    <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-4">
+                    <div className="w-16 h-16 bg-[#29A0D8]/10 text-[#29A0D8] rounded-full flex items-center justify-center mr-4">
                       {industry.icon}
                     </div>
                     <h2 className="text-xl font-bold">{industry.name}</h2>
                   </div>
                   <p className="text-gray-600 mb-4">{industry.description}</p>
-                  <Link href={`/industries/${industry.id}`} className="text-blue-600 font-medium hover:underline">
+                  <Link 
+                    href={`/industries/${industry.id}`} 
+                    className="text-[#29A0D8] font-medium hover:text-[#1E90D8] hover:underline transition-colors"
+                  >
                     Learn More
                   </Link>
                 </div>
@@ -121,7 +127,7 @@ export default function Industries() {
             </p>
             <Link
               href="/contact"
-              className="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition-colors inline-block"
+              className="bg-[#29A0D8] text-white px-6 py-3 rounded-md font-medium hover:bg-[#1E90D8] transition-colors inline-block"
             >
               Discuss Your Requirements
             </Link>
@@ -131,4 +137,3 @@ export default function Industries() {
     </div>
   )
 }
-

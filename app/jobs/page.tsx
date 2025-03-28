@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Search } from "lucide-react"
-
+import { Button } from "@/components/ui/button";
 export default function Jobs() {
   // In a real application, this would come from a database or API
   const jobs = [
@@ -88,9 +88,13 @@ export default function Jobs() {
                   />
                 </div>
                 <div className="self-end">
-                  <button className="bg-[#29A0D8] text-white p-3 rounded-md font-medium hover:bg-[#1E90D8] transition-colors w-full md:w-auto">
-                    Search Jobs
-                  </button>
+
+                  <Button
+                    type="submit"
+                    className="items-center"
+                    variant="default" // This will use your default gradient
+                    size="lg"
+                  >Search Jobs</Button>
                 </div>
               </div>
             </div>
@@ -101,12 +105,14 @@ export default function Jobs() {
       {/* Apply Button */}
       <section className="py-8">
         <div className="container mx-auto px-4 text-center">
-          <Link
-            href="/jobs/apply"
-            className="inline-block bg-[#29A0D8] text-white px-6 py-3 rounded-md font-medium hover:bg-[#1E90D8] transition-colors"
-          >
-            Apply For Jobs
-          </Link>
+          <Button
+            type="submit"
+            className="items-center"
+            variant="default" // This will use your default gradient
+            size="lg"
+          >Apply For Jobs</Button>
+
+
         </div>
       </section>
 

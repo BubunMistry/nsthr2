@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import corporateImage from "@/public/images/auth-side-image.jpg";
+import { Button } from "@/components/ui/button";
+import { Loader2, ArrowRight } from "lucide-react"
 
 export default function Register() {
   const searchParams = useSearchParams();
@@ -132,14 +134,26 @@ export default function Register() {
                 {errors.confirmPassword && <p className="mt-1 text-sm text-red-600">{errors.confirmPassword}</p>}
               </div>
             )}
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={`w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[${primaryColor}] hover:bg-[#2389c0] transition-colors ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""}`}
-            >
-              {isSubmitting ? "Processing..." : isLoginView ? "Sign In" : "Create Account"}
-            </button>
+<Button
+  type="submit"
+  size="lg"
+  disabled={isSubmitting}
+  className="w-full justify-center group"
+  variant="default"
+>
+  {isSubmitting ? (
+    <span className="flex items-center gap-2">
+      <Loader2 className="h-4 w-4 animate-spin" />
+      Creating Account...
+    </span>
+  ) : (
+    <span className="flex items-center gap-2">
+      {isLoginView ? "Sign In" : "Create Account"}
+      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+    </span>
+  )}
+</Button>
+          
           </form>
 
           <div className="text-center text-sm text-gray-600 mt-6">

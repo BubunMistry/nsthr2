@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { UserRound, Building, Bus, Car, Building2, Cog, Fuel, BarChart, Laptop, Wind } from "lucide-react"
-
+import { Button } from "@/components/ui/button" 
 export default function Industries() {
   const industries = [
     {
@@ -125,12 +125,15 @@ export default function Industries() {
               requirements of each sector. Our specialized teams are equipped with industry-specific knowledge to
               provide tailored recruitment solutions.
             </p>
-            <Link
-              href="/contact"
-              className="bg-[#29A0D8] text-white px-6 py-3 rounded-md font-medium hover:bg-[#1E90D8] transition-colors inline-block"
-            >
-              Discuss Your Requirements
-            </Link>
+            <Button 
+  asChild
+  variant="default"
+  size="lg"
+>
+  <Link href="/contact">
+    Discuss Your Requirements
+  </Link>
+</Button>
           </div>
         </div>
       </section>

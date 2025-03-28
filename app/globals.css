@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --primary: #29A0D8;
-  --secondary: #5BB0E0;
+  --secondary: #6DD3FF;
   --accent: #29A0D8;
   --background: #ffffff;
   --foreground: #333333;

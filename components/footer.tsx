@@ -6,99 +6,187 @@ export default function Footer() {
   return (
     <footer className="bg-[#29A0D8] text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <div className="mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Column 1: Logo & Tagline */}
+          <div className="space-y-4">
+            <div className="mb-2">
               <Image
                 src="/white logo.svg?height=60&width=150"
                 alt="nstHr Logo"
                 width={150}
                 height={60}
-                className=""
               />
             </div>
-            <h3 className="text-xl font-bold mb-4">Why nstHr?</h3>
-            <p className="mb-4">
-              nstHr is an ISO 9001:2015 certified Kolkata-based, young recruitment agency founded by Mr. Abhishek Raj in
-              2018. nstHr is not only a consultancy but also a HR firm based in Kolkata. We are one of most reputed
-              recruitment agency in Kolkata, known for our timely and cost effective approach.
+            <p className="text-white/90 italic">
+              "Building bridges between talent and opportunity to create thriving workplaces."
             </p>
+            <div className="pt-4">
+              <p className="text-sm text-white/80">
+                ISO 9001:2015 Certified Recruitment Agency
+              </p>
+            </div>
           </div>
 
-          <div>
-            <h3 className="text-xl font-bold mb-4">How nstHr WORKS:</h3>
-            <p className="mb-4">
-              We find out job vacancies in various companies and help in matching a candidate's profile with the
-              requirements of our clients. We help in selecting the best candidates with excellent skills for our
-              clients. For candidate recruitment, we have our own database. We have multiple databases from different
-              job portals.
-            </p>
+          {/* Column 2: Quick Links */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold border-b pb-2">Quick Links</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/about" className="text-white/90 hover:text-white transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="text-white/90 hover:text-white transition-colors">
+                  Our Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/jobs" className="text-white/90 hover:text-white transition-colors">
+                  Job Listings
+                </Link>
+              </li>
+              <li>
+                <Link href="/employers" className="text-white/90 hover:text-white transition-colors">
+                  For Employers
+                </Link>
+              </li>
+              <li>
+                <Link href="/candidates" className="text-white/90 hover:text-white transition-colors">
+                  For Candidates
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-white/90 hover:text-white transition-colors">
+                  HR Insights
+                </Link>
+              </li>
+            </ul>
           </div>
 
-          <div>
-            <h3 className="text-xl font-bold mb-4">Contact Information</h3>
+          {/* Column 3: Resources */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold border-b pb-2">Resources</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/career-advice" className="text-white/90 hover:text-white transition-colors">
+                  Career Advice
+                </Link>
+              </li>
+              <li>
+                <Link href="/interview-tips" className="text-white/90 hover:text-white transition-colors">
+                  Interview Tips
+                </Link>
+              </li>
+              <li>
+                <Link href="/salary-guide" className="text-white/90 hover:text-white transition-colors">
+                  Salary Guide
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-white/90 hover:text-white transition-colors">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy-policy" className="text-white/90 hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="text-white/90 hover:text-white transition-colors">
+                  Terms of Service
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Contact & Social */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold border-b pb-2">Get In Touch</h3>
             <div className="space-y-3">
               <div className="flex items-start">
                 <MapPin className="w-5 h-5 mr-2 mt-1 flex-shrink-0" />
-                <p>Unit No. 1112, 11th Floor, PS Qube, Action Area I, 2D, Newtown, Kolkata, West Bengal 700136</p>
+                <p className="text-white/90">
+                  Unit No. 1112, 11th Floor, PS Qube,<br />
+                  Action Area I, Newtown,<br />
+                  Kolkata, West Bengal 700136
+                </p>
               </div>
               <div className="flex items-center">
                 <Phone className="w-5 h-5 mr-2 flex-shrink-0" />
-                <p>+91 9502089155</p>
+                <p className="text-white/90">+91 6292197307</p>
               </div>
               <div className="flex items-center">
                 <Mail className="w-5 h-5 mr-2 flex-shrink-0" />
-                <p>info@nsthr.in</p>
-              </div>
-              <div className="flex items-center">
-                <Mail className="w-5 h-5 mr-2 flex-shrink-0" />
-                <p>helpdesk@nsthr.in</p>
+                <p className="text-white/90">info@nsthr.in</p>
               </div>
             </div>
 
-            <div className="mt-6">
-  <h4 className="font-bold mb-2">FOLLOW US:</h4>
-  <div className="flex gap-2">
-    <Link
-      href="https://www.facebook.com/nsthrsolutions"
-      className="bg-white text-[#29A0D8] p-2 rounded-full transition-all duration-300 transform hover:bg-[#1E90D8] hover:text-white hover:scale-110"
-    >
-      <Facebook className="w-5 h-5" />
-    </Link>
-    <Link
-      href="https://twitter.com"
-      className="bg-white text-[#29A0D8] p-2 rounded-full transition-all duration-300 transform hover:bg-[#1E90D8] hover:text-white hover:scale-110"
-    >
-      <Twitter className="w-5 h-5" />
-    </Link>
-    <Link
-      href="https://www.instagram.com/nsthrsolutions/"
-      className="bg-white text-[#29A0D8] p-2 rounded-full transition-all duration-300 transform hover:bg-[#1E90D8] hover:text-white hover:scale-110"
-    >
-      <Instagram className="w-5 h-5" />
-    </Link>
-    <Link
-      href="https://www.linkedin.com/company/nsthrsolutions"
-      className="bg-white text-[#29A0D8] p-2 rounded-full transition-all duration-300 transform hover:bg-[#1E90D8] hover:text-white hover:scale-110"
-    >
-      <Linkedin className="w-5 h-5" />
-    </Link>
-    <Link
-      href="https://www.youtube.com/@nsthr208"
-      className="bg-white text-[#29A0D8] p-2 rounded-full transition-all duration-300 transform hover:bg-[#1E90D8] hover:text-white hover:scale-110"
-    >
-      <Youtube className="w-5 h-5" />
-    </Link>
-  </div>
-</div>
-
-        
+            <div className="pt-4">
+              <h4 className="font-bold mb-3">Follow Us</h4>
+              <div className="flex gap-3">
+                <Link
+                  href="https://www.facebook.com/nsthrsolutions"
+                  className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-all"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="https://twitter.com"
+                  className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-all"
+                  aria-label="Twitter"
+                >
+                  <Twitter className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="https://www.instagram.com/nsthrsolutions/"
+                  className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-all"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/company/nsthrsolutions"
+                  className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-all"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="https://www.youtube.com/@nsthr208"
+                  className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-all"
+                  aria-label="YouTube"
+                >
+                  <Youtube className="w-5 h-5" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-[#fff] text-center">
-        <p className="text-[#1E90D8] py-1 text-xs">© nstHr Pvt. Ltd. All rights reserved.</p>
+      {/* Copyright */}
+      <div className="bg-[#1E90D8] py-3">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-sm text-white/90">
+              © {new Date().getFullYear()} nstHr Pvt. Ltd. All Rights Reserved.
+            </p>
+            <div className="flex gap-4 mt-2 md:mt-0">
+              <Link href="/privacy-policy" className="text-sm text-white/90 hover:text-white">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="text-sm text-white/90 hover:text-white">
+                Terms of Service
+              </Link>
+              <Link href="/sitemap" className="text-sm text-white/90 hover:text-white">
+                Sitemap
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   )

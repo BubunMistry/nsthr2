@@ -3,7 +3,7 @@
 import type React from "react"
 import { useState } from "react"
 import { Mail, Phone, MapPin } from "lucide-react"
-
+import { Button } from "@/components/ui/button";
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -57,7 +57,7 @@ export default function Contact() {
                 <Phone className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold mb-2">Phone Number</h3>
-              <p className="text-gray-600">+91 9502089155</p>
+              <p className="text-gray-600">+91 6292197307</p>
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
@@ -156,12 +156,14 @@ export default function Contact() {
               </div>
 
               <div className="mt-6">
-                <button
-                  type="submit"
-                  className="bg-[#29A0D8] text-white px-6 py-3 rounded-md font-medium hover:bg-[#1E90D8] transition-colors"
-                >
-                  Send Message
-                </button>
+               
+                <Button
+                type="submit"
+                className="flex items-center gap-2 group"
+                variant="default" // This will use your default gradient
+                size="lg"
+              >Send Message</Button>
+                
               </div>
             </form>
           </div>

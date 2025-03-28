@@ -46,16 +46,15 @@ export default function HeroSection() {
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            activeSlide === index ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
+          className={`absolute inset-0 transition-opacity duration-1000 ${activeSlide === index ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
         >
           {/* Gradient Overlay */}
           <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
-          
+
           {/* Original Black Overlay with reduced opacity */}
           <div className="absolute inset-0 bg-black bg-opacity-20 z-10"></div>
-          
+
           <Image
             src={slide.image || "/placeholder.svg"}
             alt={slide.title}
@@ -63,7 +62,7 @@ export default function HeroSection() {
             className="object-cover"
             priority={index === 0}
           />
-          
+
           <div className="relative z-20 flex h-full">
             <div className="container mx-auto px-4 md:px-8 flex flex-col justify-center">
               <div className="max-w-2xl">
@@ -71,9 +70,13 @@ export default function HeroSection() {
                 <p className="text-lg md:text-xl text-white mb-8">{slide.subtitle}</p>
                 <div className="flex flex-wrap gap-4">
                   <Link href="/services">
-                    <Button className="bg-[#29A0D8] hover:bg-[#1E90D8] text-white">
-                      {slide.cta} <ChevronRight className="ml-2 h-4 w-4" />
+                    <Button className="bg-[#29A0D8] hover:bg-[#1E90D8] text-white flex items-center gap-2 px-4 py-2 rounded-lg transition-all">
+                      {slide.cta} <ChevronRight className="h-4 w-4" />
                     </Button>
+
+
+                    
+
                   </Link>
                   <Link href="/contact">
                     <Button

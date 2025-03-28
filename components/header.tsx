@@ -47,7 +47,7 @@ export default function Header() {
             </div>
             <div className="contact-info">
               <Phone className="w-4 h-4 mr-1" />
-              <span>+91 9502089155</span>
+              <span>+91 6292197307</span>
             </div>
           </div>
 

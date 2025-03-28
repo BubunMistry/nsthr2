@@ -60,20 +60,19 @@ export default function NotFound() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 onClick={() => router.back()}
-                className="flex items-center gap-2 px-6 py-3 rounded-lg transition-all hover:shadow-md"
-                style={{ 
-                  background: `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`,
-                  color: 'white'
-                }}
+                className="flex items-center gap-2 group"
+                variant="default" // This will use your default gradient
+                size="lg"
               >
-                <ArrowLeft className="w-5 h-5" />
+                <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
                 Go Back
               </Button>
               
               <Button
                 asChild
                 variant="outline"
-                className="flex items-center gap-2 px-6 py-3 rounded-lg border-gray-300 hover:border-[#29A0D8] hover:text-[#29A0D8] transition-all"
+                size="lg"
+                className="flex items-center gap-2 hover:border-[#29A0D8] hover:text-[#29A0D8]"
               >
                 <Link href="/">
                   <Home className="w-5 h-5" />
@@ -85,15 +84,16 @@ export default function NotFound() {
           
           {/* Footer */}
           <div className="px-8 py-4 bg-gray-50 border-t border-gray-200 text-center">
-            <Link 
-              href="/support" 
-              className="inline-flex items-center text-sm text-gray-600 hover:text-[#29A0D8] transition-colors group"
+            <Button 
+              asChild
+              variant="link"
+              className="text-gray-600 hover:text-[#29A0D8]"
             >
-              <HelpCircle className="w-4 h-4 mr-2 transition-transform group-hover:rotate-12" />
-              <span className="border-b border-transparent group-hover:border-[#29A0D8] transition-all">
+              <Link href="/support">
+                <HelpCircle className="w-4 h-4 mr-2 transition-transform group-hover:rotate-12" />
                 Need help? Contact Support
-              </span>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </div>

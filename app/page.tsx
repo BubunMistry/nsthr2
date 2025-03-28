@@ -12,7 +12,7 @@ import {
   Code,
   Bolt
 } from "lucide-react"
-
+import ClientsSection from "@/components/ui/ClientsSection"
 import Carousel from "@/components/carousel"
 import HeroSection from "@/components/ui/hero-section"
 
@@ -166,78 +166,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title">Our Team</h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            <div className="team-card">
-              <Image
-                src="/placeholder.svg?height=300&width=300"
-                alt="Abhishek Raj"
-                width={300}
-                height={300}
-                className="w-full aspect-square object-cover"
-              />
-              <div className="p-4">
-                <h3 className="font-bold text-lg">Abhishek Raj</h3>
-                <p className="text-gray-600">Founder of nstHr</p>
-                <p className="mt-2 text-sm">
-                  He manages Technology along with Marketing Operations at nstHr. He has been functioning in HR Services
-                  and marketing for the last three years as the head of nstHr.
-                </p>
-              </div>
-            </div>
-
-            <div className="team-card">
-              <Image
-                src="/placeholder.svg?height=300&width=300"
-                alt="Neha Kesari"
-                width={300}
-                height={300}
-                className="w-full aspect-square object-cover"
-              />
-              <div className="p-4">
-                <h3 className="font-bold text-lg">Neha Kesari</h3>
-                <p className="text-gray-600">CEO And Business Head of nstHr</p>
-                <p className="mt-2 text-sm">
-                  She handles and coordinates with clients and in turn ensure smooth functioning of nstHr. She has 6
-                  years' experience in the HR domain.
-                </p>
-              </div>
-            </div>
-
-            <div className="team-card">
-              <Image
-                src="/placeholder.svg?height=300&width=300"
-                alt="Sonny"
-                width={300}
-                height={300}
-                className="w-full aspect-square object-cover"
-              />
-              <div className="p-4">
-                <h3 className="font-bold text-lg">Sonny</h3>
-                <p className="text-gray-600">IT Recruiter and Digital market head of nstHr</p>
-              </div>
-            </div>
-
-            <div className="team-card">
-              <Image
-                src="/placeholder.svg?height=300&width=300"
-                alt="Parama Chowdhury"
-                width={300}
-                height={300}
-                className="w-full aspect-square object-cover"
-              />
-              <div className="p-4">
-                <h3 className="font-bold text-lg">Parama Chowdhury</h3>
-                <p className="text-gray-600">Medical Recruiter of nstHr</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Industries Section - Improved Hover */}
       <section className="py-16">
@@ -259,33 +187,112 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Clients Section - Unchanged */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title">Our Clients</h2>
+      
+    
+{/* Team Section */}
+<section className="py-16 bg-gray-50">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-12">
+      <h2 className="section-title">Meet Our Leadership</h2>
+      <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        Our experienced team drives nstHr's success with industry expertise and innovative HR solutions
+      </p>
+    </div>
 
-          <div className="mt-12">
-            <Carousel autoSlideInterval={3000}>
-              {/* Group clients in sets of 4 for desktop, 2 for mobile */}
-              {[0, 1].map((startIdx) => (
-                <div key={startIdx} className="grid grid-cols-2 md:grid-cols-4 gap-6 px-4">
-                  {clients.slice(startIdx * 4, startIdx * 4 + 4).map((client) => (
-                    <div key={client.id} className="flex items-center justify-center p-4">
-                      <Image
-                        src={client.logo || "/placeholder.svg"}
-                        alt={client.name}
-                        width={150}
-                        height={100}
-                        className="client-logo"
-                      />
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </Carousel>
-          </div>
+    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+      {/* Team Member 1 */}
+      <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
+        <div className="relative aspect-square">
+          <Image
+            src="/abhishek-raj.jpg"
+            alt="Abhishek Raj"
+            fill
+            className="object-cover"
+          />
         </div>
-      </section>
+        <div className="p-6">
+          <h3 className="text-2xl font-bold text-gray-900 mb-1">Abhishek Raj</h3>
+          <p className="text-[#29A0D8] font-semibold mb-4">Founder & Managing Director</p>
+          <p className="text-gray-600">
+            Technology and marketing operations leader with a BTech in Electronics and Communications. 
+            Brings entrepreneurial vision and three years of HR service expertise to nstHr.
+          </p>
+         
+        </div>
+      </div>
+
+      {/* Team Member 2 */}
+      <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
+        <div className="relative aspect-square">
+          <Image
+            src="/neha-kesari.jpg"
+            alt="Neha Kesari"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="p-6">
+          <h3 className="text-2xl font-bold text-gray-900 mb-1">Neha Kesari</h3>
+          <p className="text-[#29A0D8] font-semibold mb-4">CEO & Business Head</p>
+          <p className="text-gray-600">
+            Oversees client relationships and operational excellence with six years of HR domain experience. 
+            Specializes in strategic planning and business development.
+          </p>
+        
+        </div>
+      </div>
+
+      {/* Team Member 3 */}
+      <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
+        <div className="relative aspect-square">
+          <Image
+            src="/rajesh-singh.jpg"
+            alt="Rajesh Singh"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="p-6">
+          <h3 className="text-2xl font-bold text-gray-900 mb-1">Rajesh Singh</h3>
+          <p className="text-[#29A0D8] font-semibold mb-4">Branch Head & Business Coordinator</p>
+          <p className="text-gray-600">
+            Manages regional operations and client coordination with expertise in workforce solutions 
+            and talent acquisition strategies.
+          </p>
+          
+        </div>
+      </div>
+
+      {/* Team Member 4 */}
+      <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
+        <div className="relative aspect-square">
+          <Image
+            src="/aprojit-marik.jpg"
+            alt="Aprojit Marik"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="p-6">
+          <h3 className="text-2xl font-bold text-gray-900 mb-1">Aprojit Marik</h3>
+          <p className="text-[#29A0D8] font-semibold mb-4">Recruiter Manager</p>
+          <p className="text-gray-600">
+            Leads talent acquisition with a focus on matching top candidates to organizational needs. 
+            Specializes in IT and healthcare recruitment.
+          </p>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<ClientsSection/>
+
+
 
 
       {/* Testimonials Section - Unchanged */}

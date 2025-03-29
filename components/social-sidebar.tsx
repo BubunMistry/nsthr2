@@ -30,16 +30,16 @@ export default function SocialSidebar({ position }: SocialSidebarProps) {
       ) : (
         // Right sidebar - contact icons
         <>
-          <Link href="https://wa.me/919502089155" className="sidebar-icon">
+          <Link href="tel:+916292197307" className="sidebar-icon">
             <Phone className="w-5 h-5" />
           </Link>
-          <Link href="/contact" className="sidebar-icon">
+          <Link href="https://wa.me/916292197307" className="sidebar-icon">
             <MessageCircle className="w-5 h-5" />
           </Link>
           <Link href="skype:nsthr?call" className="sidebar-icon">
             <Video className="w-5 h-5" />
           </Link>
-          <Link href="mailto:info@nsthr.in" className="sidebar-icon">
+          <Link href="mailto:info@nsthr.com" className="sidebar-icon">
             <Mail className="w-5 h-5" />
           </Link>
           <Link href="https://t.me/nsthr" className="sidebar-icon">

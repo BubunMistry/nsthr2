@@ -65,7 +65,7 @@ export default function Contact() {
                 <Mail className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold mb-2">Email Address</h3>
-              <p className="text-gray-600">info@nsthr.in</p>
+              <p className="text-gray-600">info@nsthr.com</p>
               <p className="text-gray-600">helpdesk@nsthr.in</p>
             </div>
           </div>

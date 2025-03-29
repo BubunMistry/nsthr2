@@ -39,7 +39,7 @@ export default function Header() {
           <div className="hidden md:flex flex-wrap items-center gap-4 text-white text-sm">
             <div className="contact-info">
               <Mail className="w-4 h-4 mr-1" />
-              <span>info@nsthr.in</span>
+              <span>info@nsthr.com</span>
             </div>
             <div className="contact-info">
               <Mail className="w-4 h-4 mr-1" />

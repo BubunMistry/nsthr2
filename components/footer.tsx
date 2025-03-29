@@ -119,7 +119,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center">
                 <Mail className="w-5 h-5 mr-2 flex-shrink-0" />
-                <p className="text-white/90">info@nsthr.in</p>
+                <p className="text-white/90">info@nsthr.com</p>
               </div>
             </div>
 

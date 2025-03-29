@@ -199,12 +199,12 @@ export default function Home() {
       </p>
     </div>
 
-    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
       {/* Team Member 1 */}
       <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
         <div className="relative aspect-square">
           <Image
-            src="/abhishek-raj.jpg"
+            src="images/team/abhishek.svg"
             alt="Abhishek Raj"
             fill
             className="object-cover"
@@ -225,7 +225,7 @@ export default function Home() {
       <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
         <div className="relative aspect-square">
           <Image
-            src="/neha-kesari.jpg"
+            src="images/team/neha.svg"
             alt="Neha Kesari"
             fill
             className="object-cover"
@@ -246,7 +246,7 @@ export default function Home() {
       <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
         <div className="relative aspect-square">
           <Image
-            src="/rajesh-singh.jpg"
+            src="images/team/rajesh.svg"
             alt="Rajesh Singh"
             fill
             className="object-cover"
@@ -267,14 +267,14 @@ export default function Home() {
       <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
         <div className="relative aspect-square">
           <Image
-            src="/aprojit-marik.jpg"
+            src="images/team/aprajit.svg"
             alt="Aprojit Marik"
             fill
             className="object-cover"
           />
         </div>
         <div className="p-6">
-          <h3 className="text-2xl font-bold text-gray-900 mb-1">Aprojit Marik</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-1">Aprajit Marik</h3>
           <p className="text-[#29A0D8] font-semibold mb-4">Recruiter Manager</p>
           <p className="text-gray-600">
             Leads talent acquisition with a focus on matching top candidates to organizational needs. 

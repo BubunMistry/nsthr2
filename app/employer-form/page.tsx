@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
-
+import { Button } from "@/components/ui/button";
 export default function EmployerForm() {
   const [formData, setFormData] = useState({
     companyName: "",
@@ -307,12 +307,14 @@ export default function EmployerForm() {
               </div>
 
               <div className="mt-8">
-                <button
-                  type="submit"
-                  className="bg-[#29A0D8] text-white px-6 py-3 rounded-md font-medium hover:bg-[#1E90D8] transition-colors"
-                >
-                  Submit Job Posting
-                </button>
+              
+                <Button
+            type="submit"
+            className="items-center"
+            variant="default" // This will use your default gradient
+            size="lg"
+          > Submit Job Posting</Button>
+
               </div>
             </form>
           </div>

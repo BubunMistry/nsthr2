@@ -88,7 +88,7 @@ export default function Header() {
           <div className="md:hidden flex justify-between items-center w-full">
             <div className="flex items-center text-white text-sm">
               <Mail className="w-4 h-4 mr-1" />
-              <span>info@nsthr.in</span>
+              <span>info@nsthr.com</span>
             </div>
             <div className="flex gap-2">
             <Link href="https://www.facebook.com/nsthrsolutions" className="text-white hover:text-white/80">

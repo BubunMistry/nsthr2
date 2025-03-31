@@ -113,7 +113,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-16 bg-gray-50">
+      <section id="service" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="section-title">Services</h2>
 

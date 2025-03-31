@@ -69,7 +69,7 @@ export default function HeroSection() {
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">{slide.title}</h1>
                 <p className="text-lg md:text-xl text-white mb-8">{slide.subtitle}</p>
                 <div className="flex flex-wrap gap-4">
-                  <Link href="/services">
+                  <Link href="#service">
                     <Button className="bg-[#29A0D8] hover:bg-[#1E90D8] text-white flex items-center gap-2 px-4 py-2 rounded-lg transition-all">
                       {slide.cta} <ChevronRight className="h-4 w-4" />
                     </Button>

@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import { Trophy } from "lucide-react";
 import {
   UserRound, Search, Briefcase, Users, Clock, Cpu, Stethoscope,
   Hammer,
@@ -72,17 +73,7 @@ const testimonials = [
     image: "/client4.jpg",
     text: "nstHr's technical screening process saved us countless hours. The candidates they sent were all interview-ready and perfectly matched our requirements.",
   }
-];
-const clients = [
-  { id: 1, name: "Asian Paints", logo: "/Asian Paints.svg?height=100&width=150" },
-  { id: 2, name: "Bosch logo", logo: "/Bosch-logo.svg?height=100&width=150" },
-  { id: 3, name: "Dominos Pizza", logo: "/Dominos Pizza.svg?height=100&width=150" },
-  { id: 4, name: "Hover New", logo: "/Hover New.svg?height=100&width=150" },
-  { id: 5, name: "Kfc.", logo: "/kfc.svg?height=100&width=150" },
-  { id: 6, name: "Leggs New", logo: "/Leggs New.svg?height=100&width=150" },
-  { id: 7, name: "Panareha", logo: "/Panareha.svg?height=100&width=150" },
-  { id: 8, name: "TATA Cliq New", logo: "/TATA Cliq New.svg?height=100&width=150" },
-];
+]
 
 export default function Home() {
   return (
@@ -112,59 +103,111 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="service" className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title">Services</h2>
+ {/* Services Section */}
+<section id="services" className="py-16 bg-gray-50">
+  <div className="container mx-auto px-4">
+    <h2 className="section-title">Services</h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-12">
-            <div className="service-card">
-              <div className="p-6 flex flex-col items-center text-center">
-                <div className="w-20 h-20 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
-                  <Users className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="font-bold mb-2">Recruitment Services</h3>
-              </div>
-            </div>
-
-            <div className="service-card">
-              <div className="p-6 flex flex-col items-center text-center">
-                <div className="w-20 h-20 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
-                  <Search className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="font-bold mb-2">IT Staffing</h3>
-              </div>
-            </div>
-
-            <div className="service-card">
-              <div className="p-6 flex flex-col items-center text-center">
-                <div className="w-20 h-20 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
-                  <Briefcase className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="font-bold mb-2">Project Hiring</h3>
-              </div>
-            </div>
-
-            <div className="service-card">
-              <div className="p-6 flex flex-col items-center text-center">
-                <div className="w-20 h-20 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
-                  <Clock className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="font-bold mb-2">Temporary Staffing</h3>
-              </div>
-            </div>
-
-            <div className="service-card">
-              <div className="p-6 flex flex-col items-center text-center">
-                <div className="w-20 h-20 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
-                  <Cpu className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="font-bold mb-2">RPO</h3>
-              </div>
-            </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+      {/* Service 1 - Recruitment Services */}
+      <div className="service-card bg-white rounded-lg shadow-lg overflow-hidden transition-all transform hover:scale-105 hover:shadow-xl">
+        <div className="p-6 flex flex-col items-start text-left">
+          <div className="w-16 h-16 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
+            <Users className="w-8 h-8 text-white" />
           </div>
+          <h3 className="font-bold text-xl text-[#333] mb-4">Recruitment Services</h3>
+          <p className="text-sm text-gray-600 mb-4">
+            We specialize in connecting businesses with the best talent for both permanent and temporary positions. Our recruitment process ensures that we match the right candidates with your organizational needs.
+          </p>
+          <p className="text-sm text-gray-600">
+            From entry-level roles to senior management, our recruitment team works diligently to find skilled candidates across various industries such as IT, healthcare, finance, and more.
+          </p>
         </div>
-      </section>
+      </div>
+
+      {/* Service 2 - IT Staffing */}
+      <div className="service-card bg-white rounded-lg shadow-lg overflow-hidden transition-all transform hover:scale-105 hover:shadow-xl">
+        <div className="p-6 flex flex-col items-start text-left">
+          <div className="w-16 h-16 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
+            <Search className="w-8 h-8 text-white" />
+          </div>
+          <h3 className="font-bold text-xl text-[#333] mb-4">IT Staffing</h3>
+          <p className="text-sm text-gray-600 mb-4">
+            Our IT staffing services provide businesses with top-tier technical talent. Whether you need developers, system architects, or network engineers, we have the expertise to find professionals who meet your requirements.
+          </p>
+          <p className="text-sm text-gray-600">
+            We ensure that each candidate is thoroughly vetted for both technical skills and cultural fit, helping you build teams that drive innovation and deliver results.
+          </p>
+        </div>
+      </div>
+
+      {/* Service 3 - Project Hiring */}
+      <div className="service-card bg-white rounded-lg shadow-lg overflow-hidden transition-all transform hover:scale-105 hover:shadow-xl">
+        <div className="p-6 flex flex-col items-start text-left">
+          <div className="w-16 h-16 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
+            <Briefcase className="w-8 h-8 text-white" />
+          </div>
+          <h3 className="font-bold text-xl text-[#333] mb-4">Project Hiring</h3>
+          <p className="text-sm text-gray-600 mb-4">
+            Our project hiring solutions are designed for businesses that require specialized skills for short-term projects. We connect you with professionals who can hit the ground running and deliver results within your project timelines.
+          </p>
+          <p className="text-sm text-gray-600">
+            We handle everything from recruiting to onboarding, ensuring that your project team is ready to deliver value immediately.
+          </p>
+        </div>
+      </div>
+
+      {/* Service 4 - Temporary Staffing */}
+      <div className="service-card bg-white rounded-lg shadow-lg overflow-hidden transition-all transform hover:scale-105 hover:shadow-xl">
+        <div className="p-6 flex flex-col items-start text-left">
+          <div className="w-16 h-16 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
+            <Clock className="w-8 h-8 text-white" />
+          </div>
+          <h3 className="font-bold text-xl text-[#333] mb-4">Temporary Staffing</h3>
+          <p className="text-sm text-gray-600 mb-4">
+            When your business needs extra help for a limited time, our temporary staffing services ensure that you get the right talent for short-term roles. Whether it's seasonal work or filling in for an employee on leave, we’ve got you covered.
+          </p>
+          <p className="text-sm text-gray-600">
+            We provide temporary staff in various industries, ensuring that you can maintain productivity during peak seasons or while managing project surges.
+          </p>
+        </div>
+      </div>
+
+      {/* Service 5 - RPO (Recruitment Process Outsourcing) */}
+      <div className="service-card bg-white rounded-lg shadow-lg overflow-hidden transition-all transform hover:scale-105 hover:shadow-xl">
+        <div className="p-6 flex flex-col items-start text-left">
+          <div className="w-16 h-16 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
+            <Cpu className="w-8 h-8 text-white" />
+          </div>
+          <h3 className="font-bold text-xl text-[#333] mb-4">RPO (Recruitment Process Outsourcing)</h3>
+          <p className="text-sm text-gray-600 mb-4">
+            With our RPO services, you can outsource your entire recruitment process to experts who can find the best candidates for you. From job postings to interviewing and onboarding, we manage all aspects of recruitment for your business.
+          </p>
+          <p className="text-sm text-gray-600">
+            We provide a customized approach to meet your hiring goals, improving efficiency and reducing hiring costs while maintaining a high standard of talent acquisition.
+          </p>
+        </div>
+      </div>
+
+      {/* Service 6 - Executive Search */}
+      <div className="service-card bg-white rounded-lg shadow-lg overflow-hidden transition-all transform hover:scale-105 hover:shadow-xl">
+        <div className="p-6 flex flex-col items-start text-left">
+          <div className="w-16 h-16 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
+            <Trophy className="w-8 h-8 text-white" />
+          </div>
+          <h3 className="font-bold text-xl text-[#333] mb-4">Executive Search</h3>
+          <p className="text-sm text-gray-600 mb-4">
+            Our executive search services are designed to help businesses find high-level leaders who can drive organizational growth and transformation. We identify top executives for your most critical roles, ensuring they align with your company’s culture and vision.
+          </p>
+          <p className="text-sm text-gray-600">
+            With our extensive network and deep industry expertise, we ensure that we bring the best candidates who can make a significant impact at the executive level.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
       {/* Industries Section - Improved Hover */}

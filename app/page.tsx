@@ -36,28 +36,28 @@ const testimonials = [
     name: "Rajesh Kumar",
     position: "HR Manager, Tech Solutions",
     image: "/client1.jpg",
-    text: "nstHr has been instrumental in helping us find the right talent for our technical positions. Their understanding of our requirements and quick turnaround time is impressive.",
+    text: "nstHr has been instrumental in helping us find the right talent. Their understanding of our requirements and quick turnaround time is impressive.",
   },
   {
     id: 2,
     name: "Priya Sharma",
     position: "Director, Global Finance",
     image: "/client6.jpg",
-    text: "We've been working with nstHr for over two years now, and they consistently deliver quality candidates. Their team is professional, responsive, and truly understands our company culture.",
+    text: "We've been working with nstHr for over two years now. Their team is professional, responsive, and truly understands our company culture.",
   },
   {
     id: 3,
     name: "Amit Patel",
     position: "CEO, Innovate Solutions",
     image: "/client3.jpg",
-    text: "nstHr's approach to recruitment is refreshing. They take the time to understand our business needs and provide candidates who not only have the right skills but also fit our company culture.",
+    text: "nstHr's approach to recruitment is refreshing. They take the time to understand our business needs and provide candidates who fit our company.",
   },
   {
     id: 4,
     name: "Sneha Gupta",
     position: "Team Lead, Digital Marketing",
     image: "/client5.jpg",
-    text: "The quality of candidates provided by nstHr is exceptional. They have helped us build a strong team of digital marketers who have contributed significantly to our growth.",
+    text: "The quality of candidates provided by nstHr is exceptional. They have helped us build a strong team of digital marketers who have contributed to our growth.",
   },
   {
     id: 5,
@@ -337,39 +337,68 @@ export default function Home() {
 
 
 
+<section className="py-20 bg-gray-50">
+  <div className="container mx-auto px-6 lg:px-16 text-center">
+    <h2 className="section-title">What Our Clients Say</h2>
+  </div>
 
-      {/* Testimonials Section - Unchanged */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title">Testimonial</h2>
+  {/* Large Screens: Show 3 Testimonials at a Time */}
+  <div className="hidden container mx-auto md:block">
+    <Carousel>
+      {[...Array(Math.ceil(testimonials.length / 3))].map((_, index) => (
+        <div key={index} className="grid grid-cols-1 md:grid-cols-3 gap-2 px-4">
+          {testimonials.slice(index * 3, index * 3 + 3).map((testimonial) => (
+            <div key={testimonial.id} className="bg-white p-6 my-10 rounded-2xl shadow-md text-center">
+              <div className="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4">
+                <Image
+                  src={testimonial.image || "/placeholder.svg"}
+                  alt={testimonial.name}
+                  width={96}
+                  height={96}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900">{testimonial.name}</h3>
+              <p className="text-sm text-gray-500">{testimonial.position}</p>
+              <p className="text-gray-700 mt-4 text-sm md:text-base italic">
+                "{testimonial.text}"
+              </p>
+            </div>
+          ))}
+        </div>
+      ))}
+    </Carousel>
+  </div>
 
-          <div className="mt-12">
-            <Carousel>
-              {/* Group testimonials in sets of 3 for desktop, 1 for mobile */}
-              {[0, 1].map((startIdx) => (
-                <div key={startIdx} className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
-                  {testimonials.slice(startIdx * 3, startIdx * 3 + 3).map((testimonial) => (
-                    <div key={testimonial.id} className="testimonial-card">
-                      <div className="w-20 h-20 rounded-full overflow-hidden mb-4">
-                        <Image
-                          src={testimonial.image || "/placeholder.svg"}
-                          alt={testimonial.name}
-                          width={80}
-                          height={80}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <h3 className="font-bold">{testimonial.name}</h3>
-                      <p className="text-sm text-gray-500">{testimonial.position}</p>
-                      <p className="text-sm text-gray-600 mt-4">"{testimonial.text}"</p>
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </Carousel>
+  {/* Small Screens: Show One Testimonial at a Time */}
+  <div className="block md:hidden">
+    <Carousel>
+      {testimonials.map((testimonial) => (
+        <div key={testimonial.id} className="px-4">
+          <div className="bg-white p-8 mx-4 my-9 rounded-2xl shadow-md text-center">
+            <div className="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4">
+              <Image
+                src={testimonial.image || "/placeholder.svg"}
+                alt={testimonial.name}
+                width={96}
+                height={96}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900">{testimonial.name}</h3>
+            <p className="text-sm text-gray-500">{testimonial.position}</p>
+            <p className="text-gray-700 mt-4 text-sm md:text-base italic">
+              "{testimonial.text}"
+            </p>
           </div>
         </div>
-      </section>
+      ))}
+    </Carousel>
+  </div>
+</section>
+
+
+ 
 
 
     </div>

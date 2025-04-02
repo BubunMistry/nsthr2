@@ -28,7 +28,7 @@ export default function Header() {
       <div className="relative w-full overflow-hidden bg-white text-[#29A0D8] py-1 text-xs">
         <div className="whitespace-nowrap animate-marquee">
           ⚠️ Note: nstHr never charges candidates. If you have any complaints, kindly mail us at
-          <a href="mailto:help@nsthr.in" className="font-bold underline mx-1">help@nsthr.in</a> ⚠️
+          <a href="mailto:help@nsthr.in" className="font-bold underline mx-1">helpdesk@nsthr.com</a> ⚠️
         </div>
       </div>
 
@@ -43,7 +43,7 @@ export default function Header() {
             </div>
             <div className="contact-info">
               <Mail className="w-4 h-4 mr-1" />
-              <span>helpdesk@nsthr.in</span>
+              <span>helpdesk@nsthr.com</span>
             </div>
             <div className="contact-info">
               <Phone className="w-4 h-4 mr-1" />

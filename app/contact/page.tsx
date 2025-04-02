@@ -178,7 +178,7 @@ export default function Contact() {
 
             <div className="h-[400px] bg-gray-200 rounded-lg overflow-hidden">
               <iframe
-                title="Google Map"
+                title="Google Map location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.5359904356187!2d88.45098107043806!3d22.621253623897502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89fa6c2f8dcc7%3A0xc9f4ca38c13175fb!2snstHr%20(%20Total%20Hr%20Solutions%20)!5e1!3m2!1sen!2sin!4v1742967496732!5m2!1sen!2sin"
                 className="w-full h-full border-0"
                 allowFullScreen

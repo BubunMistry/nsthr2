@@ -89,12 +89,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/privacy-policy" className="text-white/90 hover:text-white transition-colors">
+                <Link href="/privacy" className="text-white/90 hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-white/90 hover:text-white transition-colors">
+                <Link href="/privacy" className="text-white/90 hover:text-white transition-colors">
                   Terms of Service
                 </Link>
               </li>
@@ -127,35 +127,34 @@ export default function Footer() {
               <h4 className="font-bold mb-3">Follow Us</h4>
               <div className="flex gap-3">
                 <Link
-                  href="https://www.facebook.com/nsthrsolutions"
+                  href="https://www.facebook.com/nsthrsolutions" target="_blank" rel="noopener noreferrer"
                   className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-all"
                   aria-label="Facebook"
                 >
                   <Facebook className="w-5 h-5" />
                 </Link>
                 <Link
-                  href="https://twitter.com"
+                  href="https://x.com/hr_nst" target="_blank" rel="noopener noreferrer"
                   className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-all"
-                  aria-label="Twitter"
                 >
-                  <Twitter className="w-5 h-5" />
+                  <Image src="/x.svg" alt="WhatsApp" width={20} height={20} />
                 </Link>
                 <Link
-                  href="https://www.instagram.com/nsthrsolutions/"
+                  href="https://www.instagram.com/nsthrsolutions/" target="_blank" rel="noopener noreferrer"
                   className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-all"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5" />
                 </Link>
                 <Link
-                  href="https://www.linkedin.com/company/nsthrsolutions"
+                  href="https://www.linkedin.com/company/nsthrsolutions" target="_blank" rel="noopener noreferrer"
                   className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-all"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-5 h-5" />
                 </Link>
                 <Link
-                  href="https://www.youtube.com/@nsthr208"
+                  href="https://www.youtube.com/@nsthr208" target="_blank" rel="noopener noreferrer"
                   className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-all"
                   aria-label="YouTube"
                 >
@@ -175,10 +174,10 @@ export default function Footer() {
               © {new Date().getFullYear()} nstHr Pvt. Ltd. All Rights Reserved.
             </p>
             <div className="flex gap-4 mt-2 md:mt-0">
-              <Link href="/privacy-policy" className="text-sm text-white/90 hover:text-white">
+              <Link href="/privacy" className="text-sm text-white/90 hover:text-white">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-sm text-white/90 hover:text-white">
+              <Link href="/privacy" className="text-sm text-white/90 hover:text-white">
                 Terms of Service
               </Link>
               <Link href="/sitemap" className="text-sm text-white/90 hover:text-white">

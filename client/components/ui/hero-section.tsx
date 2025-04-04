@@ -76,7 +76,7 @@ export default function HeroSection() {
             {/* Content */}
             <div className="relative z-10 flex h-full items-center px-8 md:px-16">
               <div className="max-w-2xl sm:px-10 lg:px-16 text-left">
-                <h1 className="text-5xl uppercase font-bold text-white mb-4">{slide.title}</h1>
+                <h1 className="text-4xl lg:text-5xl uppercase font-bold text-white mb-4">{slide.title}</h1>
                 <p className="text-lg md:text-xl text-white mb-8">{slide.subtitle}</p>
                 <div className="flex flex-wrap gap-4">
                   <Link href="#service">

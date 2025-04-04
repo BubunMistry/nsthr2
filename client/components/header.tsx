@@ -66,19 +66,24 @@ export default function Header() {
             </div>
 
             <div className="flex gap-2">
-            <Link href="https://www.facebook.com/nsthrsolutions" className="text-white hover:text-white/80">
+              <Link href="https://www.facebook.com/nsthrsolutions" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80">
                 <Facebook className="w-4 h-4" />
               </Link>
-              <Link href="https://twitter.com" className="text-white hover:text-white/80">
-                <Twitter className="w-4 h-4" />
+
+
+              <Link
+                href="https://x.com/hr_nst" target="_blank" rel="noopener noreferrer"
+                className="text-white hover:text-white/80 bg-[#29A0D8] rounded-full flex items-center justify-center"
+              >
+                <Image src="/x.svg" alt="WhatsApp" width={15} height={15} />
               </Link>
-              <Link href="https://www.instagram.com/nsthrsolutions/" className="text-white hover:text-white/80">
+              <Link href="https://www.instagram.com/nsthrsolutions/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80">
                 <Instagram className="w-4 h-4" />
               </Link>
-              <Link href="https://www.linkedin.com/company/nsthrsolutions" className="text-white hover:text-white/80">
+              <Link href="https://www.linkedin.com/company/nsthrsolutions" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80">
                 <Linkedin className="w-4 h-4" />
               </Link>
-              <Link href="https://www.youtube.com/@nsthr208" className="text-white hover:text-white/80">
+              <Link href="https://www.youtube.com/@nsthr208" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80">
                 <Youtube className="w-4 h-4" />
               </Link>
             </div>
@@ -91,21 +96,24 @@ export default function Header() {
               <span>info@nsthr.com</span>
             </div>
             <div className="flex gap-2">
-            <Link href="https://www.facebook.com/nsthrsolutions" className="text-white hover:text-white/80">
-              <Facebook className="w-4 h-4" />
-            </Link>
-            <Link href="https://twitter.com" className="text-white hover:text-white/80">
-              <Twitter className="w-4 h-4" />
-            </Link>
-            <Link href="https://www.instagram.com/nsthrsolutions/" className="text-white hover:text-white/80">
-              <Instagram className="w-4 h-4" />
-            </Link>
-            <Link href="https://www.linkedin.com/company/nsthrsolutions" className="text-white hover:text-white/80">
-              <Linkedin className="w-4 h-4" />
-            </Link>
-            <Link href="https://www.youtube.com/@nsthr208" className="text-white hover:text-white/80">
-              <Youtube className="w-4 h-4" />
-            </Link>
+              <Link href="https://www.facebook.com/nsthrsolutions" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80">
+                <Facebook className="w-4 h-4" />
+              </Link>
+              <Link
+                href="https://x.com/hr_nst" target="_blank" rel="noopener noreferrer"
+                className="text-white hover:text-white/80 bg-[#29A0D8] rounded-full flex items-center justify-center"
+              >
+                <Image src="/x.svg" alt="WhatsApp" width={16} height={16} />
+              </Link>
+              <Link href="https://www.instagram.com/nsthrsolutions/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80">
+                <Instagram className="w-4 h-4" />
+              </Link>
+              <Link href="https://www.linkedin.com/company/nsthrsolutions" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80">
+                <Linkedin className="w-4 h-4" />
+              </Link>
+              <Link href="https://www.youtube.com/@nsthr208" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80">
+                <Youtube className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>
@@ -140,10 +148,10 @@ export default function Header() {
             <Link href="/about-us" className="font-medium hover:text-[#29A0D8]">
               About Us
             </Link>
-            
+
             {/* Services Dropdown */}
             <div className="relative group">
-              <button 
+              <button
                 className="font-medium hover:text-[#29A0D8] flex items-center"
                 onClick={() => toggleDropdown('services')}
               >
@@ -170,10 +178,10 @@ export default function Header() {
                 </Link>
               </div>
             </div>
-            
+
             {/* Industries Dropdown */}
             <div className="relative group">
-              <button 
+              <button
                 className="font-medium hover:text-[#29A0D8] flex items-center"
                 onClick={() => toggleDropdown('industries')}
               >
@@ -215,17 +223,17 @@ export default function Header() {
                 </Link>
               </div>
             </div>
-            
+
             <Link href="/jobs" className="font-medium hover:text-[#29A0D8]">
               Jobs
             </Link>
             <Link href="/blog" className="font-medium hover:text-[#29A0D8]">
               News/Blog
             </Link>
-            
+
             {/* Job Seeker Dropdown */}
             <div className="relative group">
-              <button 
+              <button
                 className="font-medium hover:text-[#29A0D8] flex items-center"
                 onClick={() => toggleDropdown('jobseeker')}
               >
@@ -246,7 +254,7 @@ export default function Header() {
                 </Link>
               </div>
             </div>
-            
+
             <Link href="/contact" className="font-medium hover:text-[#29A0D8]">
               Contact
             </Link>
@@ -262,9 +270,9 @@ export default function Header() {
             <Link href="/about-us" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
               About Us
             </Link>
-            
+
             <div className="py-2">
-              <button 
+              <button
                 className="flex items-center justify-between w-full hover:text-[#29A0D8]"
                 onClick={() => toggleDropdown('mobile-services')}
               >
@@ -293,9 +301,9 @@ export default function Header() {
                 </div>
               )}
             </div>
-            
+
             <div className="py-2">
-              <button 
+              <button
                 className="flex items-center justify-between w-full hover:text-[#29A0D8]"
                 onClick={() => toggleDropdown('mobile-industries')}
               >
@@ -339,16 +347,16 @@ export default function Header() {
                 </div>
               )}
             </div>
-            
+
             <Link href="/jobs" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
               Jobs
             </Link>
             <Link href="/blog" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
               News/Blog
             </Link>
-            
+
             <div className="py-2">
-              <button 
+              <button
                 className="flex items-center justify-between w-full hover:text-[#29A0D8]"
                 onClick={() => toggleDropdown('mobile-jobseeker')}
               >
@@ -371,7 +379,7 @@ export default function Header() {
                 </div>
               )}
             </div>
-            
+
             <Link href="/contact" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
               Contact
             </Link>

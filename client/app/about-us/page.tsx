@@ -122,7 +122,7 @@ export default function AboutUs() {
                 <p className="text-[#29A0D8] mb-2 md:mb-4">Founder & Managing Director</p>
                 <p className="text-sm md:text-base text-gray-600">
                   Technology and marketing operations leader with a BTech in Electronics and Communications. 
-                  Brings entrepreneurial vision and three years of HR service expertise to nstHr.
+                  Brings entrepreneurial vision and five years of HR service expertise to nstHr.
                 </p>
               </div>
             </div>
@@ -185,7 +185,7 @@ export default function AboutUs() {
               </div>
               <div className="sm:w-2/3">
                 <h3 className="text-lg sm:text-xl font-bold text-gray-800">Aprajit Marik</h3>
-                <p className="text-[#29A0D8] mb-2 md:mb-4">Recruiter Manager</p>
+                <p className="text-[#29A0D8] mb-2 md:mb-4">Recruitment Manager</p>
                 <p className="text-sm md:text-base text-gray-600">
                   Leads talent acquisition with a focus on matching top candidates to organizational needs. 
                   Specializes in IT and healthcare recruitment.

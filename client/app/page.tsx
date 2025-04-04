@@ -258,7 +258,7 @@ export default function Home() {
           <p className="text-[#29A0D8] font-semibold mb-4">Founder & Managing Director</p>
           <p className="text-gray-600">
             Technology and marketing operations leader with a BTech in Electronics and Communications. 
-            Brings entrepreneurial vision and three years of HR service expertise to nstHr.
+            Brings entrepreneurial vision and five years of HR service expertise to nstHr.
           </p>
          
         </div>
@@ -318,7 +318,7 @@ export default function Home() {
         </div>
         <div className="p-6">
           <h3 className="text-2xl font-bold text-gray-900 mb-1">Aprajit Marik</h3>
-          <p className="text-[#29A0D8] font-semibold mb-4">Recruiter Manager</p>
+          <p className="text-[#29A0D8] font-semibold mb-4">Recruitment Manager</p>
           <p className="text-gray-600">
             Leads talent acquisition with a focus on matching top candidates to organizational needs. 
             Specializes in IT and healthcare recruitment.

@@ -1,6 +1,14 @@
-import Image from "next/image";
+"use client"
 
+import Image from "next/image";
+import { ChevronDown, ChevronUp} from 'lucide-react';
+import { useState } from "react";
 export default function AboutUs() {
+
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+
+
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -38,7 +46,7 @@ export default function AboutUs() {
             <div className="flex justify-center order-first md:order-last">
               <div className="relative w-full max-w-md aspect-video md:aspect-square">
                 <Image
-                  src="/about-team.jpg"
+                  src="/nsthrteam.jpg"
                   alt="Our team"
                   fill
                   className="rounded-lg shadow-xl object-cover"
@@ -214,7 +222,7 @@ export default function AboutUs() {
                 </p>
               </div>
               
-              <div className="bg-white p-5 md:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div id="faq" className="bg-white p-5 md:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-3 md:mb-4">Our Process</h3>
                 <p className="text-sm md:text-base text-gray-600">
                   We identify vacancies, match candidate profiles with client requirements, and provide pre-employment 
@@ -225,6 +233,71 @@ export default function AboutUs() {
           </div>
         </div>
       </section>
+
+
+
+
+{/* FAQ Section */}
+<section className="py-12 bg-gray-50">
+  <div className="container mx-auto px-4">
+    <h2 className="text-3xl font-bold text-center mb-8">FAQ (Frequently Asked Questions)</h2>
+    <div className="max-w-3xl mx-auto space-y-4">
+      {[
+        {
+          question: "What services does NSTHR offer?",
+          answer:
+            "NSTHR provides recruitment, executive search, RPO, temporary staffing, HR outsourcing, and payroll management services to businesses of all sizes.",
+        },
+        {
+          question: "How does NSTHR ensure quality hiring?",
+          answer:
+            "We use a rigorous screening process, including CV shortlisting, telephonic interviews, skill assessments, and face-to-face interactions to find the best talent.",
+        },
+        {
+          question: "What industries does NSTHR specialize in?",
+          answer:
+            "We specialize in IT, BFSI, FMCG, telecom, healthcare, infrastructure, manufacturing, and more.",
+        },
+        {
+          question: "Can NSTHR help with temporary staffing?",
+          answer:
+            "Yes! We provide temporary staffing solutions for businesses looking to hire skilled professionals on a short-term basis.",
+        },
+        {
+          question: "How can I contact NSTHR?",
+          answer:
+            "You can contact us through our website, email, or social media channels. Visit www.nsthr.in for more details.",
+        },
+      ].map((faq, index) => (
+        <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
+          <button
+            className="w-full flex justify-between items-center p-4 bg-white text-left font-medium hover:bg-gray-100 transition"
+            onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+          >
+            {faq.question}
+            {openFAQ === index ? (
+              <ChevronUp className="w-5 h-5 text-[#29A0D8]" />
+            ) : (
+              <ChevronDown className="w-5 h-5 text-[#29A0D8]" />
+            )}
+          </button>
+          {openFAQ === index && (
+            <div className="p-4 bg-gray-100 text-gray-700">{faq.answer}</div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
     </div>
   );
 }

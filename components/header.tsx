@@ -160,20 +160,20 @@ export default function Header() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div className={`absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg py-1 z-10 ${openDropdown === 'services' ? 'block' : 'hidden'} group-hover:block`}>
-                <Link href="/services/recruitment" className="dropdown-item">
+              <div className={`absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg py-2 z-10 ${openDropdown === 'services' ? 'block' : 'hidden'} group-hover:block`}>
+                <Link href="/product" className="dropdown-item">
                   Recruitment Services
                 </Link>
-                <Link href="/services/it-staffing" className="dropdown-item">
+                <Link href="/product" className="dropdown-item">
                   IT Staffing
                 </Link>
-                <Link href="/services/project-hiring" className="dropdown-item">
+                <Link href="/product" className="dropdown-item">
                   Project Hiring
                 </Link>
-                <Link href="/services/temporary-staffing" className="dropdown-item">
+                <Link href="/product" className="dropdown-item">
                   Temporary Staffing
                 </Link>
-                <Link href="/services/rpo" className="dropdown-item">
+                <Link href="/product" className="dropdown-item">
                   RPO
                 </Link>
               </div>
@@ -190,37 +190,19 @@ export default function Header() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div className={`absolute left-0 mt-0 w-56 bg-white rounded-md shadow-lg py-1 z-10 ${openDropdown === 'industries' ? 'block' : 'hidden'} group-hover:block grid grid-cols-2`}>
-                <Link href="/industries" className="dropdown-item">
-                  Insurance
-                </Link>
-                <Link href="/industries" className="dropdown-item">
-                  Construction
-                </Link>
-                <Link href="/industries" className="dropdown-item">
-                  Tour & Travel
-                </Link>
-                <Link href="/industries" className="dropdown-item">
-                  Automobile
-                </Link>
-                <Link href="/industries" className="dropdown-item">
-                  Banking
-                </Link>
-                <Link href="/industries" className="dropdown-item">
-                  Technical
-                </Link>
-                <Link href="/industries" className="dropdown-item">
-                  Oil & Gas
-                </Link>
-                <Link href="/industries" className="dropdown-item">
-                  Advertising
-                </Link>
-                <Link href="/industries" className="dropdown-item">
-                  IT Software
-                </Link>
-                <Link href="/industries" className="dropdown-item">
-                  Power and Energy
-                </Link>
+              <div className={`absolute left-0 mt-0 w-56 bg-white rounded-md shadow-lg py-2 z-10 ${openDropdown === 'industries' ? 'block' : 'hidden'} group-hover:block grid grid-cols-2`}>
+                <Link href="/industries" className="dropdown-item">Information Technology</Link>
+                <Link href="/industries" className="dropdown-item">IT Enabled Services</Link>
+                <Link href="/industries" className="dropdown-item">Temporary Staffing</Link>
+                <Link href="/industries" className="dropdown-item">Outsourcing</Link>
+                <Link href="/industries" className="dropdown-item">FMCG</Link>
+                <Link href="/industries" className="dropdown-item">Research and Analytics</Link>
+                <Link href="/industries" className="dropdown-item">Telecom</Link>
+                <Link href="/industries" className="dropdown-item">Media</Link>
+                <Link href="/industries" className="dropdown-item">Infrastructure</Link>
+                <Link href="/industries" className="dropdown-item">Travel and Hospitality</Link>
+                <Link href="/industries" className="dropdown-item">Iron & Steel</Link>
+                <Link href="/industries" className="dropdown-item">Hospital</Link>
               </div>
             </div>
 
@@ -315,34 +297,39 @@ export default function Header() {
               {openDropdown === 'mobile-industries' && (
                 <div className="pl-4 mt-1">
                   <Link href="/industries/insurance" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
-                    Insurance
+                    Information Technology
+                  </Link>   <Link href="/industries/insurance" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
+                    IT Enabled Services
+                  </Link>
+                  <Link href="/industries/insurance" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
+                    Temporary Staffing
                   </Link>
                   <Link href="/industries/construction" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
-                    Construction
+                    Outsourcing
                   </Link>
                   <Link href="/industries/tour-travel" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
-                    Tour & Travel
+                    FMCG
                   </Link>
                   <Link href="/industries/automobile" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
-                    Automobile
+                    Research and Analytics
                   </Link>
                   <Link href="/industries/banking" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
-                    Banking
+                    Telecom
                   </Link>
                   <Link href="/industries/technical" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
-                    Technical
+                    Media
                   </Link>
                   <Link href="/industries/oil-gas" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
-                    Oil & Gas
+                    Infrastructure
                   </Link>
                   <Link href="/industries/advertising" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
-                    Advertising
+                    Travel and Hospitality
                   </Link>
                   <Link href="/industries/it-software" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
-                    IT Software
+                    Iron & Steel
                   </Link>
                   <Link href="/industries/power-energy" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
-                    Power and Energy
+                    Hospital
                   </Link>
                 </div>
               )}

@@ -63,7 +63,7 @@ export default function ServicesPage() {
       <section className="max-w-6xl mx-auto py-16 px-4">
         <h2 className="text-3xl font-bold text-center mb-12 text-[#29A0D8]">Our 10-Step Recruitment Process</h2>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-2">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-2">
           <ProcessStep 
             step="1"
             icon={<Search size={24} />}

@@ -305,7 +305,7 @@ export default function Home() {
           
         </div>
       </div>
-{/* Team Member 4 */}
+
       {/* Team Member 4 */}
       <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
         <div className="relative aspect-square">

@@ -37,7 +37,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-white/90 hover:text-white transition-colors">
+                <Link href="/product" className="text-white/90 hover:text-white transition-colors">
                   Our Services
                 </Link>
               </li>
@@ -180,7 +180,7 @@ export default function Footer() {
               <Link href="/terms" className="text-sm text-white/90 hover:text-white">
                 Terms of Service
               </Link>
-              <Link href="/sitemap" className="text-sm text-white/90 hover:text-white">
+              <Link href="/contact/#map" className="text-sm text-white/90 hover:text-white">
                 Sitemap
               </Link>
             </div>

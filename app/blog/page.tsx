@@ -6,11 +6,11 @@ export default function Blog() {
   const blogs = [
     {
       id: 1,
-      title: "How to Prepare for a Job Interview",
-      excerpt: "Learn the best strategies to ace your next job interview and stand out from other candidates.",
-      date: "March 15, 2023",
-      image: "/placeholder.svg?height=300&width=500",
-      slug: "how-to-prepare-for-job-interview",
+      title: "Top Staffing Services in Kolkata: What Makes NSTHR Stand Out",
+      excerpt: "nstHr (Next Step Talent Human Resource) is a leading HR consultancy in Kolkata that provides end-to-end recruitment services to businesses of all sizes. ",
+      date: "April 05, 2025",
+      image: "/blog.png",
+      slug: "Staffing-Services-Kolkata",
     },
     {
       id: 2,
@@ -61,8 +61,8 @@ export default function Blog() {
                   <p className="text-gray-500 text-sm mb-2">{blog.date}</p>
                   <h2 className="text-xl font-bold mb-2">{blog.title}</h2>
                   <p className="text-gray-600 mb-4">{blog.excerpt}</p>
-                  <Link 
-                    href={`/blog/${blog.slug}`} 
+                  <Link
+                    href={`/blog/${blog.slug}`}
                     className="text-[#29A0D8] font-medium hover:text-[#1E90D8] hover:underline transition-colors"
                   >
                     Read More

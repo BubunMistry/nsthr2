@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import Link from "next/link"
 import { useState } from "react"
 import { Mail, Phone, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button";
@@ -155,15 +156,15 @@ export default function Contact() {
                 ></textarea>
               </div>
 
-              <div className="mt-6">
-               
+              <div className="mt-6" id="map">
+
                 <Button
-                type="submit"
-                className="flex items-center gap-2 group"
-                variant="default" // This will use your default gradient
-                size="lg"
-              >Send Message</Button>
-                
+                  type="submit"
+                  className="flex items-center gap-2 group"
+                  variant="default" // This will use your default gradient
+                  size="lg"
+                >Send Message</Button>
+
               </div>
             </form>
           </div>
@@ -188,7 +189,26 @@ export default function Contact() {
             </div>
           </div>
         </div>
+
+
+
+
+
+        <div className="mt-6" id="map">
+
+
+
+          <Link target="_blank" href="https://www.google.com/maps/dir//nstHr+(+Total+Hr+Solutions+),+Unit+No.+1112,+11th+Floor,+PS+Qube,+Action+Area+I,+2D,+Newtown,+New+Town,+West+Bengal+700136/@22.5837056,88.3523584,16z/data=!3m1!5s0x39f89fdafb37c731:0x82638df29e154cc7!4m17!1m7!3m6!1s0x39f89fa6c2f8dcc7:0xc9f4ca38c13175fb!2snstHr+(+Total+Hr+Solutions+)!8m2!3d22.6215743!4d88.454114!16s%2Fg%2F11h6tj6h62!4m8!1m0!1m5!1m1!1s0x39f89fa6c2f8dcc7:0xc9f4ca38c13175fb!2m2!1d88.454114!2d22.6215743!3e2?authuser=0&entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D">
+            <Button
+              className="flex mx-auto items-center gap-2 group"
+              variant="default" // This will use your default gradient
+              size="lg"
+            >Get Directions</Button>
+          </Link>
+        </div>
+
       </section>
+
     </div>
   )
 }

@@ -149,46 +149,35 @@ export default function Header() {
 
             {/* Services Dropdown */}
             <div className="relative group">
-              <button
-                className="font-medium hover:text-[#29A0D8] flex items-center"
-                onClick={() => toggleDropdown('services')}
-              >
+              <button className="font-medium hover:text-[#29A0D8] flex items-center cursor-default">
                 Services
                 <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div className={`absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg py-2 z-10 ${openDropdown === 'services' ? 'block' : 'hidden'} group-hover:block`}>
-                <Link href="/product" className="dropdown-item">
-                  Recruitment Services
-                </Link>
-                <Link href="/product" className="dropdown-item">
-                  IT Staffing
-                </Link>
-                <Link href="/product" className="dropdown-item">
-                  Project Hiring
-                </Link>
-                <Link href="/product" className="dropdown-item">
-                  Temporary Staffing
-                </Link>
-                <Link href="/product" className="dropdown-item">
-                  RPO
-                </Link>
+              <div className="absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg py-2 z-10 hidden group-hover:flex flex-col">
+                <Link href="/product" className="dropdown-item">Recruitment Services</Link>
+                <Link href="/product" className="dropdown-item">IT Staffing</Link>
+                <Link href="/product" className="dropdown-item">Project Hiring</Link>
+                <Link href="/product" className="dropdown-item">Temporary Staffing</Link>
+                <Link href="/product" className="dropdown-item">RPO</Link>
               </div>
             </div>
 
+
+
+
+
+
             {/* Industries Dropdown */}
             <div className="relative group">
-              <button
-                className="font-medium hover:text-[#29A0D8] flex items-center"
-                onClick={() => toggleDropdown('industries')}
-              >
+              <button className="font-medium hover:text-[#29A0D8] flex items-center cursor-default">
                 Industries
                 <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div className={`absolute left-0 mt-0 w-56 bg-white rounded-md shadow-lg py-2 z-10 ${openDropdown === 'industries' ? 'block' : 'hidden'} group-hover:block grid grid-cols-2`}>
+              <div className="absolute left-0 mt-0 w-56 bg-white rounded-md shadow-lg py-2 z-10 hidden group-hover:flex flex-col">
                 <Link href="/industries" className="dropdown-item">Information Technology</Link>
                 <Link href="/industries" className="dropdown-item">IT Enabled Services</Link>
                 <Link href="/industries" className="dropdown-item">Temporary Staffing</Link>
@@ -203,6 +192,7 @@ export default function Header() {
                 <Link href="/industries" className="dropdown-item">Hospital</Link>
               </div>
             </div>
+
 
             <Link href="/jobs" className="font-medium hover:text-[#29A0D8]">
               Jobs

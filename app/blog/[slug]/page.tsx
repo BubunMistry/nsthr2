@@ -483,6 +483,16 @@ const blogs = {
 
     `,
   },
+
+
+
+
+
+
+
+
+
+  
   "future-of-hr-technology": {
     title: "The Future of HR Technology: Trends to Watch in 2025",
     date: "March 15, 2025",
@@ -496,7 +506,26 @@ const blogs = {
       </section>
     `,
   },
-  // Add other blog posts here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 }
 
 export async function generateStaticParams() {

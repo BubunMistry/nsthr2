@@ -156,14 +156,13 @@ export default function Header() {
                 </svg>
               </button>
               <div className="absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg py-2 z-10 hidden group-hover:flex flex-col">
-                <Link href="/product" className="dropdown-item">Recruitment Services</Link>
-                <Link href="/product" className="dropdown-item">IT Staffing</Link>
-                <Link href="/product" className="dropdown-item">Project Hiring</Link>
-                <Link href="/product" className="dropdown-item">Temporary Staffing</Link>
-                <Link href="/product" className="dropdown-item">RPO</Link>
+                <Link href="/service" className="dropdown-item">Recruitment Services</Link>
+                <Link href="/service/it-staffing" className="dropdown-item">IT Staffing</Link>
+                <Link href="/service" className="dropdown-item">Project Hiring</Link>
+                <Link href="/service" className="dropdown-item">Temporary Staffing</Link>
+                <Link href="/service" className="dropdown-item">RPO</Link>
               </div>
             </div>
-
 
 
 

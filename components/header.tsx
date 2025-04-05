@@ -69,13 +69,11 @@ export default function Header() {
               <Link href="https://www.facebook.com/nsthrsolutions" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80">
                 <Facebook className="w-4 h-4" />
               </Link>
-
-
               <Link
                 href="https://x.com/hr_nst" target="_blank" rel="noopener noreferrer"
-                className="text-white hover:text-white/80 bg-[#29A0D8] rounded-full flex items-center justify-center"
+                className="text-white hover:text-white/70 bg-[#29A0D8] rounded-full flex items-center justify-center"
               >
-                <Image src="/x.svg" alt="WhatsApp" width={15} height={15} />
+                <Image src="/x.svg" alt="x" width={15} height={15} />
               </Link>
               <Link href="https://www.instagram.com/nsthrsolutions/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80">
                 <Instagram className="w-4 h-4" />

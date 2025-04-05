@@ -94,7 +94,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-white/90 hover:text-white transition-colors">
+                <Link href="/terms" className="text-white/90 hover:text-white transition-colors">
                   Terms of Service
                 </Link>
               </li>
@@ -177,7 +177,7 @@ export default function Footer() {
               <Link href="/privacy" className="text-sm text-white/90 hover:text-white">
                 Privacy Policy
               </Link>
-              <Link href="/privacy" className="text-sm text-white/90 hover:text-white">
+              <Link href="/terms" className="text-sm text-white/90 hover:text-white">
                 Terms of Service
               </Link>
               <Link href="/sitemap" className="text-sm text-white/90 hover:text-white">

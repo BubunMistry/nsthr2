@@ -9,16 +9,16 @@ export default function Blog() {
       title: "Top Staffing Services in Kolkata: What Makes NSTHR Stand Out",
       excerpt: "nstHr (Next Step Talent Human Resource) is a leading HR consultancy in Kolkata that provides end-to-end recruitment services to businesses of all sizes. ",
       date: "April 05, 2025",
-      image: "/blog.png",
+      image: "/blog.svg",
       slug: "Staffing-Services-Kolkata",
     },
     {
       id: 2,
-      title: "The Future of Remote Work",
-      excerpt: "Discover how remote work is changing the employment landscape and what it means for job seekers.",
-      date: "February 28, 2023",
-      image: "/placeholder.svg?height=300&width=500",
-      slug: "future-of-remote-work",
+      title: "Executive & IT Recruitment that Drives Business Growth | nstHr, Kolkata",
+      excerpt: "One of the trusted recruitment companies in Kolkata, our mission is to connect organizations with exceptional leadership and IT professionals who fuel growth, innovation, and transformation.",
+      date: "April 06, 2025",
+      image: "/blog2.svg",
+      slug: "IT-Recruitment",
     },
     {
       id: 3,
@@ -53,14 +53,28 @@ export default function Blog() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((blog) => (
-              <div key={blog.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="h-48 relative">
-                  <Image src={blog.image || "/placeholder.svg"} alt={blog.title} fill className="object-cover" />
-                </div>
-                <div className="p-6">
-                  <p className="text-gray-500 text-sm mb-2">{blog.date}</p>
-                  <h2 className="text-xl font-bold mb-2">{blog.title}</h2>
-                  <p className="text-gray-600 mb-4">{blog.excerpt}</p>
+              <div key={blog.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow group">
+                {/* Clickable area covering the image and text */}
+                <Link href={`/blog/${blog.slug}`} className="block">
+                  <div className="h-48 relative">
+                    <Image
+                      src={blog.image || "/placeholder.svg"}
+                      alt={blog.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <p className="text-gray-500 text-sm mb-2">{blog.date}</p>
+                    <h2 className="text-xl font-bold mb-2 group-hover:text-[#29A0D8] transition-colors">
+                      {blog.title}
+                    </h2>
+                    <p className="text-gray-600 mb-4">{blog.excerpt}</p>
+                  </div>
+                </Link>
+
+                {/* Separate Read More link */}
+                <div className="px-6 pb-6">
                   <Link
                     href={`/blog/${blog.slug}`}
                     className="text-[#29A0D8] font-medium hover:text-[#1E90D8] hover:underline transition-colors"

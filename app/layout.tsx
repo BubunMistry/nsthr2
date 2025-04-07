@@ -8,14 +8,19 @@ import SocialSidebar from "@/components/social-sidebar"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata: Metadata = {
-  title: "nstHr - Recruitment Agency",
-  description: "Find your dream job or best employees with nstHr",
-  generator: 'v0.dev',
-  icons: {
+export const metadata = {
+  title: 'NSTHR | Best Recruitment Company in India',
+  description: 'NSTHR is a leading recruitment and HR consulting company helping businesses hire top talent across industries. Job seekers and companies can trust our innovative hiring solutions.',
+  keywords: 'recruitment company, HR consultancy, hire employees, job search, staffing agency, IT recruitment, best hiring firm in India',
+  openGraph: {
+    title: 'NSTHR | Top Recruitment Firm in India',
+    description: 'Helping companies hire the right talent. End-to-end HR solutions for businesses and job seekers.',
+    url: 'https://nsthr.com',
+    type: 'website',
     icon: "/favicon.ico",
-  }
+  },
 }
+
 
 export default function RootLayout({
   children,

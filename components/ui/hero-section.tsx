@@ -8,31 +8,36 @@ import { ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    title: "Connecting people to limitless opportunities",
+    title: "Expert IT Recruitment, On-Demand",
     subtitle:
-      "Work with the industry leader who's breaking down barriers and helping workers worldwide connect with meaningful, transformative work.",
-    cta: "See Expert Talent",
+      "Hire top-tier developers, engineers, and IT professionals who match your exact tech stack and project needs.",
+    cta: "Hire IT Talent",
     image: "/hero3.jpg",
+    link: "/services/it-staffing",
   },
   {
-    title: "Get the world's best workforce solutions",
-    subtitle: "Fit to your local business needs with our global expertise and local understanding.",
-    cta: "Explore Solutions",
+    title: "RPO Services Tailored for You",
+    subtitle:
+      "Streamline your entire hiring process with our end-to-end RPO solutions designed for speed, scale, and success.",
+    cta: "Explore RPO Services",
     image: "/hero2.jpg",
+    link: "/services/rpo",
   },
   {
-    title: "Transform your global talent strategy",
+    title: "Industries We Serve Across India",
     subtitle:
-      "Stay ahead of your most complex talent needs with nstHr a leading provider of global solutions for managed services, workforce outsourcing, and consulting.",
-    cta: "Explore Global Solutions",
+      "From IT and healthcare to manufacturing and finance, NSTHR delivers recruitment solutions across all sectors.",
+    cta: "View Industries",
     image: "/hero1.jpg",
+    link: "/services/recruitment-services",
   },
   {
-    title: "Innovate and Lead the Future",
+    title: "Level Up Your Workforce Strategy",
     subtitle:
-      "Empower your business with cutting-edge technology solutions and strategic insights for a competitive edge.",
-    cta: "Discover Innovation",
+      "Power your growth with innovative hiring, workforce analytics, and agile HR practices built for tomorrow.",
+    cta: "Discover Solutions",
     image: "/hero4.jpg",
+    link: "/industries",
   },
 ];
 
@@ -76,12 +81,14 @@ export default function HeroSection() {
             {/* Content */}
             <div className="relative z-10 flex h-full items-center px-8 md:px-16">
               <div className="max-w-2xl sm:px-10 lg:px-16 text-left">
-                <h1 className="text-4xl lg:text-5xl uppercase font-bold text-white mb-4">{slide.title}</h1>
+                <h1 className="text-4xl lg:text-5xl uppercase font-bold text-white mb-4">
+                  {slide.title}
+                </h1>
                 <p className="text-lg md:text-xl text-white mb-8">{slide.subtitle}</p>
                 <div className="flex flex-wrap gap-4">
-                  <Link href="#service">
+                  <Link href={slide.link}>
                     <Button className="bg-[#29A0D8] hover:bg-[#1E90D8] text-white flex items-center gap-2 px-4 py-2 rounded-lg transition-all">
-                      {slide.cta}
+                      {slide.cta} <ChevronRight size={18} />
                     </Button>
                   </Link>
                   <Link href="/contact">
@@ -90,7 +97,6 @@ export default function HeroSection() {
                       className="bg-transparent border-white text-white hover:border-[#29A0D8] hover:text-[#29A0D8] hover:bg-transparent flex items-center gap-2 transition-all group"
                     >
                       Contact Us
-                    
                     </Button>
                   </Link>
                 </div>

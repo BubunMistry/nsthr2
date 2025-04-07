@@ -8,7 +8,7 @@ const blogs = {
     title: "Top Staffing Services in Kolkata: What Makes NSTHR Stand Out",
     date: "April 05, 2025",
     author: "Abhishek Raj",
-    image: "/blog.png",
+    image: "/blog.svg",
     excerpt: "Discover how NSTHR is revolutionizing staffing solutions in Kolkata with customized hiring approaches and industry expertise.",
     content: `
     
@@ -87,7 +87,7 @@ const blogs = {
     <h3 class="text-xl font-semibold text-[#29A0D8] mb-3">3. Comprehensive Job Placement Services</h3>
     <p class="text-gray-700 mb-4">For job seekers, nstHr is not just a <a href="/job-consultancy-kolkata" class="text-[#29A0D8] hover:underline">job consultancy in Kolkata</a> – it's a career partner. They guide freshers and experienced professionals alike through job searches, resume building, and interview preparation. Their goal? To help you land a role where you can grow and thrive.</p>
     
-    <div class="bg-[#6DD3FF] bg-opacity-10 p-4 rounded-lg mb-4">
+  <div class="bg-[#6DD3FF] bg-opacity-10 p-4 rounded-lg mb-4">
       <h4 class="text-lg font-medium text-[#29A0D8] mb-2">Services for Job Seekers:</h4>
       <ul class="list-disc pl-5 text-gray-700 space-y-2">
         <li>Resume review & improvement</li>
@@ -97,7 +97,7 @@ const blogs = {
       </ul>
     </div>
     
-    <p class="text-gray-700">🔎 <a href="/jobs-portal" class="text-[#29A0D8] hover:underline font-medium">Explore current job openings at nstHr's Jobs Portal</a></p>
+    <p class="text-gray-700">🔎 <a href="/jobs" class="text-[#29A0D8] hover:underline font-medium">Explore current job openings at nstHr's Jobs Portal</a></p>
   </div>
 
 
@@ -492,18 +492,84 @@ const blogs = {
 
 
 
-  
-  "future-of-hr-technology": {
-    title: "The Future of HR Technology: Trends to Watch in 2025",
-    date: "March 15, 2025",
-    author: "Neha Sharma",
-    image: "/images/hr-tech-future.jpg",
+
+  "IT-Recruitment": {
+    title: "Executive & IT Recruitment that Drives Business Growth | nstHr, Kolkata",
+    date: "April 06, 2025",
+    author: "Abhishek Raj",
+    image: "/blog2.svg",
     excerpt: "Explore the emerging HR technologies that are transforming recruitment and employee management.",
     content: `
-      <section class="mb-10">
-        <h2 class="text-2xl font-bold text-[#29A0D8] mb-4 border-b border-[#6DD3FF] pb-2">AI-Powered Recruitment</h2>
-        <p class="text-gray-700">Artificial Intelligence is revolutionizing how companies screen and shortlist candidates...</p>
-      </section>
+       <section id="what-makes-nsthr-stand-out" class="mb-10">
+  <h2 class="text-2xl font-bold text-[#29A0D8] mb-6 border-b border-[#6DD3FF] pb-2 flex items-center gap-2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#29A0D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m18 16 4-4-4-4"/>
+      <path d="m6 8-4 4 4 4"/>
+      <path d="m14.5 4-5 16"/>
+    </svg>
+    Expert IT Recruitment Across India
+  </h2>
+
+  <div class="mb-8">
+    <h3 class="text-xl font-semibold text-[#29A0D8] mb-3">1. Comprehensive IT Talent Solutions</h3>
+    <p class="text-gray-700 mb-4">India's <a href="/it-industry-trends" class="text-[#29A0D8] hover:underline">IT landscape is evolving</a> — and so are hiring needs. From startups to tech giants, we've worked with companies across the country to build high-performing IT teams.</p>
+    
+    <div class="bg-[#6DD3FF] bg-opacity-10 p-4 rounded-lg mb-4">
+      <h4 class="text-lg font-medium text-[#29A0D8] mb-2">Our IT Recruitment Focus:</h4>
+      <ul class="list-disc pl-5 text-gray-700 space-y-2">
+        <li><a href="/hire-software-developers" class="text-[#29A0D8] hover:underline">Software Developers</a> (Full Stack, Frontend, Backend)</li>
+        <li><a href="/devops-recruitment" class="text-[#29A0D8] hover:underline">Cloud & DevOps Engineers</a></li>
+        <li><a href="/cybersecurity-hiring" class="text-[#29A0D8] hover:underline">Cybersecurity Analysts</a></li>
+        <li><a href="/data-science-recruitment" class="text-[#29A0D8] hover:underline">Data Scientists</a> & <a href="/ai-ml-talent" class="text-[#29A0D8] hover:underline">AI/ML Specialists</a></li>
+        <li><a href="/qa-testing-professionals" class="text-[#29A0D8] hover:underline">QA Engineers</a></li>
+        <li><a href="/technical-product-managers" class="text-[#29A0D8] hover:underline">Product Managers</a></li>
+        <li><a href="/design-team-hiring" class="text-[#29A0D8] hover:underline">UI/UX Designers</a></li>
+      </ul>
+    </div>
+    
+    <p class="text-gray-700">We stay updated with <a href="/top-it-skills-2025" class="text-[#29A0D8] hover:underline">top IT skills in demand for 2025</a>, and help businesses hire talent that's future-ready.</p>
+  </div>
+
+  <div class="border-t border-[#6DD3FF] border-opacity-30 my-6"></div>
+
+  <div class="mb-8">
+    <h3 class="text-xl font-semibold text-[#29A0D8] mb-3">2. Why Tech Companies Choose nstHr</h3>
+    <p class="text-gray-700 mb-4">Whether you're building a remote IT team or scaling your engineering department, nstHr is your reliable talent partner.</p>
+    
+    <div class="bg-[#6DD3FF] bg-opacity-10 p-4 rounded-lg">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-gray-700">
+        <div class="flex items-center">
+          <span class="w-2 h-2 bg-[#29A0D8] rounded-full mr-2"></span>
+          Deep understanding of IT hiring landscape
+        </div>
+        <div class="flex items-center">
+          <span class="w-2 h-2 bg-[#29A0D8] rounded-full mr-2"></span>
+          Access to specialized tech talent network
+        </div>
+        <div class="flex items-center">
+          <span class="w-2 h-2 bg-[#29A0D8] rounded-full mr-2"></span>
+          Based in <a href="https://www.google.com/maps/dir//nstHr+(+Total+Hr+Solutions+),+Unit+No.+1112,+11th+Floor,+PS+Qube,+Action+Area+I,+2D,+Newtown,+New+Town,+West+Bengal+700136/@22.5837056,88.3523584,16z/data=!3m1!5s0x39f89fdafb37c731:0x82638df29e154cc7!4m17!1m7!3m6!1s0x39f89fa6c2f8dcc7:0xc9f4ca38c13175fb!2snstHr+(+Total+Hr+Solutions+)!8m2!3d22.6215743!4d88.454114!16s%2Fg%2F11h6tj6h62!4m8!1m0!1m5!1m1!1s0x39f89fa6c2f8dcc7:0xc9f4ca38c13175fb!2m2!1d88.454114!2d22.6215743!3e2?authuser=0&entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D" class="text-[#29A0D8] hover:underline"> Kolkata</a>, hiring PAN India
+        </div>
+        <div class="flex items-center">
+          <span class="w-2 h-2 bg-[#29A0D8] rounded-full mr-2"></span>
+          Average 14-day hiring cycle for tech roles
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-[#6DD3FF] border-opacity-30 my-6"></div>
+
+  <div class="text-center mb-10">
+    <a href="/contact" class="inline-flex items-center px-6 py-3 bg-[#29A0D8] text-white font-medium rounded-lg hover:bg-[#1a7ca7] transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail mr-2">
+        <rect width="20" height="16" x="2" y="4" rx="2"/>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+      </svg>
+      Contact Our IT Recruiters
+    </a>
+  </div>
+</section>   
     `,
   },
 
@@ -525,7 +591,7 @@ const blogs = {
 
 
 
- 
+
 }
 
 export async function generateStaticParams() {

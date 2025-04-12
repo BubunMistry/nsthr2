@@ -8,19 +8,18 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // Softer gradient using opacity and lighter colors
         default: "bg-gradient-to-r from-primary/90 to-secondary/90 text-white hover:from-primary hover:to-secondary",
         destructive: "bg-destructive/90 text-destructive-foreground hover:bg-destructive",
         outline: "border border-input bg-background hover:bg-accent/50 hover:text-accent-foreground",
         secondary: "bg-secondary/90 text-secondary-foreground hover:bg-secondary",
         ghost: "hover:bg-accent/30 hover:text-accent-foreground",
         link: "text-primary/90 underline-offset-4 hover:text-primary hover:underline",
-        custom: "",
+        custom: "", // Custom styles handled with props
       },
       size: {
         default: "h-10 px-6 py-3",
         sm: "h-9 rounded-md px-4",
-        lg: "h-12 rounded-lg px-8 ",
+        lg: "h-12 rounded-lg px-8",
         icon: "h-10 w-10",
       },
     },
@@ -37,22 +36,37 @@ export interface ButtonProps
   asChild?: boolean;
   gradientFrom?: string;
   gradientTo?: string;
-  intensity?: number; // New prop to control color intensity (0-100)
+  intensity?: number;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, gradientFrom, gradientTo, intensity = 90, style, ...props }, ref) => {
+  (
+    {
+      className,
+      variant,
+      size,
+      asChild = false,
+      gradientFrom = "#29A0D8",
+      gradientTo = "#00D4FF",
+      intensity = 100,
+      style,
+      ...props
+    },
+    ref
+  ) => {
     const Comp = asChild ? Slot : "button";
-    
-    // Apply gradient colors with intensity control
-    const customStyle = variant === "custom" && gradientFrom && gradientTo 
-      ? { 
-          background: `linear-gradient(135deg, 
-            ${adjustColorIntensity(gradientFrom, intensity)}, 
-            ${adjustColorIntensity(gradientTo, intensity)})`,
-          ...style 
-        }
-      : style;
+
+    // Apply gradient manually if custom variant is used
+    const customStyle =
+      variant === "custom"
+        ? {
+            background: `linear-gradient(135deg, 
+              ${adjustColorIntensity(gradientFrom, intensity)}, 
+              ${adjustColorIntensity(gradientTo, intensity)})`,
+            color: "#fff",
+            ...style,
+          }
+        : style;
 
     return (
       <Comp
@@ -65,17 +79,27 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
-// Helper function to adjust color intensity
+// Adjust hex or rgb color intensity using alpha
 function adjustColorIntensity(color: string, intensity: number): string {
-  if (color.startsWith('#')) {
-    // Hex color manipulation
-    return `${color}${Math.round(intensity * 2.55).toString(16).padStart(2, '0')}`;
+  const alphaHex = Math.round(intensity * 2.55)
+    .toString(16)
+    .padStart(2, "0");
+
+  if (color.startsWith("#") && color.length === 7) {
+    return `${color}${alphaHex}`;
   }
-  if (color.startsWith('rgb')) {
-    // RGB/RGBA color manipulation
-    return color.replace(/rgb(a)?\(/, `rgba(`).replace(/\)$/, `, ${intensity/100})`);
+
+  if (color.startsWith("rgb(")) {
+    return color.replace("rgb(", "rgba(").replace(")", `, ${intensity / 100})`);
   }
-  return color;
+
+  if (color.startsWith("rgba(")) {
+    return color.replace(/rgba\(([^,]+),([^,]+),([^,]+),[^\)]+\)/, (_, r, g, b) => {
+      return `rgba(${r},${g},${b},${intensity / 100})`;
+    });
+  }
+
+  return color; // fallback
 }
 
 Button.displayName = "Button";

@@ -4,7 +4,9 @@ import type React from "react"
 import Link from "next/link"
 import { useState } from "react"
 import { Mail, Phone, MapPin } from "lucide-react"
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
+import ContactForm from "./components/ContactForm"
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -24,7 +26,6 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // In a real application, this would send the data to a server
     console.log("Form submitted:", formData)
     alert("Message sent successfully!")
   }
@@ -32,49 +33,80 @@ export default function Contact() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-[#29A0D8] text-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-          <p className="text-xl">Get in touch with our team</p>
+    
+      <div className="relative bg-gradient-to-r from-[#29A0D8] to-[#6DD3FF] py-20">
+        <div className="container mx-auto px-6 text-center text-white">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
+          <p className="text-xl max-w-3xl mx-auto">
+          Get in touch with our team
+          </p>
         </div>
-      </section>
+      </div>
 
-      {/* Contact Information */}
+      {/* Contact Info + Schedule Meeting */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-4 gap-8">
+            {/* Location */}
             <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
               <div className="w-16 h-16 bg-[#29A0D8]/10 text-[#29A0D8] rounded-full flex items-center justify-center mb-4">
                 <MapPin className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold mb-2">Our Location</h3>
               <p className="text-gray-600">
-                Unit No. 1112, 11th Floor, PS Qube, Action Area I, 2D, Newtown, Kolkata, West Bengal 700136
+                Unit No. 1112, 11th Floor,<br />
+                PS Qube, Action Area I, 2D,<br />
+                Newtown, Kolkata, WB 700136
               </p>
             </div>
 
+            {/* Phone */}
             <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
               <div className="w-16 h-16 bg-[#29A0D8]/10 text-[#29A0D8] rounded-full flex items-center justify-center mb-4">
                 <Phone className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Phone Number</h3>
-              <p className="text-gray-600">+91 6292197307</p>
+              <h3 className="text-xl font-bold mb-2">Call Us</h3>
+              <a href="tel:+916292197307" className="text-gray-600 hover:text-[#29A0D8] transition-colors">
+                +91 62921 97307
+              </a>
             </div>
 
+            {/* Email */}
             <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
               <div className="w-16 h-16 bg-[#29A0D8]/10 text-[#29A0D8] rounded-full flex items-center justify-center mb-4">
                 <Mail className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Email Address</h3>
-              <p className="text-gray-600">info@nsthr.com</p>
-              <p className="text-gray-600">helpdesk@nsthr.com</p>
+              <h3 className="text-xl font-bold mb-2">Email Us</h3>
+              <a href="mailto:info@nsthr.com" className="text-gray-600 hover:text-[#29A0D8] transition-colors">
+                info@nsthr.com
+              </a>
+              <a href="mailto:helpdesk@nsthr.com" className="text-gray-600 hover:text-[#29A0D8] transition-colors">
+                helpdesk@nsthr.com
+              </a>
+            </div>
+
+            {/* Schedule Meeting */}
+            <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+              <div className="w-16 h-16 bg-[#29A0D8]/10 text-[#29A0D8] rounded-full flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3M16 7V3M4 11h16M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold mb-2">Schedule Meeting</h3>
+              <p className="text-gray-600 mb-2">Prefer a 1:1 call?</p>
+              <a
+                href="mailto:info@nsthr.com?subject=Schedule%20a%20Meeting"
+                className="text-sm text-[#29A0D8] font-medium hover:underline"
+              >
+                Click to schedule via email
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* Contact Form */}
-      <section className="py-16">
+      {/* <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-8">Send Us a Message</h2>
@@ -157,19 +189,23 @@ export default function Contact() {
               </div>
 
               <div className="mt-6" id="map">
-
                 <Button
                   type="submit"
                   className="flex items-center gap-2 group"
-                  variant="default" // This will use your default gradient
+                  variant="default"
                   size="lg"
-                >Send Message</Button>
-
+                >
+                  Send Message
+                </Button>
               </div>
             </form>
           </div>
         </div>
-      </section>
+      </section> */}
+
+  <ContactForm/>
+
+
 
       {/* Map Section */}
       <section className="py-16 bg-gray-50">
@@ -188,27 +224,19 @@ export default function Contact() {
               ></iframe>
             </div>
           </div>
+
+          <div className="mt-6" id="map">
+            <Link
+              target="_blank"
+              href="https://www.google.com/maps/dir//nstHr+(+Total+Hr+Solutions+),+Unit+No.+1112,+11th+Floor,+PS+Qube,+Action+Area+I,+2D,+Newtown,+New+Town,+West+Bengal+700136"
+            >
+              <Button className="flex mx-auto items-center gap-2 group" variant="default" size="lg">
+                Get Directions
+              </Button>
+            </Link>
+          </div>
         </div>
-
-
-
-
-
-        <div className="mt-6" id="map">
-
-
-
-          <Link target="_blank" href="https://www.google.com/maps/dir//nstHr+(+Total+Hr+Solutions+),+Unit+No.+1112,+11th+Floor,+PS+Qube,+Action+Area+I,+2D,+Newtown,+New+Town,+West+Bengal+700136/@22.5837056,88.3523584,16z/data=!3m1!5s0x39f89fdafb37c731:0x82638df29e154cc7!4m17!1m7!3m6!1s0x39f89fa6c2f8dcc7:0xc9f4ca38c13175fb!2snstHr+(+Total+Hr+Solutions+)!8m2!3d22.6215743!4d88.454114!16s%2Fg%2F11h6tj6h62!4m8!1m0!1m5!1m1!1s0x39f89fa6c2f8dcc7:0xc9f4ca38c13175fb!2m2!1d88.454114!2d22.6215743!3e2?authuser=0&entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D">
-            <Button
-              className="flex mx-auto items-center gap-2 group"
-              variant="default" // This will use your default gradient
-              size="lg"
-            >Get Directions</Button>
-          </Link>
-        </div>
-
       </section>
-
     </div>
   )
 }

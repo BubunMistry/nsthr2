@@ -12,14 +12,15 @@ export default function AboutUs() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="bg-[#29A0D8] text-white py-12 md:py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">About Us</h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Connecting talent with opportunity through innovative recruitment solutions
+    
+      <div className="relative bg-gradient-to-r from-[#29A0D8] to-[#6DD3FF] py-20">
+        <div className="container mx-auto px-6 text-center text-white">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">About Us</h1>
+          <p className="text-xl max-w-3xl mx-auto">
+          Connecting talent with opportunity through innovative recruitment solutions
           </p>
         </div>
-      </section>
+      </div>
 
       {/* About Content */}
       <section className="py-12 md:py-16">

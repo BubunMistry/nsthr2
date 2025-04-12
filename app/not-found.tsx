@@ -89,7 +89,7 @@ export default function NotFound() {
               variant="link"
               className="text-gray-600 hover:text-[#29A0D8]"
             >
-              <Link href="/support">
+              <Link href="/contact">
                 <HelpCircle className="w-4 h-4 mr-2 transition-transform group-hover:rotate-12" />
                 Need help? Contact Support
               </Link>

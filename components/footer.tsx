@@ -31,36 +31,44 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-lg font-bold border-b pb-2">Quick Links</h3>
             <ul className="space-y-2">
+
               <li>
-                <Link href="/about" className="text-white/90 hover:text-white transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/product" className="text-white/90 hover:text-white transition-colors">
-                  Our Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/jobs" className="text-white/90 hover:text-white transition-colors">
-                  Job Listings
-                </Link>
-              </li>
-              <li>
-                <Link href="/employers" className="text-white/90 hover:text-white transition-colors">
-                  For Employers
-                </Link>
-              </li>
-              <li>
-                <Link href="/candidates" className="text-white/90 hover:text-white transition-colors">
-                  For Candidates
+                <Link href="/about-us/#faq" className="text-white/90 hover:text-white transition-colors">
+                  FAQ
                 </Link>
               </li>
               <li>
                 <Link href="/blog" className="text-white/90 hover:text-white transition-colors">
-                  HR Insights
+                  Blog
                 </Link>
               </li>
+              <li>
+                <Link href="/jobs" className="text-white/90 hover:text-white transition-colors">
+                  Jobs
+                </Link>
+              </li>
+
+
+              <li>
+                <Link href="/auth/register?login=true" className="text-white/90 hover:text-white transition-colors">
+                  Login
+                </Link>
+              </li>
+
+
+              <li>
+                <Link href="/about-us" className="text-white/90 hover:text-white transition-colors">
+                  About Us
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/services/recruitment-services" className="text-white/90 hover:text-white transition-colors">
+                  Our Services
+                </Link>
+              </li>
+
+
             </ul>
           </div>
 
@@ -69,25 +77,24 @@ export default function Footer() {
             <h3 className="text-lg font-bold border-b pb-2">Resources</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/career-advice" className="text-white/90 hover:text-white transition-colors">
-                  Career Advice
+                <Link href="/industries/fmcg" className="text-white/90 hover:text-white transition-colors">
+                  Fmcg
                 </Link>
               </li>
               <li>
-                <Link href="/interview-tips" className="text-white/90 hover:text-white transition-colors">
-                  Interview Tips
+                <Link href="/#industries" className="text-white/90 hover:text-white transition-colors">
+                  Industry
                 </Link>
               </li>
+
+              
               <li>
-                <Link href="/salary-guide" className="text-white/90 hover:text-white transition-colors">
-                  Salary Guide
+                <Link href="/industries/information-technology" className="text-white/90 hover:text-white transition-colors">
+                  Find IT Talent
                 </Link>
               </li>
-              <li>
-                <Link href="/about-us/#faq" className="text-white/90 hover:text-white transition-colors">
-                  FAQ
-                </Link>
-              </li>
+
+
               <li>
                 <Link href="/privacy" className="text-white/90 hover:text-white transition-colors">
                   Privacy Policy
@@ -96,6 +103,11 @@ export default function Footer() {
               <li>
                 <Link href="/terms" className="text-white/90 hover:text-white transition-colors">
                   Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link href="https://calendly.com/amarik-nsthr/30min" className="text-white/90 hover:text-white transition-colors">
+                  Schedule Meetings
                 </Link>
               </li>
             </ul>

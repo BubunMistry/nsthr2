@@ -50,10 +50,18 @@ export default function AuthForm() {
     setIsSubmitting(true);
 
     try {
-      const endpoint = isLoginView ? "http://localhost:9000/api/users/auth/login" : "http://localhost:9000/api/users/auth/register";
-      const body = isLoginView 
+      const endpoint = isLoginView
+        ? "http://localhost:9000/api/users/auth/login"
+        : "http://localhost:9000/api/users/auth/register";
+
+      const body = isLoginView
         ? { email: form.email, password: form.password }
-        : { name: form.name, email: form.email, password: form.password };
+        : {
+            name: form.name,
+            email: form.email,
+            password: form.password,
+            confirmPassword: form.confirmPassword,
+          };
 
       const response = await fetch(endpoint, {
         method: "POST",
@@ -70,9 +78,23 @@ export default function AuthForm() {
         throw new Error(data.message || "Authentication failed");
       }
 
-      toast.success(isLoginView ? "Login successful!" : "Registration successful!");
-      router.push("/dashboard");
+      toast.success(isLoginView ? "Login successful! Redirecting... " : "Registration successful! Redirecting...");
+
+      // Save token in localStorage
+      if (data?.token) {
+        localStorage.setItem("token", data.token);
+        console.log("✅ Token saved:", data.token);
+      } else {
+        console.warn("⚠️ No token found in response");
+      }
+
+      // Delay navigation to allow toast to be visible
+      setTimeout(() => {
+        router.push("/auth/UserDashboard");
+      }, 1000);
+
     } catch (error: any) {
+      console.error("❌ Auth error:", error);
       toast.error(error.message || "An error occurred");
     } finally {
       setIsSubmitting(false);
@@ -133,7 +155,7 @@ export default function AuthForm() {
               <input
                 type="email"
                 id="email"
-                placeholder="you@example.com"
+                placeholder="your@example.com"
                 className={`block w-full px-4 py-2 rounded-md border ${
                   errors.email ? "border-red-500" : "border-gray-300"
                 } focus:outline-none focus:ring-2 focus:ring-blue-500`}

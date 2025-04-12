@@ -1,60 +1,77 @@
-import Link from "next/link"
-import { Search } from "lucide-react"
+'use client';
+
+import { useEffect, useState } from "react";
+import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+type Job = {
+  id: number;
+  job_title: string;
+  job_location: string;
+  job_type: string;
+  job_opening_number: number;
+  salary: number;
+  description: string;
+  created_at: string;
+  updated_at: string;
+};
+
 export default function Jobs() {
-  // In a real application, this would come from a database or API
-  const jobs = [
-    {
-      id: 1,
-      title: "Software Developer",
-      location: "Unit No. 1112, 11th Floor, PS Qube, Action Area I, 2D, Newtown, Kolkata, West Bengal 700136",
-      jobType: "developer (fullstack)",
-      opening: "subcontract/saas/GASC",
-      salary: "45000",
-      description:
-        "What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has? Lorem Ipsum has been the industry's",
-    },
-    {
-      id: 2,
-      title: "Mobile Apps Developer",
-      location: "Kolkata",
-      jobType: "developer",
-      opening: "testing testing",
-      salary: "30000-35000",
-      description:
-        "What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has? Lorem Ipsum has been the industry's",
-    },
-    {
-      id: 3,
-      title: "UI/UX Designer",
-      location: "Kolkata",
-      jobType: "designer",
-      opening: "fulltime",
-      salary: "40000-50000",
-      description:
-        "What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has? Lorem Ipsum has been the industry's",
-    },
-    {
-      id: 4,
-      title: "HR Manager",
-      location: "Kolkata",
-      jobType: "management",
-      opening: "fulltime",
-      salary: "50000-60000",
-      description:
-        "What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has? Lorem Ipsum has been the industry's",
-    },
-  ]
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [keyword, setKeyword] = useState("");
+  const [location, setLocation] = useState("");
+  const [error, setError] = useState("");
+
+  const fetchJobs = async (filters = { keyword: "", location: "" }) => {
+    try {
+      setLoading(true);
+      const res = await fetch("http://localhost:9000/api/admin/jobs/list", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(filters),
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        setJobs([]);
+        setError("No jobs found");
+        return;
+      }
+
+      if (!Array.isArray(data)) {
+        throw new Error("Unexpected response from server");
+      }
+
+      setJobs(data);
+      setError("");
+    } catch (err) {
+      console.error("Error fetching jobs:", err);
+      setError("Error fetching jobs");
+      setJobs([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchJobs();
+  }, []);
 
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-[#29A0D8] text-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4">Job</h1>
-          <p className="text-xl">Find your dream job opportunity</p>
+
+      <div className="relative bg-gradient-to-r from-[#29A0D8] to-[#6DD3FF] py-20">
+        <div className="container mx-auto px-6 text-center text-white">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Job</h1>
+          <p className="text-xl max-w-3xl mx-auto">
+          Find your dream job opportunity
+          </p>
         </div>
-      </section>
+      </div>
 
       {/* Job Search Section */}
       <section className="py-8 bg-gray-50">
@@ -71,6 +88,8 @@ export default function Jobs() {
                       type="text"
                       id="keyword"
                       placeholder="Job title, skills, or company"
+                      value={keyword}
+                      onChange={(e) => setKeyword(e.target.value)}
                       className="w-full p-3 border border-gray-300 rounded-md pl-10 focus:ring-2 focus:ring-[#29A0D8] focus:border-transparent"
                     />
                     <Search className="absolute left-3 top-3 text-gray-400 w-5 h-5" />
@@ -84,17 +103,20 @@ export default function Jobs() {
                     type="text"
                     id="location"
                     placeholder="City, state, or zip code"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
                     className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#29A0D8] focus:border-transparent"
                   />
                 </div>
                 <div className="self-end">
-
                   <Button
-                    type="submit"
+                    onClick={() => fetchJobs({ keyword, location })}
                     className="items-center"
-                    variant="default" // This will use your default gradient
+                    variant="default"
                     size="lg"
-                  >Search Jobs</Button>
+                  >
+                    Search Jobs
+                  </Button>
                 </div>
               </div>
             </div>
@@ -102,55 +124,70 @@ export default function Jobs() {
         </div>
       </section>
 
-      {/* Apply Button */}
-      <section className="py-8">
-        <div className="container mx-auto px-4 text-center">
-          <Button
-            type="submit"
-            className="items-center"
-            variant="default" // This will use your default gradient
-            size="lg"
-          >Apply For Jobs</Button>
-
-
-        </div>
-      </section>
-
       {/* Job Listings */}
       <section className="py-8">
-        <div className="container mx-auto px-4">
-          <div className="overflow-x-auto">
-            <table className="min-w-full bg-white border border-gray-200">
-              <thead>
-                <tr className="bg-[#29A0D8]/10">
-                  <th className="py-3 px-4 text-left border-b border-[#29A0D8]/20">#</th>
-                  <th className="py-3 px-4 text-left border-b border-[#29A0D8]/20">Job Title</th>
-                  <th className="py-3 px-4 text-left border-b border-[#29A0D8]/20">Location</th>
-                  <th className="py-3 px-4 text-left border-b border-[#29A0D8]/20">Job type</th>
-                  <th className="py-3 px-4 text-left border-b border-[#29A0D8]/20">Opening</th>
-                  <th className="py-3 px-4 text-left border-b border-[#29A0D8]/20">Salary</th>
-                  <th className="py-3 px-4 text-left border-b border-[#29A0D8]/20">Description</th>
+  <div className="container mx-auto px-4">
+    {loading ? (
+      <p className="text-center">Loading jobs...</p>
+    ) : error ? (
+      <p className="text-center text-red-500">{error}</p>
+    ) : (
+      <>
+        {/* Table View - Visible on md+ */}
+        <div className="overflow-x-auto hidden md:block">
+          <table className="min-w-full bg-white border border-gray-200">
+            <thead>
+              <tr className="bg-[#29A0D8]/10">
+                <th className="py-3 px-4 text-left border-b">#</th>
+                <th className="py-3 px-4 text-left border-b">Job Title</th>
+                <th className="py-3 px-4 text-left border-b">Location</th>
+                <th className="py-3 px-4 text-left border-b">Job Type</th>
+                <th className="py-3 px-4 text-left border-b">Openings</th>
+                <th className="py-3 px-4 text-left border-b">Salary</th>
+                <th className="py-3 px-4 text-left border-b">Description</th>
+                <th className="py-3 px-4 text-left border-b">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {jobs.map((job, index) => (
+                <tr key={job.id} className="hover:bg-[#29A0D8]/5">
+                  <td className="py-3 px-4 border-b">{index + 1}</td>
+                  <td className="py-3 px-4 border-b font-medium">{job.job_title}</td>
+                  <td className="py-3 px-4 border-b">{job.job_location}</td>
+                  <td className="py-3 px-4 border-b">{job.job_type}</td>
+                  <td className="py-3 px-4 border-b">{job.job_opening_number}</td>
+                  <td className="py-3 px-4 border-b">₹{job.salary}</td>
+                  <td className="py-3 px-4 border-b">{job.description}</td>
+                  <td className="py-3 px-4 border-b">
+                    <Button size="sm">Apply</Button>
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {jobs.map((job, index) => (
-                  <tr key={job.id} className="hover:bg-[#29A0D8]/5">
-                    <td className="py-3 px-4 border-b border-[#29A0D8]/10">{index + 1}</td>
-                    <td className="py-3 px-4 border-b border-[#29A0D8]/10 font-medium">{job.title}</td>
-                    <td className="py-3 px-4 border-b border-[#29A0D8]/10">{job.location}</td>
-                    <td className="py-3 px-4 border-b border-[#29A0D8]/10">{job.jobType}</td>
-                    <td className="py-3 px-4 border-b border-[#29A0D8]/10">{job.opening}</td>
-                    <td className="py-3 px-4 border-b border-[#29A0D8]/10">{job.salary}</td>
-                    <td className="py-3 px-4 border-b border-[#29A0D8]/10">
-                      <p className="truncate max-w-xs">{job.description}</p>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </section>
+
+        {/* Card View - Visible on mobile only */}
+        <div className="md:hidden space-y-4">
+          {jobs.map((job, index) => (
+            <div key={job.id} className="bg-white rounded-lg shadow-md p-4 border border-gray-200">
+              <h2 className="text-lg font-semibold">{job.job_title}</h2>
+              <p className="text-sm text-gray-500">{job.job_location}</p>
+              <div className="mt-2 text-sm">
+                <p><strong>Type:</strong> {job.job_type}</p>
+                <p><strong>Openings:</strong> {job.job_opening_number}</p>
+                <p><strong>Salary:</strong> ₹{job.salary}</p>
+                <p className="mt-1">{job.description}</p>
+              </div>
+              <Button size="sm" className="mt-3 w-full">Apply</Button>
+            </div>
+          ))}
+        </div>
+      </>
+    )}
+  </div>
+</section>
+
     </div>
-  )
+  );
 }

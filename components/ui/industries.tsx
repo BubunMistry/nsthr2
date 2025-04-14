@@ -45,7 +45,7 @@ const Industries = () => {
     {
       icon: <Banknote className="w-10 h-10 text-[#29A0D8]" />, title: "Outsourcing",
       description: "Efficient business process outsourcing to optimize operations.",
-      image: "/images/industries/outsourcing.webp", href: "/industries/outsourcing",
+      image: "/images/industries/out.webp", href: "/industries/outsourcing",
     },
 
     {

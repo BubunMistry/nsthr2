@@ -15,13 +15,16 @@ import {
 import axios from "axios";
 import JobForm from "./components/jobform";
 import BlogForm from "./components/BlogForm";
+import ApplicantsTable from "@/components/user-dashboard/ApplicantsTable";
+import { useRouter } from "next/navigation";
 
 const AdminDashboard = () => {
+  const router = useRouter();
   // State for active tab and data
   const [activeTab, setActiveTab] = useState("jobs");
   const [jobs, setJobs] = useState<
     {
-      _id: string;
+      id: string;
       title: string;
       description: string;
       location: string;
@@ -236,10 +239,13 @@ const AdminDashboard = () => {
       }
     }
   };
+  
 
   // Handle logout
   const handleLogout = () => {
     console.log("Logging out...");
+    localStorage.removeItem("adminToken"); // 🔐 Remove the token
+    router.push("/"); // 🔁 Redirect to admin login page
   };
 
   // Delete functions
@@ -250,7 +256,7 @@ const AdminDashboard = () => {
   const deleteJob = async ({ id }: DeleteJobParams): Promise<void> => {
     try {
       await axios.delete(`http://localhost:9000/api/admin/jobs/delete/${id}`);
-      setJobs(jobs.filter((job) => job._id !== id));
+      setJobs(jobs.filter((job) => job.id !== id));
     } catch (err: unknown) {
       if (err instanceof Error) {
         setError(err.message);
@@ -334,6 +340,18 @@ const AdminDashboard = () => {
             <span className="transition-all duration-300">Contact Forms</span>
           </button>
 
+          {/* Applicants Tab */}
+          <button
+            onClick={() => setActiveTab("applicantsTab")}
+            className={`flex items-center space-x-2 w-full p-3 rounded-lg transition-all duration-300 ${
+              activeTab === "applicantsTab"
+                ? "bg-white text-[--primary] shadow-md"
+                : "text-white hover:bg-[--primary] hover:bg-opacity-20 hover:text-white hover:shadow-sm"
+            }`}
+          >
+            <Mail className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+            <span className="transition-all duration-300">Applicants</span>
+          </button>
           {/* Logout Button */}
           <button
             onClick={handleLogout}
@@ -354,6 +372,7 @@ const AdminDashboard = () => {
             {activeTab === "jobs" && "Job Postings"}
             {activeTab === "blogs" && "Blog Management"}
             {activeTab === "contacts" && "Contact Forms"}
+            {activeTab === "applicantsTab" && "Applicants"}
           </h1>
         </header>
 
@@ -475,7 +494,7 @@ const AdminDashboard = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {jobs.map((job) => (
                     <div
-                      key={job._id}
+                      key={job.id}
                       className="bg-white rounded-lg shadow-md overflow-hidden"
                     >
                       {job.image && (
@@ -500,7 +519,7 @@ const AdminDashboard = () => {
                             <Edit className="w-4 h-4" />
                           </button>
                           <button
-                            onClick={() => deleteJob({ id: job._id })}
+                            onClick={() => deleteJob({ id: job.id })}
                             className="p-2 text-red-600 hover:bg-red-50 rounded-full"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -511,14 +530,14 @@ const AdminDashboard = () => {
                   ))}
                 </div>
               )}
-              <JobForm/>
+              <JobForm />
             </div>
           )}
 
           {/* Blogs Tab */}
           {activeTab === "blogs" && (
             <div>
-              <BlogForm/>
+              <BlogForm />
               <div className="bg-white rounded-lg shadow-md p-6 mb-6">
                 <h2 className="text-xl font-semibold mb-4 flex items-center">
                   <PlusCircle
@@ -686,38 +705,47 @@ const AdminDashboard = () => {
                       </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
-                      {contacts.map((contact) => (
-                        <tr key={contact._id}>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            {contact.first_name}
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            {contact.last_name}
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {contact.email}
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {contact.mobile}
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {contact.company}
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {contact.subject}
-                          </td>
-                          <td className="px-6 py-4 text-sm text-gray-500 max-w-xs truncate">
-                            {contact.message}
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {new Date(contact.submitted_at).toLocaleDateString()}
-                          </td>
-                        </tr>
-                      ))}
+                      {Array.isArray(contacts) &&
+                        contacts.map((contact) => (
+                          <tr key={contact.id}>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                              {contact.first_name}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                              {contact.last_name}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              {contact.email}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              {contact.mobile}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              {contact.company}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              {contact.subject}
+                            </td>
+                            <td className="px-6 py-4 text-sm text-gray-500 max-w-xs truncate">
+                              {contact.message}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                              {new Date(
+                                contact.submitted_at
+                              ).toLocaleDateString()}
+                            </td>
+                          </tr>
+                        ))}
                     </tbody>
                   </table>
                 </div>
               )}
+            </div>
+          )}
+          {/* Applicants Tab */}
+          {activeTab === "applicantsTab" && (
+            <div>
+              <ApplicantsTable />
             </div>
           )}
         </main>

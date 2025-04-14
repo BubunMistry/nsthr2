@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Recruitment Services | NSTHR - End-to-End Hiring Solutions',
   description: 'Comprehensive recruitment services including candidate sourcing, screening, RPO, and payroll management.',
   alternates: {
-    canonical: 'https://nsthr.in/services',
+    canonical: 'https://nsthr.com/#services',
   },
 };
 
@@ -40,6 +40,16 @@ const companyLogos = [
     { id: 25, name: "kedia", logo: "/images/clients/kedia.jpeg" },
     { id: 26, name: "carrental", logo: "/images/clients/carrental.jpeg" },
     { id: 27, name: "teximo", logo: "/images/clients/teximo.jpeg" },
+
+    { id: 28, name: "Interact", logo: "/images/clients/Interact.jpg" },
+    { id: 29, name: "bajugali", logo: "/images/clients/bajugali.png" },
+    { id: 30, name: "silpa", logo: "/images/clients/silpa.jpg" },
+    { id: 31, name: "flemingo", logo: "/images/clients/flemingo.jpg" },
+    { id: 32, name: "wse group", logo: "/images/clients/wse group.avif" },
+    { id: 33, name: "isaku", logo: "/images/clients/isaku.avif" },
+    { id: 34, name: "naryani", logo: "/images/clients/naryani.jpeg" },
+    { id: 35, name: "thinkwood", logo: "/images/clients/thinkwood.jpeg" },
+    { id: 36, name: "proventus", logo: "/images/clients/proventus.jpg" },
 ];
 
 export default function ServicesPage() {

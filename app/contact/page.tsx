@@ -202,10 +202,10 @@ export default function Contact() {
           </div>
         </div>
       </section> */}
-
+    <section className="py-16 bg-gray-50">
   <ContactForm/>
 
-
+</section>
 
       {/* Map Section */}
       <section className="py-16 bg-gray-50">

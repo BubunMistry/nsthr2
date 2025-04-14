@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Button } from '@/components/ui/button'; // Adjust import path to your button component
 import { Input } from '@/components/ui/input'; // Optional: use styled input component
 import { Textarea } from '@/components/ui/textarea'; // Optional: use styled textarea
+import { toast } from 'sonner'; // Adjust import path to your toast component
 
 interface ContactFormData {
   first_name: string;
@@ -28,7 +29,7 @@ const initialFormState: ContactFormData = {
 
 const ContactForm = () => {
   const [formData, setFormData] = useState<ContactFormData>(initialFormState);
-  const [status, setStatus] = useState<{message: string, type: 'success' | 'error'} | null>(null);
+  const [status, setStatus] = useState<{ message: string, type: 'success' | 'error' } | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -45,31 +46,33 @@ const ContactForm = () => {
 
     try {
       const res = await axios.post('http://localhost:9000/api/contact/submit', formData);
-      setStatus({message: res.data.message, type: 'success'});
+      setStatus({ message: res.data.message, type: 'success' });
+      toast.success("Message sent successfully....!");
       setFormData(initialFormState);
     } catch (err: any) {
       setStatus({
-        message: err.response?.data?.message || 'Something went wrong!',
+        message: err.response?.data?.message || 'Message not sent....!',
         type: 'error'
       });
+      toast.error(err.response?.data?.message || "Message not sent....!");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg">
+    <div className="w-full max-w-4xl mx-auto p-8  dark:bg-gray-900 rounded-xl shadow-lg">
       <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">Contact Us</h2>
-      
-      {status && (
+
+      {/* {status && (
         <div className={`mb-6 p-4 rounded-lg text-center ${
           status.type === 'success' 
             ? 'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200' 
             : 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-200'
         }`}>
-          {status.message}
+        /  {status.message}
         </div>
-      )}
+      )} */}
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -179,7 +182,7 @@ const ContactForm = () => {
         </div>
 
         <div className="flex justify-end">
-          <Button 
+          <Button
             type="submit"
             size="lg"
             disabled={isSubmitting}

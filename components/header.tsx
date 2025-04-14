@@ -62,7 +62,7 @@ export default function Header() {
           <div className="hidden md:flex items-center justify-between w-full max-w-xl">
             <div className="flex gap-4">
               <Link href="/admin/login" className="text-sm text-white hover:underline">
-                Post Job
+                Admin Login
               </Link>
               <Link href="/jobs" className="text-sm text-white underline hover:no-underline">
                 Are you Job Seeker?
@@ -147,10 +147,10 @@ export default function Header() {
 
           {/* Desktop navigation */}
           <nav className="hidden md:flex gap-6">
-            <Link href="/" className="font-medium hover:text-[#29A0D8]">
+            <Link href="/" className="font-medium hidden lg:flex hover:text-[#29A0D8]">
               Home
             </Link>
-            <Link href="/about-us" className="font-medium hover:text-[#29A0D8]">
+            <Link href="/about-us" className="font-medium hidden lg:flex hover:text-[#29A0D8]">
               About Us
             </Link>
 
@@ -347,9 +347,7 @@ export default function Header() {
                   <Link href="/auth/register?login=true" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
                     Login
                   </Link>
-                  <Link href="/auth/profile" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>
-                    Profile
-                  </Link>
+                
                 </div>
               )}
             </div>

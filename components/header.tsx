@@ -185,14 +185,19 @@ export default function Header() {
               </button>
               <div className="absolute left-0 mt-0 w-56 bg-white rounded-md shadow-lg py-2 z-10 hidden group-hover:flex flex-col">
                 <Link href="/industries/information-technology" className="dropdown-item">Information Technology</Link>
+                <Link href="/industries/it-enabled" className="dropdown-item">IT Enabled Services</Link>
+                <Link href="/industries/telecom" className="dropdown-item">Telecom</Link>
                 <Link href="/industries/staffing" className="dropdown-item">Temporary Staffing</Link>
                 <Link href="/industries/outsourcing" className="dropdown-item">Outsourcing</Link>
+                <Link href="/industries/manufacturing" className="dropdown-item">Manufacturing</Link>
+                <Link href="/industries/retail" className="dropdown-item">Retail</Link>
                 <Link href="/industries/fmcg" className="dropdown-item">FMCG</Link>
                 <Link href="/industries/research-analytics" className="dropdown-item">Research and Analytics</Link>
                 <Link href="/industries/media-field" className="dropdown-item">Media</Link>
                 <Link href="/industries/infrastructure" className="dropdown-item">Infrastructure</Link>
                 <Link href="/industries/travel" className="dropdown-item">Travel and Hospitality</Link>
                 <Link href="/industries/iron-steel" className="dropdown-item">Iron & Steel</Link>
+                <Link href="/industries/pharma" className="dropdown-item">Pharma</Link>
                 <Link href="/industries/hospital" className="dropdown-item">Hospital</Link>
               </div>
             </div>
@@ -294,16 +299,24 @@ export default function Header() {
 
 
                   <Link href="/industries/information-technology" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>Information Technology</Link>
+
+                  <Link href="/industries/it-enabled" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>IT Enabled Services</Link>
+
+                  <Link href="/industries/information-technology" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>Information Technology</Link>
+                  <Link href="/industries/telecom" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>Telecom</Link>
                   <Link href="/industries/staffing" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>Temporary Staffing</Link>
                   <Link href="/industries/outsourcing" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>Outsourcing</Link>
+
+                  <Link href="/industries/manufacturing" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>Manufacturing</Link>
+                  <Link href="/industries/retail" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>Retail</Link> 
                   <Link href="/industries/fmcg" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>FMCG</Link>
                   <Link href="/industries/research-analytics" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>Research and Analytics</Link>
                   <Link href="/industries/media-field" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>Media</Link>
                   <Link href="/industries/infrastructure" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>Infrastructure</Link>
                   <Link href="/industries/travel" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>Travel and Hospitality</Link>
                   <Link href="/industries/iron-steel" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>Iron & Steel</Link>
+                  <Link href="/industries/pharma" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>pharma</Link>
                   <Link href="/industries/hospital" className="block py-2 hover:text-[#29A0D8]" onClick={() => setIsMenuOpen(false)}>Hospital</Link>
-
 
                 </div>
               )}

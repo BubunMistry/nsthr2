@@ -34,18 +34,20 @@ const Industries = () => {
     {
       icon: <MonitorSmartphone className="w-10 h-10 text-[#29A0D8]" />, title: "IT Enabled Services",
       description: "Expertise in managing ITES roles across various domains.",
-      image: "/images/industries/data.webp", href: "/industries/information-technology",
+      image: "/images/industries/data.webp", href: "/industries/it-enabled",
     },
     {
       icon: <Briefcase className="w-10 h-10 text-[#29A0D8]" />, title: "Temporary Staffing",
       description: "Flexible workforce solutions across multiple domains.",
       image: "/images/industries/Temporary Staffing Services.webp", href: "/industries/staffing",
     },
+  
     {
       icon: <Banknote className="w-10 h-10 text-[#29A0D8]" />, title: "Outsourcing",
       description: "Efficient business process outsourcing to optimize operations.",
       image: "/images/industries/outsourcing.webp", href: "/industries/outsourcing",
     },
+
     {
       icon: <LineChart className="w-10 h-10 text-[#29A0D8]" />, title: "FMCG",
       description: "Talent acquisition for supply chain, sales, and marketing.",

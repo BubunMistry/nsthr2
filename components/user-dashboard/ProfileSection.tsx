@@ -68,8 +68,8 @@ export default function ProfileSection({
 
     try {
       const endpoint = type === 'profile_image' 
-        ? '/api/users/profile/image' 
-        : '/api/users/resume/upload';
+        ? '/api/users/profile/update' 
+        : '/api/users/profile/update';
       
       const response = await fetch(`http://localhost:9000${endpoint}`, {
         method: 'POST',

@@ -168,9 +168,9 @@ const PharmaStaffing = () => {
                 Request Pharma Staffing
               </button>
             </Link>
-            <Link href="/pharma-case-studies">
+            <Link href="/industries">
               <button className="border border-[#29A0D8] text-[#29A0D8] hover:bg-[#29A0D8]/10 px-8 py-3 rounded-lg font-medium transition-all">
-                View Case Studies
+                View other industries
               </button>
             </Link>
           </div>

@@ -98,7 +98,7 @@ export default function Home() {
               className="bg-white border border-[#1E90D8] transition-colors p-4 rounded-md flex items-center justify-center gap-2"
             >
               <UserRound className="w-5 h-5" />
-              <span className="font-medium text-[#1E90D8]">FIND BEST EMPLOYERS FOR YOUR COMPANY</span>
+              <span className="font-medium text-[#1E90D8]">FIND THE BEST EMPLOYEES</span>
             </Link>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function Home() {
         </div>
 
         <div className="text-center mb-16 pt-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">NSTRH Core Services</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">NSTHR Core Services</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             We provide specialized training programs, research initiatives, and infrastructure support to enhance workforce skills and drive economic growth.
           </p>

@@ -33,6 +33,7 @@ export default function Jobs() {
         },
         body: JSON.stringify(filters),
       });
+
       const data = await res.json();
 
       if (!res.ok) {
@@ -56,6 +57,10 @@ export default function Jobs() {
     }
   };
 
+
+  console.log(fetchJobs)
+
+
   useEffect(() => {
     fetchJobs();
   }, []);
@@ -66,9 +71,9 @@ export default function Jobs() {
 
       <div className="relative bg-gradient-to-r from-[#29A0D8] to-[#6DD3FF] py-20">
         <div className="container mx-auto px-6 text-center text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Job</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Jobs</h1>
           <p className="text-xl max-w-3xl mx-auto">
-          Find your dream job opportunity
+            Find your dream job opportunity
           </p>
         </div>
       </div>
@@ -126,68 +131,47 @@ export default function Jobs() {
 
       {/* Job Listings */}
       <section className="py-8">
-  <div className="container mx-auto px-4">
-    {loading ? (
-      <p className="text-center">Loading jobs...</p>
-    ) : error ? (
-      <p className="text-center text-red-500">{error}</p>
-    ) : (
-      <>
-        {/* Table View - Visible on md+ */}
-        <div className="overflow-x-auto hidden md:block">
-          <table className="min-w-full bg-white border border-gray-200">
-            <thead>
-              <tr className="bg-[#29A0D8]/10">
-                <th className="py-3 px-4 text-left border-b">#</th>
-                <th className="py-3 px-4 text-left border-b">Job Title</th>
-                <th className="py-3 px-4 text-left border-b">Location</th>
-                <th className="py-3 px-4 text-left border-b">Job Type</th>
-                <th className="py-3 px-4 text-left border-b">Openings</th>
-                <th className="py-3 px-4 text-left border-b">Salary</th>
-                <th className="py-3 px-4 text-left border-b">Description</th>
-                <th className="py-3 px-4 text-left border-b">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {jobs.map((job, index) => (
-                <tr key={job.id} className="hover:bg-[#29A0D8]/5">
-                  <td className="py-3 px-4 border-b">{index + 1}</td>
-                  <td className="py-3 px-4 border-b font-medium">{job.job_title}</td>
-                  <td className="py-3 px-4 border-b">{job.job_location}</td>
-                  <td className="py-3 px-4 border-b">{job.job_type}</td>
-                  <td className="py-3 px-4 border-b">{job.job_opening_number}</td>
-                  <td className="py-3 px-4 border-b">₹{job.salary}</td>
-                  <td className="py-3 px-4 border-b">{job.description}</td>
-                  <td className="py-3 px-4 border-b">
-                    <Button size="sm">Apply</Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        {/* Card View - Visible on mobile only */}
-        <div className="md:hidden space-y-4">
-          {jobs.map((job, index) => (
-            <div key={job.id} className="bg-white rounded-lg shadow-md p-4 border border-gray-200">
-              <h2 className="text-lg font-semibold">{job.job_title}</h2>
-              <p className="text-sm text-gray-500">{job.job_location}</p>
-              <div className="mt-2 text-sm">
-                <p><strong>Type:</strong> {job.job_type}</p>
-                <p><strong>Openings:</strong> {job.job_opening_number}</p>
-                <p><strong>Salary:</strong> ₹{job.salary}</p>
-                <p className="mt-1">{job.description}</p>
-              </div>
-              <Button size="sm" className="mt-3 w-full">Apply</Button>
+        <div className="container mx-auto px-4">
+          {loading ? (
+            <p className="text-center">Loading jobs...</p>
+          ) : error ? (
+            <p className="text-center text-red-500">{error}</p>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="min-w-full bg-white border border-gray-200">
+                <thead>
+                  <tr className="bg-[#29A0D8]/10">
+                    <th className="py-3 px-4 text-left border-b border-[#29A0D8]/20">#</th>
+                    <th className="py-3 px-4 text-left border-b border-[#29A0D8]/20">Job Title</th>
+                    <th className="py-3 px-4 text-left border-b border-[#29A0D8]/20">Location</th>
+                    <th className="py-3 px-4 text-left border-b border-[#29A0D8]/20">Job Type</th>
+                    <th className="py-3 px-4 text-left border-b border-[#29A0D8]/20">Openings</th>
+                    <th className="py-3 px-4 text-left border-b border-[#29A0D8]/20">Salary</th>
+                    <th className="py-3 px-4 text-left border-b border-[#29A0D8]/20">Description</th>
+                    <th className="py-3 px-4 text-left border-b border-[#29A0D8]/20">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {jobs.map((job, index) => (
+                    <tr key={job.id} className="hover:bg-[#29A0D8]/5">
+                      <td className="py-3 px-4 border-b border-[#29A0D8]/10">{index + 1}</td>
+                      <td className="py-3 px-4 border-b border-[#29A0D8]/10 font-medium">{job.job_title}</td>
+                      <td className="py-3 px-4 border-b border-[#29A0D8]/10">{job.job_location}</td>
+                      <td className="py-3 px-4 border-b border-[#29A0D8]/10">{job.job_type}</td>
+                      <td className="py-3 px-4 border-b border-[#29A0D8]/10">{job.job_opening_number}</td>
+                      <td className="py-3 px-4 border-b border-[#29A0D8]/10">₹{job.salary}</td>
+                      <td className="py-3 px-4 border-b border-[#29A0D8]/10">{job.description}</td>
+                      <td className="py-3 px-4 border-b border-[#29A0D8]/10">
+                        <Button size="sm" variant="default">Apply</Button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
-          ))}
+          )}
         </div>
-      </>
-    )}
-  </div>
-</section>
-
+      </section>
     </div>
   );
 }

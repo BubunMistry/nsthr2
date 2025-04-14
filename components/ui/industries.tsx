@@ -79,7 +79,7 @@ const Industries = () => {
     {
       icon: <Building2 className="w-10 h-10 text-[#29A0D8]" />, title: "Travel and Hospitality",
       description: "Talent for hotels, airlines, and travel service industries.",
-      image: "/images/industries/hospitality.webp", href: "/industries/travel-hospitality",
+      image: "/images/industries/hospitality.webp", href: "/industries/travel",
     },
     {
       icon: <Building2 className="w-10 h-10 text-[#29A0D8]" />, title: "Retail",

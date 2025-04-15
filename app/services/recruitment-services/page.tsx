@@ -1,7 +1,7 @@
 // app/services/page.tsx
 import { Metadata } from 'next';
 import Image from 'next/image';
-import { Briefcase, Search, Phone, Users,DollarSign,Shield, FileText, CheckCircle, Mail, Linkedin, X, Facebook, Youtube, ArrowRight } from 'lucide-react';
+import { Briefcase, Search, Phone, Users, DollarSign, Shield, FileText, CheckCircle, Mail, Linkedin, X, Facebook, Youtube, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -13,43 +13,64 @@ export const metadata: Metadata = {
 };
 
 const companyLogos = [
-    { id: 1, name: "Asian Paints", logo: "/images/clients/Asian Paints.png" },
-    { id: 2, name: "BigBasket", logo: "/images/clients/BigBasket.png" },
-    { id: 3, name: "KFC", logo: "/images/clients/kfc.png" },
-    { id: 4, name: "idfc", logo: "/images/clients/idfc.png" },
-    { id: 5, name: "Domino", logo: "/images/clients/Dominos Pizza.png" },
-    { id: 6, name: "Bosch", logo: "/images/clients/Bosch-logo.png" },
-    { id: 7, name: "Peerless", logo: "/images/clients/Peerless.png" },
-    { id: 8, name: "Lux", logo: "/images/clients/lux.png" },
-    { id: 9, name: "Siddha", logo: "/images/clients/siddha.webp" },
-    { id: 10, name: "Apollo", logo: "/images/clients/Apollo.png" },
-    { id: 11, name: "minu", logo: "/images/clients/minu.png" },
-    { id: 12, name: "instone", logo: "/images/clients/instone.png" },
-    { id: 13, name: "Udyogi", logo: "/images/clients/Udyogi.png" },
-    { id: 14, name: "Anvation", logo: "/images/clients/anvation.jpeg" },
-    { id: 15, name: "Goliath", logo: "/images/clients/goliath.jpeg" },
-    { id: 16, name: "Cove", logo: "/images/clients/cove.png" },
-    { id: 17, name: "encore.png", logo: "/images/clients/encore.png" },
-    { id: 18, name: "eureka.png", logo: "/images/clients/eureka.png" },
-    { id: 19, name: "kpexport", logo: "/images/clients/kpexport.png" },
-    { id: 20, name: "Medica", logo: "/images/clients/medica.png" },
-    { id: 21, name: "europe", logo: "/images/clients/europe.png" },
-    { id: 22, name: "Ruby", logo: "/images/clients/ruby.jpg" },
-    { id: 23, name: "Saburi", logo: "/images/clients/saburi.png" },
-    { id: 24, name: "lawani", logo: "/images/clients/lawani.png" },
-    { id: 25, name: "kedia", logo: "/images/clients/kedia.jpeg" },
-    { id: 26, name: "carrental", logo: "/images/clients/carrental.jpeg" },
-    { id: 27, name: "teximo", logo: "/images/clients/teximo.jpeg" },
+  { id: 1, name: "Asian Paints", logo: "/images/clients/Asian Paints.png" },
+  { id: 2, name: "BigBasket", logo: "/images/clients/BigBasket.png" },
+  { id: 3, name: "KFC", logo: "/images/clients/kfc.png" },
+  { id: 4, name: "idfc", logo: "/images/clients/idfc.png" },
+  { id: 5, name: "Domino", logo: "/images/clients/Dominos Pizza.png" },
+  { id: 6, name: "Bosch", logo: "/images/clients/Bosch-logo.png" },
+  { id: 7, name: "Peerless", logo: "/images/clients/Peerless.png" },
+  { id: 8, name: "Lux", logo: "/images/clients/lux.png" },
+  { id: 9, name: "Siddha", logo: "/images/clients/siddha.webp" },
+  { id: 10, name: "Apollo", logo: "/images/clients/Apollo.png" },
+  { id: 11, name: "minu", logo: "/images/clients/minu.png" },
+ 
 
-    { id: 28, name: "Interact", logo: "/images/clients/Interact.jpg" },
-    { id: 29, name: "bajugali", logo: "/images/clients/bajugali.png" },
-    { id: 30, name: "silpa", logo: "/images/clients/silpa.jpg" },
-    { id: 31, name: "flemingo", logo: "/images/clients/flemingo.jpg" },
-    { id: 32, name: "wse group", logo: "/images/clients/wse group.avif" },
-    { id: 33, name: "isaku", logo: "/images/clients/isaku.avif" },
-    { id: 34, name: "naryani", logo: "/images/clients/naryani.jpeg" },
-    { id: 35, name: "thinkwood", logo: "/images/clients/thinkwood.jpeg" },
-    { id: 36, name: "proventus", logo: "/images/clients/proventus.jpg" },
+  { id: 12, name: "tata", logo: "/images/clients/tata.png" },
+  { id: 13, name: "Udyogi", logo: "/images/clients/Udyogi.png" },
+  { id: 14, name: "Anvation", logo: "/images/clients/anvation.jpeg" },
+  { id: 15, name: "Goliath", logo: "/images/clients/goliath.jpeg" },
+  { id: 16, name: "Cove", logo: "/images/clients/cove.png" },
+  { id: 17, name: "encore.png", logo: "/images/clients/encore.png" },
+  { id: 18, name: "eureka.png", logo: "/images/clients/eureka.png" },
+  { id: 19, name: "kpexport", logo: "/images/clients/kpexport.png" },
+  { id: 20, name: "Medica", logo: "/images/clients/medica.png" },
+  { id: 21, name: "europe", logo: "/images/clients/europe.png" },
+  { id: 22, name: "Ruby", logo: "/images/clients/ruby.jpg" },
+  { id: 23, name: "Saburi", logo: "/images/clients/saburi.png" },
+  { id: 24, name: "lawani", logo: "/images/clients/lawani.png" },
+  { id: 25, name: "kedia", logo: "/images/clients/kedia.jpeg" },
+  { id: 26, name: "carrental", logo: "/images/clients/carrental.jpeg" },
+
+
+
+  { id: 27, name: "teximo", logo: "/images/clients/teximo.jpeg" },
+
+  { id: 28, name: "Interact", logo: "/images/clients/Interact.jpg" },
+  { id: 29, name: "bajugali", logo: "/images/clients/bajugali.png" },
+  { id: 30, name: "silpa", logo: "/images/clients/silpa.jpg" },
+  { id: 31, name: "flemingo", logo: "/images/clients/flemingo.jpg" },
+
+
+
+
+
+  { id: 32, name: "wse group", logo: "/images/clients/wse group.jpg" },
+  { id: 33, name: "isaku", logo: "/images/clients/isaku.jpg" },
+  { id: 34, name: "naryani", logo: "/images/clients/naryani.jpeg" },
+  { id: 35, name: "thinkwood", logo: "/images/clients/thinkwood.jpeg" },
+  { id: 36, name: "proventus", logo: "/images/clients/proventus.jpg" },
+
+
+
+ { id: 37, name: "ambey", logo: "/images/clients/ambey.png" },
+  { id: 38, name: "anan", logo: "/images/clients/anan.jpeg" },
+  { id: 39, name: "ISBM", logo: "/images/clients/ISBM.png" },
+  { id: 40, name: "instone", logo: "/images/clients/instone.png" },
+  { id: 41, name: "vaghirathi", logo: "/images/clients/vaghirathi.jpg" },
+  { id: 42, name: "easylyf", logo: "/images/clients/easylyf.jpeg" },
+
+
 ];
 
 export default function ServicesPage() {
@@ -60,8 +81,8 @@ export default function ServicesPage() {
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Your Complete Recruitment Partner</h1>
           <p className="text-xl mb-8">From sourcing to onboarding, we handle every step of your hiring process</p>
-          <Link 
-            href="/contact" 
+          <Link
+            href="/contact"
             className="inline-flex items-center bg-white text-[#29A0D8] px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition"
           >
             Get Started <ArrowRight className="ml-2" />
@@ -72,73 +93,73 @@ export default function ServicesPage() {
       {/* Recruitment Process */}
       <section className="max-w-6xl mx-auto py-16 px-4">
         <h2 className="text-3xl font-bold text-center mb-12 text-[#29A0D8]">Our 10-Step Recruitment Process</h2>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-2">
-          <ProcessStep 
+          <ProcessStep
             step="1"
             icon={<Search size={24} />}
             title="Multi-Portal Sourcing"
             description="Aggressive search across Naukri, Monster, LinkedIn, Indeed, and GitHub"
-            
+
           />
-          
-          <ProcessStep 
+
+          <ProcessStep
             step="2"
             icon={<FileText size={24} />}
             title="AI-Powered Screening"
             description="JD-matched CV filtering with our proprietary algorithm"
           />
-          
-          <ProcessStep 
+
+          <ProcessStep
             step="3"
             icon={<Phone size={24} />}
             title="Telephonic Round"
             description="30-min preliminary screening for communication & basics"
           />
-          
-          <ProcessStep 
+
+          <ProcessStep
             step="4"
             icon={<Users size={24} />}
             title="F2F Technical Round"
             description="In-depth assessment at our offices"
           />
-          
-          <ProcessStep 
+
+          <ProcessStep
             step="5"
             icon={<Briefcase size={24} />}
             title="Client Shortlisting"
             description="Presentation of top 3 candidates per role"
           />
-          
-          <ProcessStep 
+
+          <ProcessStep
             step="6"
             icon={<Users size={24} />}
             title="Client Interview"
             description="Final round at client's location/virtually"
           />
-          
-          <ProcessStep 
+
+          <ProcessStep
             step="7"
             icon={<DollarSign size={24} />}
             title="Salary Negotiation"
             description="Market-aligned compensation discussions"
           />
-          
-          <ProcessStep 
+
+          <ProcessStep
             step="8"
             icon={<Mail size={24} />}
             title="Offer Management"
             description="Drafting offer letters & joining kits"
           />
-          
-          <ProcessStep 
+
+          <ProcessStep
             step="9"
             icon={<CheckCircle size={24} />}
             title="Onboarding Support"
             description="Background verification & induction"
           />
-          
-          <ProcessStep 
+
+          <ProcessStep
             step="10"
             icon={<Shield size={24} />}
             title="Retention Program"
@@ -151,9 +172,9 @@ export default function ServicesPage() {
       <section className="bg-[#F7FCFF] py-16">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-[#29A0D8]">Our Comprehensive Services</h2>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ServiceCard 
+            <ServiceCard
               title="Full-Cycle Recruitment"
               features={[
                 'End-to-end hiring management',
@@ -162,8 +183,8 @@ export default function ServicesPage() {
               ]}
               icon={<Briefcase size={32} />}
             />
-            
-            <ServiceCard 
+
+            <ServiceCard
               title="RPO Solutions"
               features={[
                 'Recruitment Process Outsourcing',
@@ -172,8 +193,8 @@ export default function ServicesPage() {
               ]}
               icon={<Users size={32} />}
             />
-            
-            <ServiceCard 
+
+            <ServiceCard
               title="Talent Mapping"
               features={[
                 'Market intelligence reports',
@@ -182,8 +203,8 @@ export default function ServicesPage() {
               ]}
               icon={<Search size={32} />}
             />
-            
-            <ServiceCard 
+
+            <ServiceCard
               title="Payroll Services"
               features={[
                 'Statutory compliance',
@@ -192,8 +213,8 @@ export default function ServicesPage() {
               ]}
               icon={<DollarSign size={32} />}
             />
-            
-            <ServiceCard 
+
+            <ServiceCard
               title="Background Checks"
               features={[
                 'Employment verification',
@@ -202,8 +223,8 @@ export default function ServicesPage() {
               ]}
               icon={<Shield size={32} />}
             />
-            
-            <ServiceCard 
+
+            <ServiceCard
               title="Exit Management"
               features={[
                 'Attrition analysis',
@@ -221,18 +242,22 @@ export default function ServicesPage() {
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-4 text-[#29A0D8]">Trusted by 100+ Leading Companies</h2>
           <p className="text-lg mb-12 text-gray-600">We've successfully placed candidates across industries</p>
-          
+
           <div className="flex flex-wrap justify-center gap-8 mb-16">
             {companyLogos.map((company) => (
-              <div key={company.name} className="flex items-center justify-center w-32 h-20">
-                <img 
-                  src={company.logo} 
-                  alt={company.name} 
-                  className="max-h-12 object-contain grayscale hover:grayscale-0 transition"
+              <div
+                key={company.name}
+                className="w-32 h-20 flex items-center justify-center transition-transform transform hover:scale-110"
+              >
+                <img
+                  src={company.logo}
+                  alt={company.name}
+                  className="max-h-12 object-contain transition-all duration-300 drop-shadow-none hover:drop-shadow-[0_4px_12px_rgba(41,160,216,0.5)]"
                 />
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
@@ -241,19 +266,19 @@ export default function ServicesPage() {
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">Connect With Our Talent Community</h2>
           <div className="flex flex-wrap justify-center gap-4">
-            <SocialButton 
-              href="https://www.facebook.com/nsthrsolutions" 
-              icon={<Facebook size={20} />} 
+            <SocialButton
+              href="https://www.facebook.com/nsthrsolutions"
+              icon={<Facebook size={20} />}
               label="Facebook"
             />
-            <SocialButton 
-              href="https://www.linkedin.com/company/nsthrsolutions/" 
-              icon={<Linkedin size={20} />} 
+            <SocialButton
+              href="https://www.linkedin.com/company/nsthrsolutions/"
+              icon={<Linkedin size={20} />}
               label="LinkedIn"
             />
-            <SocialButton 
-              href="https://www.youtube.com/@nsthr208" 
-              icon={<Youtube size={20} />} 
+            <SocialButton
+              href="https://www.youtube.com/@nsthr208"
+              icon={<Youtube size={20} />}
               label="YouTube"
             />
           </div>
@@ -300,9 +325,9 @@ function ServiceCard({ title, features, icon }: { title: string; features: strin
 
 function SocialButton({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) {
   return (
-    <a 
-      href={href} 
-      target="_blank" 
+    <a
+      href={href}
+      target="_blank"
       rel="noopener noreferrer"
       className="flex items-center bg-white/20 hover:bg-white/30 px-6 py-3 rounded-lg font-medium transition backdrop-blur-sm border border-white/30"
     >

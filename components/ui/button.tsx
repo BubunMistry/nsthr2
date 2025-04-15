@@ -14,12 +14,12 @@ const buttonVariants = cva(
         secondary: "bg-secondary/90 text-secondary-foreground hover:bg-secondary",
         ghost: "hover:bg-accent/30 hover:text-accent-foreground",
         link: "text-primary/90 underline-offset-4 hover:text-primary hover:underline",
-        custom: "", // Custom styles handled with props
+        custom: "text-white hover:brightness-110",
       },
       size: {
         default: "h-10 px-6 py-3",
         sm: "h-9 rounded-md px-4",
-        lg: "h-12 rounded-lg px-8",
+        lg: "h-12 rounded-lg px-8 py-3",
         icon: "h-10 w-10",
       },
     },
@@ -47,7 +47,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       size,
       asChild = false,
       gradientFrom = "#29A0D8",
-      gradientTo = "#00D4FF",
+      gradientTo = "#1E7CAD",
       intensity = 100,
       style,
       ...props
@@ -56,7 +56,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const Comp = asChild ? Slot : "button";
 
-    // Apply gradient manually if custom variant is used
     const customStyle =
       variant === "custom"
         ? {
@@ -79,7 +78,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
-// Adjust hex or rgb color intensity using alpha
 function adjustColorIntensity(color: string, intensity: number): string {
   const alphaHex = Math.round(intensity * 2.55)
     .toString(16)
@@ -99,7 +97,7 @@ function adjustColorIntensity(color: string, intensity: number): string {
     });
   }
 
-  return color; // fallback
+  return color;
 }
 
 Button.displayName = "Button";

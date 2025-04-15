@@ -17,6 +17,7 @@ import ClientsSection from "@/components/ui/ClientsSection"
 import Carousel from "@/components/carousel"
 import HeroSection from "@/components/ui/hero-section"
 import Industries from "@/components/ui/industries";
+import Team from "@/components/ui/team";
 
 const industries = [
   { name: "Insurance", icon: <Stethoscope className="w-8 h-8" /> },
@@ -200,122 +201,34 @@ export default function Home() {
         <Industries />
  
 
-      {/* Team Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="section-title">Meet Our Leadership</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Our experienced team drives nstHr's success with industry expertise and innovative HR solutions
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
-            {/* Team Member 1 */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
-              <div className="relative aspect-square">
-                <Image
-                  src="images/team/abhishek.svg"
-                  alt="Abhishek Raj"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-1">Abhishek Raj</h3>
-                <p className="text-[#29A0D8] font-semibold mb-4">Founder & Managing Director</p>
-                <p className="text-gray-600">
-                  Technology and marketing operations leader with a BTech in Electronics and Communications.
-                  Brings entrepreneurial vision and five years of HR service expertise to nstHr.
-                </p>
+<Team/>
 
-              </div>
-            </div>
-
-            {/* Team Member 2 */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
-              <div className="relative aspect-square">
-                <Image
-                  src="images/team/neha.svg"
-                  alt="Neha Kesari"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-1">Neha Kesari</h3>
-                <p className="text-[#29A0D8] font-semibold mb-4">CEO & Business Head</p>
-                <p className="text-gray-600">
-                  Oversees client relationships and operational excellence with six years of HR domain experience.
-                  Specializes in strategic planning and business development.
-                </p>
-
-              </div>
-            </div>
-
-            {/* Team Member 3 */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
-              <div className="relative aspect-square">
-                <Image
-                  src="images/team/rajesh.svg"
-                  alt="Rajesh Singh"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-1">Rajesh Singh</h3>
-                <p className="text-[#29A0D8] font-semibold mb-4">Branch Head & Business Coordinator</p>
-                <p className="text-gray-600">
-                  Manages regional operations and client coordination with expertise in workforce solutions
-                  and talent acquisition strategies.
-                </p>
-
-              </div>
-            </div>
-
-            {/* Team Member 4 */}
-            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
-              <div className="relative aspect-square">
-                <Image
-                  src="images/team/aprajit.svg"
-                  alt="Aprojit Marik"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-1">Aprajit Marik</h3>
-                <p className="text-[#29A0D8] font-semibold mb-4">Recruitment Manager</p>
-                <p className="text-gray-600">
-                  Leads talent acquisition with a focus on matching top candidates to organizational needs.
-                  Specializes in IT and healthcare recruitment.
-                </p>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* CTA Section */}
-      <div className="py-20 bg-gradient-to-r from-[#29A0D8] to-[#6DD3FF] text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Transform Your IT Infrastructure?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Partner with nstHr for comprehensive IT solutions and top-tier technology talent
-          </p>
-          <div className="space-x-4">
-            <Link href="/contact" className="inline-block bg-white text-[#29A0D8] px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
-              Get Started
-            </Link>
-            <Link href="/industries/Information-Technology" className="inline-block border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-[#29A0D8] transition-colors">
-              View IT Our Services
-            </Link>
-          </div>
-        </div>
-      </div>
+{/* CTA Section */}
+<div className="py-16 sm:py-20 bg-gradient-to-r from-[#29A0D8] to-[#6DD3FF] text-white">
+  <div className="max-w-5xl mx-auto px-4 text-center">
+    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
+      Ready to Transform Your IT Infrastructure?
+    </h2>
+    <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto">
+      Partner with nstHr for comprehensive IT solutions and top-tier technology talent.
+    </p>
+    <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+      <Link
+        href="/contact"
+        className="bg-white text-[#29A0D8] px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors w-full sm:w-auto text-center"
+      >
+        Get Started
+      </Link>
+      <Link
+        href="/industries/Information-Technology"
+        className="border-2 border-white text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-medium hover:bg-white hover:text-[#29A0D8] transition-colors w-full sm:w-auto text-center"
+      >
+        View IT Services
+      </Link>
+    </div>
+  </div>
+</div>
 
       <ClientsSection />
 

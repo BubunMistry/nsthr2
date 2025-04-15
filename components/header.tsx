@@ -67,9 +67,7 @@ export default function Header() {
               <Link href="/jobs" className="text-sm text-white underline hover:no-underline">
                 Are you Job Seeker?
               </Link>
-              <Link href="/employer-form" className="text-sm text-white hover:underline">
-                Are you Employer?
-              </Link>
+             
             </div>
 
             <div className="flex gap-2">

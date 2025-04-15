@@ -87,7 +87,7 @@ export default function UserDashboard() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    router.push("/auth/login");
+    router.push("/auth/register?login=true");
   };
 
   if (!profile) return <div className="p-4">Loading...</div>;

@@ -328,12 +328,14 @@ export default function Jobs() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-[#29A0D8] text-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4">Job</h1>
-          <p className="text-xl">Find your dream job opportunity</p>
+      <div className="relative bg-gradient-to-r from-[#29A0D8] to-[#6DD3FF] py-20">
+        <div className="container mx-auto px-6 text-center text-white">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Jobs</h1>
+          <p className="text-xl max-w-3xl mx-auto">
+            Find your dream job opportunity
+          </p>
         </div>
-      </section>
+      </div>
 
       {/* Job Search Section */}
       <section className="py-8 bg-gray-50">

@@ -1,92 +1,54 @@
-import Link from "next/link"
-import Image from "next/image"
+"use client"
 
-export default function Blog() {
-  // In a real application, this would come from a database or API
-  const blogs = [
-    {
-      id: 1,
-      title: "Top Staffing Services in Kolkata: What Makes NSTHR Stand Out",
-      excerpt: "nstHr (Next Step Talent Human Resource) is a leading HR consultancy in Kolkata that provides end-to-end recruitment services to businesses of all sizes. ",
-      date: "April 05, 2025",
-      image: "/blog.svg",
-      slug: "Staffing-Services-Kolkata",
-    },
-    {
-      id: 2,
-      title: "Executive & IT Recruitment that Drives Business Growth | nstHr, Kolkata",
-      excerpt: "One of the trusted recruitment companies in Kolkata, our mission is to connect organizations with exceptional leadership and IT professionals who fuel growth, innovation, and transformation.",
-      date: "April 06, 2025",
-      image: "/blog2.svg",
-      slug: "IT-Recruitment",
-    },
-    {
-      id: 3,
-      title: "Top Skills Employers Look for in 2023",
-      excerpt: "Stay ahead of the competition by developing these in-demand skills that employers are seeking.",
-      date: "January 10, 2023",
-      image: "/placeholder.svg?height=300&width=500",
-      slug: "top-skills-employers-look-for",
-    },
-    {
-      id: 4,
-      title: "How to Write a Resume That Gets Noticed",
-      excerpt: "Tips and tricks to create a resume that will catch the attention of hiring managers.",
-      date: "December 5, 2022",
-      image: "/placeholder.svg?height=300&width=500",
-      slug: "write-resume-that-gets-noticed",
-    },
-  ]
+import { useEffect, useState } from "react"
+import axios from "axios"
+import Link from "next/link"
+
+interface Blog {
+  blog_id: number
+  title: string
+  subheading: string
+  thumbnail: string
+  published_date: string
+}
+
+export default function BlogPage() {
+  const [blogs, setBlogs] = useState<Blog[]>([])
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const res = await axios.post("http://localhost:9000/api/blogs/all", {})
+        setBlogs(res.data.blogs)
+      } catch (err) {
+        console.error("Error fetching blogs:", err)
+      }
+    }
+
+    fetchBlogs()
+  }, [])
 
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="bg-[#29A0D8] text-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4">Blog</h1>
-          <p className="text-xl">Stay updated with the latest trends and insights in recruitment and HR</p>
-        </div>
-      </section>
-
-      {/* Blog Posts */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogs.map((blog) => (
-              <div key={blog.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow group">
-                {/* Clickable area covering the image and text */}
-                <Link href={`/blog/${blog.slug}`} className="block">
-                  <div className="h-48 relative">
-                    <Image
-                      src={blog.image || "/placeholder.svg"}
-                      alt={blog.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <p className="text-gray-500 text-sm mb-2">{blog.date}</p>
-                    <h2 className="text-xl font-bold mb-2 group-hover:text-[#29A0D8] transition-colors">
-                      {blog.title}
-                    </h2>
-                    <p className="text-gray-600 mb-4">{blog.excerpt}</p>
-                  </div>
-                </Link>
-
-                {/* Separate Read More link */}
-                <div className="px-6 pb-6">
-                  <Link
-                    href={`/blog/${blog.slug}`}
-                    className="text-[#29A0D8] font-medium hover:text-[#1E90D8] hover:underline transition-colors"
-                  >
-                    Read More
-                  </Link>
-                </div>
+    <div className="max-w-7xl mx-auto px-4 py-12">
+      <h1 className="text-4xl font-bold text-center mb-10">Latest Blogs</h1>
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {blogs.map((blog) => (
+          <Link key={blog.blog_id} href={`/blog/${blog.blog_id}`}>
+            <div className="bg-white shadow-lg rounded-xl overflow-hidden hover:shadow-2xl transition duration-300 group">
+              <img
+                src={blog.thumbnail}
+                alt={blog.title}
+                className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
+              />
+              <div className="p-5">
+                <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
+                <p className="text-sm text-gray-500 mb-3">{blog.subheading}</p>
+                <p className="text-xs text-gray-400">{new Date(blog.published_date).toDateString()}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   )
 }

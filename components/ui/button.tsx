@@ -46,8 +46,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       variant,
       size,
       asChild = false,
-      gradientFrom = "#29A0D8",
-      gradientTo = "#1E7CAD",
+      gradientFrom = "#6DD3FF", // Custom gradient default FROM
+      gradientTo = "#29A0D8",   // Custom gradient default TO
       intensity = 100,
       style,
       ...props

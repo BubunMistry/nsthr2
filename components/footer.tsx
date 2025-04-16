@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } 
 
 export default function Footer() {
   return (
-    <footer className="bg-[#29A0D8] text-white">
+    <footer className="bg-gradient-to-r from-[#29A0D8] to-[#6DD3FF] text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Column 1: Logo & Tagline */}
@@ -178,27 +178,28 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Copyright */}
-      <div className="bg-[#1E90D8] py-3">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-white/90">
-              © {new Date().getFullYear()} nstHr Pvt. Ltd. All Rights Reserved.
-            </p>
-            <div className="flex gap-4 mt-2 md:mt-0">
-              <Link href="/privacy" className="text-sm text-white/90 hover:text-white">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="text-sm text-white/90 hover:text-white">
-                Terms of Service
-              </Link>
-              <Link href="/contact/#map" className="text-sm text-white/90 hover:text-white">
-                Sitemap
-              </Link>
-            </div>
-          </div>
-        </div>
+  {/* Copyright */}
+<div className="bg-gradient-to-r from-[#29A0D8] to-[#6DD3FF] border-t border-white/50 py-2">
+  <div className="container mx-auto px-4">
+    <div className="flex flex-col md:flex-row justify-between items-center">
+      <p className="text-sm text-white/90">
+        © {new Date().getFullYear()} nstHr Pvt. Ltd. All Rights Reserved.
+      </p>
+      <div className="flex gap-4 mt-2 md:mt-0">
+        <Link href="/privacy" className="text-sm text-white/90 hover:text-white">
+          Privacy Policy
+        </Link>
+        <Link href="/terms" className="text-sm text-white/90 hover:text-white">
+          Terms of Service
+        </Link>
+        <Link href="/contact/#map" className="text-sm text-white/90 hover:text-white">
+          Sitemap
+        </Link>
       </div>
+    </div>
+  </div>
+</div>
+
     </footer>
   )
 }

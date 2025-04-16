@@ -108,102 +108,68 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-12 md:py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-8 md:mb-12">Our Leadership Team</h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-            {/* Team Member 1 */}
-            <div className="bg-white p-6 md:p-8 rounded-xl shadow-md flex flex-col sm:flex-row gap-4 md:gap-6 transition-all hover:shadow-lg">
-              <div className="sm:w-1/3 flex justify-center sm:justify-start">
-                <div className="relative w-40 h-40 sm:w-full sm:h-auto aspect-square">
-                  <Image
-                    src="/images/team/abhishek.svg"
-                    alt="Abhishek Raj"
-                    fill
-                    className="rounded-lg object-cover"
-                  />
-                </div>
-              </div>
-              <div className="sm:w-2/3">
-                <h3 className="text-lg sm:text-xl font-bold text-gray-800">Abhishek Raj</h3>
-                <p className="text-[#29A0D8] mb-2 md:mb-4">Founder & Managing Director</p>
-                <p className="text-sm md:text-base text-gray-600">
-                  Technology and marketing operations leader with a BTech in Electronics and Communications. 
-                  Brings entrepreneurial vision and five years of HR service expertise to nstHr.
-                </p>
-              </div>
-            </div>
-            
-            {/* Team Member 2 */}
-            <div className="bg-white p-6 md:p-8 rounded-xl shadow-md flex flex-col sm:flex-row gap-4 md:gap-6 transition-all hover:shadow-lg">
-              <div className="sm:w-1/3 flex justify-center sm:justify-start">
-                <div className="relative w-40 h-40 sm:w-full sm:h-auto aspect-square">
-                  <Image
-                    src="/images/team/neha.svg"
-                    alt="Neha Kesari"
-                    fill
-                    className="rounded-lg object-cover"
-                  />
-                </div>
-              </div>
-              <div className="sm:w-2/3">
-                <h3 className="text-lg sm:text-xl font-bold text-gray-800">Neha Kesari</h3>
-                <p className="text-[#29A0D8] mb-2 md:mb-4">CEO & Business Head</p>
-                <p className="text-sm md:text-base text-gray-600">
-                  Oversees client relationships and operational excellence with six years of HR domain experience. 
-                  Specializes in strategic planning and business development.
-                </p>
-              </div>
-            </div>
-            
-            {/* Team Member 3 */}
-            <div className="bg-white p-6 md:p-8 rounded-xl shadow-md flex flex-col sm:flex-row gap-4 md:gap-6 transition-all hover:shadow-lg">
-              <div className="sm:w-1/3 flex justify-center sm:justify-start">
-                <div className="relative w-40 h-40 sm:w-full sm:h-auto aspect-square">
-                  <Image
-                    src="/images/team/rajesh.svg"
-                    alt="Rajesh Singh"
-                    fill
-                    className="rounded-lg object-cover"
-                  />
-                </div>
-              </div>
-              <div className="sm:w-2/3">
-                <h3 className="text-lg sm:text-xl font-bold text-gray-800">Rajesh Singh</h3>
-                <p className="text-[#29A0D8] mb-2 md:mb-4">Branch Head & Business Coordinator</p>
-                <p className="text-sm md:text-base text-gray-600">
-                  Manages regional operations and client coordination with expertise in workforce solutions 
-                  and talent acquisition strategies.
-                </p>
-              </div>
-            </div>
-            
-            {/* Team Member 4 */}
-            <div className="bg-white p-6 md:p-8 rounded-xl shadow-md flex flex-col sm:flex-row gap-4 md:gap-6 transition-all hover:shadow-lg">
-              <div className="sm:w-1/3 flex justify-center sm:justify-start">
-                <div className="relative w-40 h-40 sm:w-full sm:h-auto aspect-square">
-                  <Image
-                    src="/images/team/aprajit.svg"
-                    alt="Aprajit Marik"
-                    fill
-                    className="rounded-lg object-cover"
-                  />
-                </div>
-              </div>
-              <div className="sm:w-2/3">
-                <h3 className="text-lg sm:text-xl font-bold text-gray-800">Aprajit Marik</h3>
-                <p className="text-[#29A0D8] mb-2 md:mb-4">Recruitment Manager</p>
-                <p className="text-sm md:text-base text-gray-600">
-                  Leads talent acquisition with a focus on matching top candidates to organizational needs. 
-                  Specializes in IT and healthcare recruitment.
-                </p>
-              </div>
+{/* Team Section */}
+<section className="py-12 md:py-16 bg-gray-50">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-8 md:mb-12">
+      Our Leadership Team
+    </h2>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Team Member */}
+      {[
+        {
+          name: "Abhishek Raj",
+          title: "Founder & Managing Director",
+          img: "/images/team/abhishek.svg",
+          desc: "Technology and marketing operations leader with a BTech in Electronics and Communications. Brings entrepreneurial vision and five years of HR service expertise to nstHr.",
+        },
+        {
+          name: "Neha Kesari",
+          title: "CEO & Business Head",
+          img: "/images/team/neha.svg",
+          desc: "Oversees client relationships and operational excellence with six years of HR domain experience. Specializes in strategic planning and business development.",
+        },
+        {
+          name: "Rajesh Singh",
+          title: "Branch Head & Business Coordinator",
+          img: "/images/team/rajesh.svg",
+          desc: "Manages regional operations and client coordination with expertise in workforce solutions and talent acquisition strategies.",
+        },
+        {
+          name: "Aprajit Marik",
+          title: "Recruitment Manager",
+          img: "/images/team/aprajit.svg",
+          desc: "Leads talent acquisition with a focus on matching top candidates to organizational needs. Specializes in IT and healthcare recruitment.",
+        },
+      ].map((member, index) => (
+        <div
+          key={index}
+          className="bg-white p-6 md:p-8 rounded-2xl shadow-md flex flex-col sm:flex-row gap-4 md:gap-6 items-center transition-all duration-300 hover:scale-[1.015] hover:shadow-[0_0_25px_#29A0D855]"
+        >
+          <div className="flex-shrink-0">
+            <div className="relative w-32 h-32 sm:w-36 sm:h-36">
+              <Image
+                src={member.img}
+                alt={member.name}
+                fill
+                className="rounded-full object-cover border-4 border-[#29A0D8] shadow-lg transition-transform duration-300 hover:rotate-1"
+              />
             </div>
           </div>
+          <div className="text-center sm:text-left">
+            <h3 className="text-lg sm:text-xl font-bold text-gray-800">
+              {member.name}
+            </h3>
+            <p className="text-[#29A0D8] mb-2">{member.title}</p>
+            <p className="text-sm md:text-base text-gray-600">{member.desc}</p>
+          </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Value Proposition */}
       <section className="py-12 md:py-16 bg-gray-50">

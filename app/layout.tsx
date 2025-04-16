@@ -6,6 +6,7 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import SocialSidebar from "@/components/social-sidebar"
 import { Toaster } from "sonner" // Import from sonner
+import Mobile from "@/components/ui/mobile"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -73,6 +74,7 @@ export default function RootLayout({
           {children}
           <SocialSidebar position="right" />
         </main>
+      <Mobile/>
         <Footer />
         <Toaster 
           position="top-center"

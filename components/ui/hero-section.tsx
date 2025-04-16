@@ -12,15 +12,15 @@ const slides = [
     subtitle:
       "Hire top-tier developers, engineers, and IT professionals who match your exact tech stack and project needs.",
     cta: "Hire IT Talent",
-    image: "/hero3.jpg",
-    link: "/services/it-staffing",
+    image: "/hero3.webp",
+    link: "/industries/information-technology",
   },
   {
     title: "RPO Services Tailored for You",
     subtitle:
       "Streamline your entire hiring process with our end-to-end RPO solutions designed for speed, scale, and success.",
     cta: "Explore RPO Services",
-    image: "/hero2.jpg",
+    image: "/hero2.webp",
     link: "/services/rpo",
   },
   {
@@ -28,17 +28,19 @@ const slides = [
     subtitle:
       "From IT and healthcare to manufacturing and finance, NSTHR delivers recruitment solutions across all sectors.",
     cta: "View Industries",
-    image: "/hero1.jpg",
+    image: "/hero1.webp",
     link: "/services/recruitment-services",
   },
   {
-    title: "Level Up Your Workforce Strategy",
+    title: "Empowering Media Talent Acquisition",
     subtitle:
-      "Power your growth with innovative hiring, workforce analytics, and agile HR practices built for tomorrow.",
-    cta: "Discover Solutions",
-    image: "/hero4.jpg",
-    link: "/industries",
-  },
+      "Connect with top-tier creative minds, storytellers, and digital experts to elevate your media presence.",
+    cta: "Explore Media Hiring",
+    image: "/hero4.webp", 
+    link: "/industries/media-field",
+    
+  }
+  
 ];
 
 export default function HeroSection() {
@@ -47,7 +49,7 @@ export default function HeroSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 3000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [activeSlide]);
 
@@ -77,7 +79,7 @@ export default function HeroSection() {
               priority={index === 0}
             />
             {/* Darker Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/10 to-transparent"></div>
             {/* Content */}
             <div className="relative z-10 flex h-full items-center px-8 md:px-16">
               <div className="max-w-2xl sm:px-10 lg:px-16 text-left">

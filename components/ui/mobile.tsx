@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Phone, Video, Mail, MapPin, X } from 'lucide-react';
+import { Phone, Video, Mail, MapPin, X, NotebookPen } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -46,22 +46,22 @@ const Mobile = () => {
   const icons = [
     {
       href: 'tel:+916292197307',
-      icon: <Phone className="w-5 h-5" />,
+      icon: <Phone className="w-5 h-5 shadow-xl" />,
       text: 'Call Us',
     },
     {
       href: 'https://calendly.com/amarik-nsthr/30min',
-      icon: <Video className="w-5 h-5" />,
+      icon: <Video className="w-5 h-5 shadow-xl" />,
       text: 'Book Meeting',
     },
     {
       href: 'mailto:info@nsthr.com',
-      icon: <Mail className="w-5 h-5" />,
+      icon: <Mail className="w-5 h-5 shadow-xl" />,
       text: 'Email Us',
     },
     {
       href: 'https://www.google.com/maps/dir//nstHr+(+Total+Hr+Solutions+),+Unit+No.+1112,+11th+Floor,+PS+Qube,+Action+Area+I,+2D,+Newtown,+New+Town,+West+Bengal+700136',
-      icon: <MapPin className="w-5 h-5" />,
+      icon: <MapPin className="w-5 h-5 shadow-xl" />,
       text: 'Get Directions',
     },
     {
@@ -72,7 +72,7 @@ const Mobile = () => {
           alt="WhatsApp"
           width={20}
           height={20}
-          className="w-5 h-5 invert" // make it black
+          className="w-5 h-5 invert shadow-xl" // make it black
         />
       ),
       text: 'WhatsApp',
@@ -106,14 +106,12 @@ const Mobile = () => {
         className="p-3 bg-gradient-to-r from-[#29A0D8] to-[#1E7CAD] rounded-full shadow-lg text-white focus:outline-none transition-transform duration-300"
       >
         {isOpen ? (
-          <X className="w-6 h-6 text-white" />
+          <X className="w-6 h-6 text-white m-1" />
         ) : (
-          <Image
-            src="/whatsapp.svg"
-            alt="WhatsApp"
-            width={24}
-            height={24}
-            className="w-6 h-6" // now black WhatsApp icon
+           <NotebookPen
+         
+          
+            className="w-6 h-6 shadow-md shadow-[#29A0D8] m-1"
           />
         )}
       </button>

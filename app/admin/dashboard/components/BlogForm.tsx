@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -41,9 +42,8 @@ const BlogForm: React.FC<BlogFormProps> = ({ token, onSuccess }) => {
 
   const fetchBlogs = async () => {
     try {
-      const res = await axios.post("http://localhost:9000/api/blogs/all"); // adjust path as needed
-      console.log("Fetched blogs:", res.data.blogs);
-      setBlogs(res.data.blogs); // Ensure this is being called
+      const res = await axios.post("http://localhost:9000/api/blogs/all");
+      setBlogs(res.data.blogs);
     } catch (err) {
       console.error("Failed to fetch blogs:", err);
     }
@@ -53,11 +53,9 @@ const BlogForm: React.FC<BlogFormProps> = ({ token, onSuccess }) => {
     fetchBlogs();
   }, []);
 
-  useEffect(() => {
-    console.log("Blogs State Updated:", blogs);
-  }, [blogs]);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
@@ -86,10 +84,8 @@ const BlogForm: React.FC<BlogFormProps> = ({ token, onSuccess }) => {
       if (form.bodyImg) formData.append("bodyImg", form.bodyImg);
 
       const url = editingId
-        ? "http://localhost:9000/api/blogs/update"
+        ? `http://localhost:9000/api/blogs/update/${editingId}`
         : "http://localhost:9000/api/blogs/add";
-
-      if (editingId) formData.append("blog_id", editingId.toString());
 
       await axios.post(url, formData, {
         headers: {
@@ -114,7 +110,6 @@ const BlogForm: React.FC<BlogFormProps> = ({ token, onSuccess }) => {
       onSuccess?.();
     } catch (err: any) {
       setStatus("error");
-      console.error("Blog Submit Error:", err);
       setError(err.response?.data?.message || "Something went wrong");
     }
   };
@@ -151,27 +146,87 @@ const BlogForm: React.FC<BlogFormProps> = ({ token, onSuccess }) => {
 
   return (
     <div className="max-w-5xl mx-auto space-y-10 p-4">
-      {/* Blog Form */}
       <div className="bg-white p-6 rounded shadow-md">
-        <h1 className="text-2xl font-bold mb-4">{editingId ? "Update Blog" : "Create Blog"}</h1>
+        <h1 className="text-2xl font-bold mb-4">
+          {editingId ? "Update Blog" : "Create Blog"}
+        </h1>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <input name="title" value={form.title} onChange={handleChange} placeholder="Title" required className="w-full p-2 border rounded" />
-          <input name="subheading" value={form.subheading} onChange={handleChange} placeholder="Subheading" className="w-full p-2 border rounded" />
-          <textarea name="content" value={form.content} onChange={handleChange} placeholder="Content" rows={5} required className="w-full p-2 border rounded" />
-          <textarea name="conclusion" value={form.conclusion} onChange={handleChange} placeholder="Conclusion" rows={3} className="w-full p-2 border rounded" />
-          <input name="hyperlinks" value={form.hyperlinks} onChange={handleChange} placeholder="Hyperlinks (comma separated or JSON)" className="w-full p-2 border rounded" />
+          <input
+            name="title"
+            value={form.title}
+            onChange={handleChange}
+            placeholder="Title"
+            required
+            className="w-full p-2 border rounded"
+          />
+          <input
+            name="subheading"
+            value={form.subheading}
+            onChange={handleChange}
+            placeholder="Subheading"
+            className="w-full p-2 border rounded"
+          />
+          <textarea
+            name="content"
+            value={form.content}
+            onChange={handleChange}
+            placeholder="Content"
+            rows={5}
+            required
+            className="w-full p-2 border rounded"
+          />
+          <textarea
+            name="conclusion"
+            value={form.conclusion}
+            onChange={handleChange}
+            placeholder="Conclusion"
+            rows={3}
+            className="w-full p-2 border rounded"
+          />
+          <input
+            name="hyperlinks"
+            value={form.hyperlinks}
+            onChange={handleChange}
+            placeholder="Hyperlinks (comma separated or JSON)"
+            className="w-full p-2 border rounded"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <input name="thumbnail" type="file" onChange={handleFileChange} className="w-full p-2 border rounded" />
-            <input name="coverImg" type="file" onChange={handleFileChange} className="w-full p-2 border rounded" />
-            <input name="bodyImg" type="file" onChange={handleFileChange} className="w-full p-2 border rounded" />
+            <input
+              name="thumbnail"
+              type="file"
+              onChange={handleFileChange}
+              className="w-full p-2 border rounded"
+            />
+            <input
+              name="coverImg"
+              type="file"
+              onChange={handleFileChange}
+              className="w-full p-2 border rounded"
+            />
+            <input
+              name="bodyImg"
+              type="file"
+              onChange={handleFileChange}
+              className="w-full p-2 border rounded"
+            />
           </div>
 
-          <button type="submit" disabled={status === "loading"} className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
-            {status === "loading" ? "Submitting..." : editingId ? "Update Blog" : "Submit Blog"}
+          <button
+            type="submit"
+            disabled={status === "loading"}
+            className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+          >
+            {status === "loading"
+              ? "Submitting..."
+              : editingId
+              ? "Update Blog"
+              : "Submit Blog"}
           </button>
 
-          {status === "success" && <p className="text-green-600">Blog submitted successfully!</p>}
+          {status === "success" && (
+            <p className="text-green-600">Blog submitted successfully!</p>
+          )}
           {status === "error" && <p className="text-red-600">Error: {error}</p>}
         </form>
       </div>
@@ -180,21 +235,39 @@ const BlogForm: React.FC<BlogFormProps> = ({ token, onSuccess }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {blogs.length > 0 ? (
           blogs.map((blog) => (
-            <div key={blog.blog_id} className="bg-white p-4 rounded shadow space-y-2">
+            <div
+              key={blog.blog_id}
+              className="bg-white p-4 rounded shadow space-y-2"
+            >
+              {blog.thumbnail && (
+                <img
+                  src={`http://localhost:9000/uploads/blogs/${blog.thumbnail}`}
+                  alt={blog.title}
+                  className="w-full h-48 object-cover rounded"
+                />
+              )}
               <h2 className="text-lg font-semibold">{blog.title}</h2>
               <p className="text-sm text-gray-600">{blog.subheading}</p>
               <div className="flex gap-2 mt-2">
-                <button onClick={() => handleEdit(blog)} className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
+                <button
+                  onClick={() => handleEdit(blog)}
+                  className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
+                >
                   Edit
                 </button>
-                <button onClick={() => handleDelete(blog.blog_id)} className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">
+                <button
+                  onClick={() => handleDelete(blog.blog_id)}
+                  className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
+                >
                   Delete
                 </button>
               </div>
             </div>
           ))
         ) : (
-          <p className="text-center col-span-full text-gray-500">No blogs available</p>
+          <p className="text-center col-span-full text-gray-500">
+            No blogs available
+          </p>
         )}
       </div>
     </div>

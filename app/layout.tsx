@@ -5,7 +5,7 @@ import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import SocialSidebar from "@/components/social-sidebar"
-import { Toaster } from "sonner" // Import from sonner
+import { Toaster } from "sonner"
 import Mobile from "@/components/ui/mobile"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -15,7 +15,7 @@ export const metadata = {
   description:
     'NSTHR is India’s top recruitment and HR consulting company based in Kolkata. We help startups, SMEs, and enterprises hire the best talent in IT, FMCG, healthcare, media, infrastructure, and more. Trusted by hundreds of companies and job seekers alike.',
   keywords:
-    'NSTHR, recruitment company India, top HR firm, best staffing agency, hire employees India, job consultancy Kolkata, IT recruitment, FMCG staffing, media hiring, outsource hiring solutions, temporary staffing agency, executive search, headhunting services, Indian recruitment firm, job openings India, hr outsourcing, career in India, NSTHR jobs, NSTHR careers, jobs at NSTHR, NSTHR consultancy, NSTHR solutions',
+    'NSTHR,nsthr, recruitment company, hr company, top HR firm, best staffing agency, hire employees , job consultancy Kolkata, IT recruitment, FMCG staffing, media hiring, outsource hiring solutions, temporary staffing agency, executive search, headhunting services, Indian recruitment firm, job openings India, hr outsourcing, career in India, NSTHR jobs, NSTHR careers, jobs at NSTHR, NSTHR consultancy, NSTHR solutions',
 
   authors: [{ name: 'NSTHR Pvt Ltd', url: 'https://nsthr.com' }],
   robots: {

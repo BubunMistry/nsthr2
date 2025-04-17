@@ -1,124 +1,150 @@
 "use client";
-import { useState } from "react";
-import { Pencil, Plus, Trash2, Save, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Plus, Save, Trash2, X, Pencil } from "lucide-react";
 import { toast } from "sonner";
+import axios from "axios";
 
 interface EducationItem {
+  edu_id: string;
   id: string;
   degree: string;
   institution: string;
   start_year: string;
   end_year: string;
   description: string;
-  user_id: string;
 }
 
-export default function EducationSection({ 
-  education: initialEducation,
-  userId 
-}: { 
-  education: EducationItem[];
-  userId: string;
-}) {
-  const [education, setEducation] = useState(initialEducation);
-  const [isEditing, setIsEditing] = useState<string | null>(null);
-  const [newEducation, setNewEducation] = useState<Partial<EducationItem>>({
-    degree: "",
-    institution: "",
-    start_year: "",
-    end_year: "",
-    description: "",
-    user_id: userId
-  });
+interface EducationAPIItem extends Omit<EducationItem, 'id'> {
+  id?: any;
+  edu_id?: string;
+}
+
+export default function EducationSection({ userToken }: { userToken: string }) {
+  const [educationData, setEducationData] = useState<EducationItem[]>([]);
+  const [editId, setEditId] = useState<string | null>(null);
   const [isAdding, setIsAdding] = useState(false);
+  const [formData, setFormData] = useState<Partial<EducationItem>>({});
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleEdit = (id: string) => {
-    setIsEditing(id);
-  };
+  useEffect(() => {
+    fetchEducation();
+  }, []);
 
-  const handleCancel = () => {
-    setIsEditing(null);
-    setIsAdding(false);
-    setNewEducation({
-      degree: "",
-      institution: "",
-      start_year: "",
-      end_year: "",
-      description: "",
-      user_id: userId
-    });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, id?: string) => {
-    const { name, value } = e.target;
-    
-    if (id) {
-      setEducation(prev => prev.map(edu => 
-        edu.id === id ? { ...edu, [name]: value } : edu
-      ));
-    } else {
-      setNewEducation(prev => ({ ...prev, [name]: value }));
-    }
-  };
-
-  const handleAddEducation = () => {
-    setIsAdding(true);
-  };
-
-  const createEducation = async () => {
+  const fetchEducation = async () => {
     try {
       setIsLoading(true);
-      const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:9000/api/users/education/create', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-        body: JSON.stringify(newEducation),
-      });
+      const res = await axios.post(
+        "http://localhost:9000/api/users/education/fetch",
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
 
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.message || 'Failed to create education');
+      // Normalize each item
+      const normalizedData: EducationItem[] = (res.data || []).map((item: any) => ({
+        id: item.edu_id || item.id,
+        degree: item.degree,
+        institution: item.institution,
+        start_year: item.start_year,
+        end_year: item.end_year,
+        description: item.description,
+        edu_id: item.edu_id || item.id, // optional fallback
+      }));
 
-      setEducation(prev => [...prev, data]);
-      toast.success('Education added successfully');
-      handleCancel();
-    } catch (error) {
-      toast.error((error instanceof Error ? error.message : 'Unknown error') || 'Error creating education');
+      setEducationData(normalizedData);
+    } catch (err: any) {
+      toast.error(err?.response?.data?.message || err.message || "Error fetching education");
     } finally {
       setIsLoading(false);
     }
   };
 
-  const updateEducation = async (id: string) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleEdit = (item: EducationItem) => {
+    setEditId(item.id);
+    setFormData(item);
+    setIsAdding(false);
+  };
+
+  const handleAddNew = () => {
+    setFormData({
+      degree: "",
+      institution: "",
+      start_year: "",
+      end_year: "",
+      description: "",
+    });
+    setIsAdding(true);
+    setEditId(null);
+  };
+
+  const handleCancel = () => {
+    setEditId(null);
+    setIsAdding(false);
+    setFormData({});
+  };
+
+  const createEducation = async () => {
     try {
       setIsLoading(true);
-      const eduToUpdate = education.find(edu => edu.id === id);
-      if (!eduToUpdate) return;
+      const { id, ...dataWithoutId } = formData;
 
-      const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:9000/api/users/education/update', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-        body: JSON.stringify(eduToUpdate),
-      });
+      await axios.post(
+        "http://localhost:9000/api/users/education/create",
+        dataWithoutId,
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
 
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.message || 'Failed to update education');
+      toast.success("Education added successfully");
+      await fetchEducation(); // Re-fetch from backend to sync
+      handleCancel();
+    } catch (err: any) {
+      toast.error(err.response?.data?.message || "Error adding education");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-      toast.success('Education updated successfully');
-      setIsEditing(null);
-    } catch (error) {
-      if (error instanceof Error) {
-        toast.error(error.message);
-      } else {
-        toast.error('Error updating education');
-      }
+  const updateEducation = async () => {
+    try {
+      if (!formData.id) return;
+
+      setIsLoading(true);
+      const apiData: EducationAPIItem = {
+        edu_id: formData.id,
+        degree: formData.degree || "",
+        institution: formData.institution || "",
+        start_year: formData.start_year || "",
+        end_year: formData.end_year || "",
+        description: formData.description || "",
+      };
+
+      await axios.post(
+        "http://localhost:9000/api/users/education/update",
+        apiData,
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
+
+      toast.success("Education updated successfully");
+      await fetchEducation(); // Re-fetch from backend to sync
+      handleCancel();
+    } catch (err: any) {
+      toast.error(err.response?.data?.message || "Error updating education");
     } finally {
       setIsLoading(false);
     }
@@ -127,110 +153,106 @@ export default function EducationSection({
   const deleteEducation = async (id: string) => {
     try {
       setIsLoading(true);
-      const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:9000/api/users/education/delete', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-        body: JSON.stringify({ id }),
-      });
+      await axios.post(
+        "http://localhost:9000/api/users/education/delete",
+        { edu_id: id },
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
 
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.message || 'Failed to delete education');
-
-      setEducation(prev => prev.filter(edu => edu.id !== id));
-      toast.success('Education deleted successfully');
-    } catch (error) {
-      toast.error((error instanceof Error ? error.message : 'Unknown error') || 'Error deleting education');
+      toast.success("Education deleted successfully");
+      await fetchEducation(); // Re-fetch from backend to sync
+    } catch (err: any) {
+      toast.error(err.response?.data?.message || "Error deleting education");
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <section className="relative">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-semibold">Education</h2>
-        <button 
-          onClick={handleAddEducation}
-          disabled={isAdding || isLoading}
-          className="flex items-center gap-1 text-blue-600"
-        >
-          <Plus size={20} /> Add Education
-        </button>
+    <section className="space-y-4">
+      <div className="flex justify-between items-center mb-2">
+        <h2 className="text-2xl font-semibold mb-3">Education</h2>
+        {!isAdding && !editId && (
+          <button
+            onClick={handleAddNew}
+            disabled={isLoading}
+            className="flex items-center gap-1 text-[#29A0D8]"
+          >
+            <Plus size={18} />
+            Add
+          </button>
+        )}
       </div>
 
-      {isAdding && (
-        <div className="mb-6 bg-white p-4 rounded-md shadow border">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+      {(isAdding || editId) && (
+        <div className="bg-white p-4 rounded shadow border">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium mb-1">Degree</label>
               <input
-                type="text"
                 name="degree"
-                value={newEducation.degree}
-                onChange={(e) => handleChange(e)}
-                className="w-full p-2 border rounded"
+                value={formData.degree || ""}
+                onChange={handleInputChange}
+                className="w-full border p-2 rounded"
               />
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Institution</label>
               <input
-                type="text"
                 name="institution"
-                value={newEducation.institution}
-                onChange={(e) => handleChange(e)}
-                className="w-full p-2 border rounded"
+                value={formData.institution || ""}
+                onChange={handleInputChange}
+                className="w-full border p-2 rounded"
               />
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Start Year</label>
               <input
-                type="text"
                 name="start_year"
-                value={newEducation.start_year}
-                onChange={(e) => handleChange(e)}
-                className="w-full p-2 border rounded"
+                value={formData.start_year || ""}
+                onChange={handleInputChange}
+                className="w-full border p-2 rounded"
                 placeholder="YYYY"
               />
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">End Year</label>
               <input
-                type="text"
                 name="end_year"
-                value={newEducation.end_year}
-                onChange={(e) => handleChange(e)}
-                className="w-full p-2 border rounded"
+                value={formData.end_year || ""}
+                onChange={handleInputChange}
+                className="w-full border p-2 rounded"
                 placeholder="YYYY or Present"
               />
             </div>
+            <div className="md:col-span-2">
+              <label className="block text-sm font-medium mb-1">Description</label>
+              <textarea
+                name="description"
+                rows={3}
+                value={formData.description || ""}
+                onChange={handleInputChange}
+                className="w-full border p-2 rounded"
+              />
+            </div>
           </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-1">Description</label>
-            <textarea
-              name="description"
-              value={newEducation.description}
-              onChange={(e) => handleChange(e)}
-              rows={3}
-              className="w-full p-2 border rounded"
-            />
-          </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 mt-4">
             <button
-              onClick={createEducation}
+              onClick={editId ? updateEducation : createEducation}
               disabled={isLoading}
-              className="flex items-center gap-1 bg-blue-500 text-white px-3 py-1 rounded"
+              className="bg-gradient-to-r from-[#29A0D8] to-[#6DD3FF] rounded-full text-white px-6 py-2 rounded flex items-center gap-1"
             >
               <Save size={16} />
-              {isLoading ? 'Saving...' : 'Save'}
+              {isLoading ? "Saving..." : "Save"}
             </button>
             <button
               onClick={handleCancel}
               disabled={isLoading}
-              className="flex items-center gap-1 bg-gray-500 text-white px-3 py-1 rounded"
+              className="bg-red-600 rounded-full text-white px-6 py-2 rounded flex items-center gap-1"
             >
               <X size={16} />
               Cancel
@@ -239,116 +261,32 @@ export default function EducationSection({
         </div>
       )}
 
-      {education.map((edu) => (
-        <div key={edu.id} className="mb-4 bg-white p-4 rounded-md shadow border">
-          {isEditing === edu.id ? (
-            <>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label className="block text-sm font-medium mb-1">Degree</label>
-                  <input
-                    type="text"
-                    name="degree"
-                    value={edu.degree}
-                    onChange={(e) => handleChange(e, edu.id)}
-                    className="w-full p-2 border rounded"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-1">Institution</label>
-                  <input
-                    type="text"
-                    name="institution"
-                    value={edu.institution}
-                    onChange={(e) => handleChange(e, edu.id)}
-                    className="w-full p-2 border rounded"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-1">Start Year</label>
-                  <input
-                    type="text"
-                    name="start_year"
-                    value={edu.start_year}
-                    onChange={(e) => handleChange(e, edu.id)}
-                    className="w-full p-2 border rounded"
-                    placeholder="YYYY"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-1">End Year</label>
-                  <input
-                    type="text"
-                    name="end_year"
-                    value={edu.end_year}
-                    onChange={(e) => handleChange(e, edu.id)}
-                    className="w-full p-2 border rounded"
-                    placeholder="YYYY or Present"
-                  />
-                </div>
-              </div>
-              <div className="mb-4">
-                <label className="block text-sm font-medium mb-1">Description</label>
-                <textarea
-                  name="description"
-                  value={edu.description}
-                  onChange={(e) => handleChange(e, edu.id)}
-                  rows={3}
-                  className="w-full p-2 border rounded"
-                />
-              </div>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => updateEducation(edu.id)}
-                  disabled={isLoading}
-                  className="flex items-center gap-1 bg-blue-500 text-white px-3 py-1 rounded"
-                >
-                  <Save size={16} />
-                  {isLoading ? 'Saving...' : 'Save'}
-                </button>
-                <button
-                  onClick={handleCancel}
-                  disabled={isLoading}
-                  className="flex items-center gap-1 bg-gray-500 text-white px-3 py-1 rounded"
-                >
-                  <X size={16} />
-                  Cancel
-                </button>
-                <button
-                  onClick={() => deleteEducation(edu.id)}
-                  disabled={isLoading}
-                  className="flex items-center gap-1 bg-red-500 text-white px-3 py-1 rounded ml-auto"
-                >
-                  <Trash2 size={16} />
-                  Delete
-                </button>
-              </div>
-            </>
-          ) : (
-            <div className="relative">
-              <p className="font-bold text-lg">{edu.degree}</p>
-              <p className="text-gray-700">{edu.institution}</p>
-              <p className="text-gray-600">{edu.start_year} - {edu.end_year}</p>
-              {edu.description && <p className="mt-2">{edu.description}</p>}
-              
-              <div className="absolute top-0 right-0 flex gap-2">
-                <button
-                  onClick={() => handleEdit(edu.id)}
-                  className="text-blue-600 hover:text-blue-800"
-                  disabled={isLoading}
-                >
-                  <Pencil size={18} />
-                </button>
-                <button
-                  onClick={() => deleteEducation(edu.id)}
-                  className="text-red-600 hover:text-red-800"
-                  disabled={isLoading}
-                >
-                  <Trash2 size={18} />
-                </button>
-              </div>
+      {educationData.length === 0 && !isAdding && (
+        <div className="text-gray-600 border p-4 rounded shadow bg-white">
+          <p>No education history added yet.</p>
+        </div>
+      )}
+
+      {educationData.map(item => (
+        <div key={item.id} className="relative bg-white p-4 rounded shadow border">
+          <div className="flex justify-between">
+            <div>
+              <h3 className="font-semibold text-lg">{item.degree}</h3>
+              <p className="text-sm text-gray-600">{item.institution}</p>
+              <p className="text-sm text-gray-500">
+                {item.start_year} - {item.end_year}
+              </p>
+              {item.description && <p className="mt-2">{item.description}</p>}
             </div>
-          )}
+            <div className="flex gap-2">
+              <button onClick={() => handleEdit(item)} className="text-[#29A0D8] hover:text-[#6DD3FF]">
+                <Pencil size={20} />
+              </button>
+              <button onClick={() => deleteEducation(item.id)} className="text-red-600">
+                <Trash2 size={20} />
+              </button>
+            </div>
+          </div>
         </div>
       ))}
     </section>

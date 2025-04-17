@@ -22,7 +22,7 @@ const SocialSidebar = ({ position }: SocialSidebarProps) => {
     <div
       className={`fixed ${position === "left" ? "left-0" : "right-0"} top-1/2 transform -translate-y-1/2 z-40 hidden md:block`}
     >
-      <div className="flex bg-white rounded-full flex-col gap-4 p-2 shadow-md shadow-black/20">
+      <div className="flex bg-[#dfdfdf38] rounded-full flex-col gap-4 p-2 shadow-md shadow-black/20">
         {position === "left" ? (
           <>
             <SocialIcon

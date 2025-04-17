@@ -26,8 +26,8 @@ import {
   Scaling,
   Microscope,
   PencilLine,
-    Warehouse,
-    Rss, Laptop, Clock, Workflow, Banknote 
+  Warehouse,
+  Rss, Laptop, Clock, Workflow, Banknote
 } from "lucide-react"
 
 const Navbar = () => {
@@ -64,7 +64,7 @@ const Navbar = () => {
     { href: "/industries/outsourcing", label: "Outsourcing", icon: <Scaling size={16} /> },
     { href: "/industries/manufacturing", label: "Manufacturing", icon: <Factory size={16} /> },
     { href: "/industries/retail", label: "Retail", icon: <ShoppingCart size={16} /> },
-    { href: "/industries/fmcg", label: "FMCG", icon:<Warehouse size={16} />  },
+    { href: "/industries/fmcg", label: "FMCG", icon: <Warehouse size={16} /> },
     { href: "/industries/research-analytics", label: "Research & Analytics", icon: <Microscope size={16} /> },
     { href: "/industries/media-field", label: "Media", icon: <Film size={16} /> },
     { href: "/industries/infrastructure", label: "Infrastructure", icon: <Construction size={16} /> },
@@ -80,7 +80,7 @@ const Navbar = () => {
     {
       label: "Services",
       icon: <Briefcase size={18} />,
-      submenu : [
+      submenu: [
         { href: "/services/recruitment-services", label: "Recruitment Services", icon: <Users size={16} /> },
         { href: "/services/it-staffing", label: "IT Staffing", icon: <Laptop size={16} /> },
         { href: "/services/project-hiring", label: "Project Hiring", icon: <Briefcase size={16} /> },
@@ -163,11 +163,10 @@ const Navbar = () => {
 
                   {/* Animated dropdown */}
                   <div
-                    className={`absolute left-0 mt-2 min-w-[280px] bg-white rounded-xl shadow-2xl overflow-hidden transition-all duration-300 origin-top ${
-                      activeDropdown === item.label
+                    className={`absolute left-0 mt-2 min-w-[280px] bg-white rounded-xl shadow-2xl overflow-hidden transition-all duration-300 origin-top ${activeDropdown === item.label
                         ? "opacity-100 scale-100 translate-y-0"
                         : "opacity-0 scale-95 translate-y-1 pointer-events-none"
-                    }`}
+                      }`}
                     style={{
                       boxShadow: "0 10px 30px -10px rgba(41, 160, 216, 0.3)",
                     }}
@@ -194,7 +193,7 @@ const Navbar = () => {
                         <LogIn size={10} />
                         <span>Login</span>
                       </span>
-                      
+
                     </div>
                   )}
                 </div>
@@ -222,8 +221,8 @@ const Navbar = () => {
               href="/contact"
               className="relative flex items-center px-4 py-2 text-white text-sm font-medium gap-1.5"
             >
-                <PencilLine size={16} />
-             
+              <PencilLine size={16} />
+
               <span>Get in Touch</span>
               <span className="absolute inset-0 bg-[radial-gradient(circle_at_center,_white_0%,_transparent_10%)] opacity-0 hover:opacity-20 transition-opacity duration-300"></span>
             </Link>

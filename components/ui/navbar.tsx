@@ -224,7 +224,7 @@ const Navbar = () => {
               <PencilLine size={16} />
 
               <span>Get in Touch</span>
-              <span className="absolute inset-0 bg-[radial-gradient(circle_at_center,_white_0%,_transparent_10%)] opacity-0 hover:opacity-20 transition-opacity duration-300"></span>
+              <span className="absolute inset-0 bg-gradient-to-r from-[#29A0D8] to-[#6DD3FF] opacity-0 hover:opacity-20 transition-opacity duration-300"></span>
             </Link>
           </div>
         </nav>
@@ -301,7 +301,7 @@ const Navbar = () => {
             {/* Mobile CTA - same as desktop */}
             <Link
               href="/contact"
-              className="mt-4 inline-flex items-center justify-center w-full px-4 py-2.5 bg-gradient-to-r from-[#29A0D8] to-[#1E7CAD] text-white rounded-lg text-sm font-medium gap-2 shadow-md"
+              className="mt-4 inline-flex items-center justify-center w-full px-4 py-2.5 bg-gradient-to-r from-[#29A0D8] to-[#6DD3FF] text-white rounded-lg text-sm font-medium gap-2 shadow-md"
               onClick={() => setIsMenuOpen(false)}
             >
               <Contact size={16} />

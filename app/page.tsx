@@ -1,3 +1,6 @@
+"use client"
+
+
 import Link from "next/link"
 import Image from "next/image"
 import { Trophy } from "lucide-react";
@@ -11,13 +14,15 @@ import {
   Fuel,
   Megaphone,
   Code,
-  Bolt
+  Bolt, Headset
 } from "lucide-react"
 import ClientsSection from "@/components/ui/ClientsSection"
 import Carousel from "@/components/carousel"
 import HeroSection from "@/components/ui/hero-section"
 import Industries from "@/components/ui/industries";
 import Team from "@/components/ui/team";
+import PopContact from "@/components/ui/popcontact";
+import Modal from "@/components/ui/modal";
 
 const industries = [
   { name: "Insurance", icon: <Stethoscope className="w-8 h-8" /> },
@@ -77,147 +82,165 @@ const testimonials = [
   }
 ]
 
+import { useState } from "react";
+
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
       {/* Hero Section */}
       <HeroSection />
 
+      <>
       {/* Job Search Section */}
       <section className="bg-white text-white py-6">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            
+            {/* Job Button */}
             <Link
               href="/jobs"
-              className="bg-gradient-to-r from-[#6DD3FF] to-[#29A0D8] hover:bg-[#1682C8] transition-colors p-4 rounded-md flex items-center justify-center gap-2"
+              className="bg-gradient-to-r from-[#6DD3FF] to-[#29A0D8] hover:from-[#4AB8E8] hover:to-[#1E7CAD]
+              transition-all px-4 py-3 rounded-lg flex items-center justify-center gap-2 text-sm sm:text-base 
+              shadow hover:shadow-md text-white text-center"
             >
-              <Search className="w-5 h-5" />
+              <Search className="w-5 h-5 sm:w-5 sm:h-5" />
               <span className="font-medium">FIND YOUR DREAM JOB</span>
             </Link>
-            <Link
-              href="/contact"
-              className="bg-white border border-[#1E90D8] transition-colors p-4 rounded-md flex items-center justify-center gap-2"
+
+            {/* Employer Button as Modal Trigger */}
+            <div
+              onClick={() => setIsOpen(true)}
+              className="cursor-pointer bg-white border border-[#1E90D8] hover:bg-[#F0FAFF] transition-all px-4 py-3 
+              rounded-lg flex items-center justify-center gap-2 text-sm sm:text-base shadow hover:shadow-md 
+              text-[#1E90D8] text-center"
             >
-              <UserRound className="w-5 h-5" />
-              <span className="font-medium text-[#1E90D8]">FIND THE BEST EMPLOYEES</span>
-            </Link>
+              <Headset className="w-5 h-5 sm:w-5 sm:h-5" />
+              <span className="font-medium">FIND THE BEST EMPLOYEES</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Modal with PopContact form */}
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <PopContact onSuccess={() => setIsOpen(false)} />
+      </Modal>
+    </>
+
+
+      {/* Services Section */}
+      <section id="services" className="pb-20 bg-gray-50">
+
+        {/* Gradient Banner */}
+        <div className="relative bg-gradient-to-r from-[#29A0D8] to-[#6DD3FF] py-20">
+          <div className="container mx-auto px-6 text-center text-white">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
+            <p className="text-xl max-w-3xl mx-auto">
+              Empowering skills development through innovative training, research, and infrastructure solutions.
+            </p>
+          </div>
+        </div>
+
+        {/* Services Overview */}
+        <div className="text-center mb-16 pt-12 px-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">nstHr Core Services</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            We provide specialized training programs, research initiatives, and infrastructure support to enhance workforce skills and drive economic growth.
+          </p>
+        </div>
+
+        {/* Services Grid */}
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {[
+              {
+                title: "Recruitment Services",
+                icon: <Users className="w-7 h-7 text-white" />,
+                link: "/services/recruitment-services",
+                description: "Connecting businesses with top talent across industries, from entry-level to executive roles.",
+              },
+              {
+                title: "IT Staffing",
+                icon: <Search className="w-7 h-7 text-white" />,
+                link: "/services/it-staffing",
+                description: "Providing skilled IT professionals like developers, engineers, and architects to fuel tech-driven growth.",
+              },
+              {
+                title: "Project Hiring",
+                icon: <Briefcase className="w-7 h-7 text-white" />,
+                link: "/services/project-hiring",
+                description: "Quick and reliable staffing for short-term or project-based roles to meet tight deadlines and delivery goals.",
+              },
+              {
+                title: "Temporary Staffing",
+                icon: <Clock className="w-7 h-7 text-white" />,
+                link: "/services/temporary-Staffing",
+                description: "On-demand staffing for short durations—ideal for seasonal needs, replacements, or peak workloads.",
+              },
+              {
+                title: "RPO (Recruitment Process Outsourcing)",
+                icon: <Cpu className="w-7 h-7 text-white" />,
+                link: "/services/rpo",
+                description: "End-to-end recruitment outsourcing for streamlined hiring, cost-efficiency, and expert candidate selection.",
+              },
+              {
+                title: "PAYROLL MANAGEMENT",
+                icon: <Trophy className="w-7 h-7 text-white" />,
+                link: "/services/payroll",
+                description: "Comprehensive payroll processing ensuring timely and compliant salary disbursals for your workforce.",
+              },
+            ].map((service, idx) => (
+              <a
+                key={idx}
+                href={service.link}
+                className="bg-white rounded-2xl shadow-md shadow-[#bae6fd] hover:shadow-lg hover:shadow-[#60c4f8] p-6 transition-all hover:-translate-y-1.5 block"
+              >
+                <div className="w-14 h-14 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-[#333] mb-3">{service.title}</h3>
+                <p className="text-sm text-gray-600">{service.description}</p>
+              </a>
+            ))}
+
           </div>
         </div>
       </section>
 
 
-{/* Services Section */}
-<section id="services" className="pb-20 bg-gray-50">
+      <Industries />
 
-  {/* Gradient Banner */}
-  <div className="relative bg-gradient-to-r from-[#29A0D8] to-[#6DD3FF] py-20">
-    <div className="container mx-auto px-6 text-center text-white">
-      <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
-      <p className="text-xl max-w-3xl mx-auto">
-        Empowering skills development through innovative training, research, and infrastructure solutions.
-      </p>
-    </div>
-  </div>
 
-  {/* Services Overview */}
-  <div className="text-center mb-16 pt-12 px-4">
-    <h2 className="text-3xl font-bold text-gray-900 mb-4">nstHr Core Services</h2>
-    <p className="text-gray-600 max-w-2xl mx-auto">
-      We provide specialized training programs, research initiatives, and infrastructure support to enhance workforce skills and drive economic growth.
-    </p>
-  </div>
 
-  {/* Services Grid */}
-  <div className="container mx-auto px-4">
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <Team />
 
-      {[
-        {
-          title: "Recruitment Services",
-          icon: <Users className="w-7 h-7 text-white" />,
-          link: "/services/recruitment-services",
-          description: "Connecting businesses with top talent across industries, from entry-level to executive roles.",
-        },
-        {
-          title: "IT Staffing",
-          icon: <Search className="w-7 h-7 text-white" />,
-          link: "/services/it-staffing",
-          description: "Providing skilled IT professionals like developers, engineers, and architects to fuel tech-driven growth.",
-        },
-        {
-          title: "Project Hiring",
-          icon: <Briefcase className="w-7 h-7 text-white" />,
-          link: "/services/project-hiring",
-          description: "Quick and reliable staffing for short-term or project-based roles to meet tight deadlines and delivery goals.",
-        },
-        {
-          title: "Temporary Staffing",
-          icon: <Clock className="w-7 h-7 text-white" />,
-          link: "/services/temporary-Staffing",
-          description: "On-demand staffing for short durations—ideal for seasonal needs, replacements, or peak workloads.",
-        },
-        {
-          title: "RPO (Recruitment Process Outsourcing)",
-          icon: <Cpu className="w-7 h-7 text-white" />,
-          link: "/services/rpo",
-          description: "End-to-end recruitment outsourcing for streamlined hiring, cost-efficiency, and expert candidate selection.",
-        },
-        {
-          title: "PAYROLL MANAGEMENT",
-          icon: <Trophy className="w-7 h-7 text-white" />,
-          link: "/services/payroll",
-          description: "Comprehensive payroll processing ensuring timely and compliant salary disbursals for your workforce.",
-        },
-      ].map((service, idx) => (
-        <a
-          key={idx}
-          href={service.link}
-          className="bg-white rounded-2xl shadow-md shadow-[#bae6fd] hover:shadow-lg hover:shadow-[#60c4f8] p-6 transition-all hover:-translate-y-1.5 block"
-        >
-          <div className="w-14 h-14 bg-[#29A0D8] rounded-full flex items-center justify-center mb-4">
-            {service.icon}
+      {/* CTA Section */}
+      <div className="py-16 sm:py-20 bg-gradient-to-r from-[#29A0D8] to-[#6DD3FF] text-white">
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
+            Ready to Transform Your IT Infrastructure?
+          </h2>
+          <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto">
+            Partner with nstHr for comprehensive IT solutions and top-tier technology talent.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <Link
+              href="/contact"
+              className="bg-white text-[#29A0D8] px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors w-full sm:w-auto text-center"
+            >
+              Get Started
+            </Link>
+            <Link
+              href="/industries/Information-Technology"
+              className="border-2 border-white text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-medium hover:bg-white hover:text-[#29A0D8] transition-colors w-full sm:w-auto text-center"
+            >
+              View IT Services
+            </Link>
           </div>
-          <h3 className="text-xl font-semibold text-[#333] mb-3">{service.title}</h3>
-          <p className="text-sm text-gray-600">{service.description}</p>
-        </a>
-      ))}
-
-    </div>
-  </div>
-</section>
-
-     
-        <Industries />
- 
-
-
-<Team/>
-
-{/* CTA Section */}
-<div className="py-16 sm:py-20 bg-gradient-to-r from-[#29A0D8] to-[#6DD3FF] text-white">
-  <div className="max-w-5xl mx-auto px-4 text-center">
-    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
-      Ready to Transform Your IT Infrastructure?
-    </h2>
-    <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto">
-      Partner with nstHr for comprehensive IT solutions and top-tier technology talent.
-    </p>
-    <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-      <Link
-        href="/contact"
-        className="bg-white text-[#29A0D8] px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors w-full sm:w-auto text-center"
-      >
-        Get Started
-      </Link>
-      <Link
-        href="/industries/Information-Technology"
-        className="border-2 border-white text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-medium hover:bg-white hover:text-[#29A0D8] transition-colors w-full sm:w-auto text-center"
-      >
-        View IT Services
-      </Link>
-    </div>
-  </div>
-</div>
+        </div>
+      </div>
 
       <ClientsSection />
 

@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Mail, Phone, Facebook, Twitter, Instagram, Linkedin, Youtube, Menu, X } from "lucide-react"
 import Navbar from "./ui/navbar"
+import { TopMarquee } from "./ui/TopMarquee"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -25,13 +26,9 @@ export default function Header() {
 
   return (
     <header className={`sticky top-0 z-50 bg-white shadow-md transition-all ${isScrolled ? 'shadow-lg' : ''}`}>
-      {/* Announcement bar */}
-      <div className="relative w-full overflow-hidden bg-white text-[#29A0D8] py-1 text-xs">
-        <div className="whitespace-nowrap animate-marquee">
-          ⚠️ Note: nstHr never charges candidates. If you have any complaints, kindly mail us at
-          <a href="mailto:help@nsthr.in" className="font-bold underline mx-1">helpdesk@nsthr.com</a> ⚠️
-        </div>
-      </div>
+      
+
+   <TopMarquee />
 
       {/* Contact info bar */}
       <div className="bg-gradient-to-r from-[#6DD3FF] to-[#29A0D8] py-2 px-4">

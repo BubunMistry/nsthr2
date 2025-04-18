@@ -64,11 +64,11 @@ export default function HeroSection() {
     return () => clearInterval(interval);
   }, [nextSlide]);
 
-  const handleTouchStart = (e) => {
+  const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX);
   };
 
-  const handleTouchMove = (e) => {
+  const handleTouchMove = (e: React.TouchEvent) => {
     setTouchEnd(e.targetTouches[0].clientX);
   };
 
@@ -81,7 +81,7 @@ export default function HeroSection() {
     }
   };
 
-  const goToSlide = (index) => {
+  const goToSlide = (index: number) => {
     if (isTransitioning || index === activeSlide) return;
     setIsTransitioning(true);
     setActiveSlide(index);
@@ -117,7 +117,7 @@ export default function HeroSection() {
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
 
-            {/* Content Container - Limited to left half */}
+            {/* Content Container */}
             <div className="relative z-10 h-full flex flex-col justify-center pl-4 sm:pl-8 md:pl-12 lg:pl-16 xl:pl-24 max-w-[50%]">
               {/* Text Content */}
               <div className="mb-4 sm:mb-6 md:mb-8">
@@ -150,37 +150,42 @@ export default function HeroSection() {
         ))}
       </div>
 
-      {/* Navigation Dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-30">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              activeSlide === index
-                ? "bg-white w-6"
-                : "bg-white/50 hover:bg-white/70"
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
+      {/* Navigation Controls Container */}
+      <div className="absolute bottom-4 right-4 flex items-center gap-2 sm:gap-3 z-30 bg-black/30 backdrop-blur-sm px-2 py-1 rounded-full">
+        {/* Previous Arrow */}
+        <button
+          onClick={prevSlide}
+          className="text-white p-1 w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center transition-all hover:scale-110 rounded-full"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4" />
+        </button>
+        
+        {/* Dots */}
+        <div className="flex gap-1 sm:gap-1.5 mx-1">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`rounded-full transition-all ${
+                activeSlide === index
+                  ? "bg-white w-3 h-1.5 sm:w-4 sm:h-2"
+                  : "bg-white/50 hover:bg-white/70 w-1.5 h-1.5 sm:w-2 sm:h-2"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
 
-      {/* Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 w-10 h-10 flex items-center justify-center z-30 transition-all hover:scale-110"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft className="w-5 h-5" />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 w-10 h-10 flex items-center justify-center z-30 transition-all hover:scale-110"
-        aria-label="Next slide"
-      >
-        <ChevronRight className="w-5 h-5" />
-      </button>
+        {/* Next Arrow */}
+        <button
+          onClick={nextSlide}
+          className="text-white p-1 w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center transition-all hover:scale-110 rounded-full"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
+        </button>
+      </div>
     </section>
   );
 }

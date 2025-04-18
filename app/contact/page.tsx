@@ -32,16 +32,26 @@ export default function Contact() {
 
   return (
     <div>
+
       {/* Hero Section */}
-    
+
       <div className="relative bg-gradient-to-r from-[#29A0D8] to-[#6DD3FF] py-20">
         <div className="container mx-auto px-6 text-center text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
           <p className="text-xl max-w-3xl mx-auto">
-          Get in touch with our team
+            Get in touch with our team
           </p>
         </div>
       </div>
+      {/* Contact Form */}
+      <section className="py-16 bg-gray-50">
+        <ContactForm />
+
+      </section>
+
+
+
+
 
       {/* Contact Info + Schedule Meeting */}
       <section className="py-16 bg-gray-50">
@@ -104,11 +114,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
-      {/* Contact Form */}
-    <section className="py-16 bg-gray-50">
-  <ContactForm/>
 
-</section>
 
       {/* Map Section */}
       <section className="py-16 bg-gray-50">

@@ -7,6 +7,8 @@ import Footer from "@/components/footer"
 import SocialSidebar from "@/components/social-sidebar"
 import { Toaster } from "sonner"
 import Mobile from "@/components/ui/mobile"
+import Brochure from "@/components/ui/brochure"
+import { WarningPopup } from "@/components/ui/warning"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -69,12 +71,16 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header />
+        <Brochure />
+        <WarningPopup />
+
         <main className="relative">
           <SocialSidebar position="left" />
           {children}
           <SocialSidebar position="right" />
         </main>
       <Mobile/>
+    
         <Footer />
         <Toaster 
           position="top-center"

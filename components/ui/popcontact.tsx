@@ -74,7 +74,7 @@ export default function ContactForm({
     'flex items-center gap-4 border rounded-md px-4 py-3 shadow-sm focus-within:ring-2 focus-within:ring-[#29A0D8] bg-white dark:bg-gray-800 transition-all w-full';
 
   return (
-    <div className="w-full max-w-4xl mx-auto relative p-6 md:p-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden">
+    <div className="w-full px-4 sm:px-6 md:px-8 py-3 md:py-8 mx-auto dark:bg-gray-900 rounded-xl relative max-w-4xl">
       {onClose && (
         <button
           onClick={onClose}
@@ -89,7 +89,8 @@ export default function ContactForm({
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* First & Last Name */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className={inputWrapperStyle}>
             <User className="text-[#29A0D8] w-6 h-6" />
             <Input
@@ -117,7 +118,8 @@ export default function ContactForm({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Email & Mobile */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className={inputWrapperStyle}>
             <Mail className="text-[#29A0D8] w-6 h-6" />
             <Input
@@ -146,7 +148,8 @@ export default function ContactForm({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Company & Purpose */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className={inputWrapperStyle}>
             <Building className="text-[#29A0D8] w-6 h-6" />
             <Input
@@ -172,8 +175,9 @@ export default function ContactForm({
           </div>
         </div>
 
-        <div className="flex items-start gap-4 border rounded-md px-4 py-3 shadow-sm focus-within:ring-2 focus-within:ring-[#29A0D8] bg-white dark:bg-gray-800 transition-all">
-          <MessageCircle className="text-[#29A0D8] mt-1 w-6 h-6" />
+        {/* Message */}
+        <div className="flex flex-col sm:flex-row sm:items-start gap-3 border rounded-md px-4 py-3 shadow-sm focus-within:ring-2 focus-within:ring-[#29A0D8] bg-white dark:bg-gray-800 transition-all">
+          <MessageCircle className="text-[#29A0D8] w-6 h-6 mt-1 shrink-0" />
           <Textarea
             id="message"
             name="message"
@@ -186,12 +190,13 @@ export default function ContactForm({
           />
         </div>
 
-        <div className="flex justify-end">
+        {/* Submit Button */}
+        <div className="flex flex-col sm:flex-row justify-end gap-4">
           <Button
             type="submit"
             size="lg"
             disabled={isSubmitting}
-            className="w-full md:w-auto bg-[#29A0D8] hover:bg-[#1E7CAD] text-white font-semibold transition-all duration-300 rounded-lg shadow-md hover:shadow-xl"
+            className="w-full sm:w-auto bg-[#29A0D8] hover:bg-[#1E7CAD] text-white font-semibold transition-all duration-300 rounded-lg shadow-md hover:shadow-xl"
           >
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </Button>

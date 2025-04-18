@@ -44,7 +44,7 @@ export default function Contact() {
         </div>
       </div>
       {/* Contact Form */}
-      <section className="py-16 bg-gray-50">
+      <section className="p-5 bg-gray-50">
         <ContactForm />
 
       </section>
@@ -52,69 +52,99 @@ export default function Contact() {
 
 
 
-
-      {/* Contact Info + Schedule Meeting */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            {/* Location */}
-            <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-[#29A0D8]/10 text-[#29A0D8] rounded-full flex items-center justify-center mb-4">
-                <MapPin className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Our Location</h3>
-              <p className="text-gray-600">
-                Unit No. 1112, 11th Floor,<br />
-                PS Qube, Action Area I, 2D,<br />
-                Newtown, Kolkata, WB 700136
-              </p>
-            </div>
-
-            {/* Phone */}
-            <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-[#29A0D8]/10 text-[#29A0D8] rounded-full flex items-center justify-center mb-4">
-                <Phone className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Call Us</h3>
-              <a href="tel:+916292197307" className="text-gray-600 hover:text-[#29A0D8] transition-colors">
-                +91 62921 97307
-              </a>
-            </div>
-
-            {/* Email */}
-            <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-[#29A0D8]/10 text-[#29A0D8] rounded-full flex items-center justify-center mb-4">
-                <Mail className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Email Us</h3>
-              <a href="mailto:info@nsthr.com" className="text-gray-600 hover:text-[#29A0D8] transition-colors">
+{/* Contact Info + Schedule Meeting */}
+<section className="py-5 bg-gray-50">
+  <div className="container mx-auto px-4">
+    <div className="grid md:grid-cols-4 gap-8">
+      {[
+        {
+          icon: <MapPin className="w-8 h-8" />,
+          title: "Our Location",
+          content: (
+            <p className="text-gray-600 text-sm">
+              Unit No. 1112, 11th Floor,<br />
+              PS Qube, Action Area I, 2D,<br />
+              Newtown, Kolkata, WB 700136
+            </p>
+          ),
+        },
+        {
+          icon: <Phone className="w-8 h-8" />,
+          title: "Call Us",
+          content: (
+            <a
+              href="tel:+916292197307"
+              className="text-gray-600 hover:text-[#29A0D8] transition-colors text-sm"
+            >
+              +91 62921 97307
+            </a>
+          ),
+        },
+        {
+          icon: <Mail className="w-8 h-8" />,
+          title: "Email Us",
+          content: (
+            <>
+              <a
+                href="mailto:info@nsthr.com"
+                className="text-gray-600 hover:text-[#29A0D8] transition-colors block text-sm"
+              >
                 info@nsthr.com
               </a>
-              <a href="mailto:helpdesk@nsthr.com" className="text-gray-600 hover:text-[#29A0D8] transition-colors">
+              <a
+                href="mailto:helpdesk@nsthr.com"
+                className="text-gray-600 hover:text-[#29A0D8] transition-colors block text-sm"
+              >
                 helpdesk@nsthr.com
               </a>
-            </div>
-
-            {/* Schedule Meeting */}
-            <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-[#29A0D8]/10 text-[#29A0D8] rounded-full flex items-center justify-center mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3M16 7V3M4 11h16M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Schedule Meeting</h3>
-              <p className="text-gray-600 mb-2">Prefer a 1:1 call?</p>
+            </>
+          ),
+        },
+        {
+          icon: (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-8 h-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M8 7V3M16 7V3M4 11h16M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+          ),
+          title: "Schedule Meeting",
+          content: (
+            <>
+              <p className="text-gray-600 mb-2 text-sm">Prefer a 1:1 call?</p>
               <a
                 href="mailto:info@nsthr.com?subject=Schedule%20a%20Meeting"
                 className="text-sm text-[#29A0D8] font-medium hover:underline"
               >
                 Click to schedule via email
               </a>
-            </div>
+            </>
+          ),
+        },
+      ].map((item, index) => (
+        <div
+          key={index}
+          className="bg-white p-6 rounded-lg border border-[#29A0D8]/30 shadow-[0_0_20px_rgba(41,160,216,0.1)] flex flex-col items-center text-center transform transition-transform duration-300 hover:scale-105"
+        >
+          <div className="w-16 h-16 bg-[#29A0D8]/10 text-[#29A0D8] rounded-lg flex items-center justify-center mb-4">
+            {item.icon}
           </div>
+          <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+          {item.content}
         </div>
-      </section>
-
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Map Section */}
       <section className="py-16 bg-gray-50">

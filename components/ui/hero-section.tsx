@@ -132,14 +132,14 @@ export default function HeroSection() {
               {/* Buttons Container */}
               <div className="flex flex-row gap-2 w-full max-w-xs">
                 <Link href={slide.link}>
-                  <Button className="text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-2 h-auto bg-[#29A0D8] hover:bg-[#1E90D8] text-white">
+                  <Button className="text-[10px] sm:text-sm px-2.5 sm:px-4 py-1 sm:py-2 h-auto bg-[#29A0D8] hover:bg-[#1E90D8] text-white">
                     {slide.cta} <ChevronRight className="w-3 h-3 ml-1" />
                   </Button>
                 </Link>
                 <Link href="/contact">
                   <Button
                     variant="outline"
-                    className="text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-2 h-auto border-white text-white hover:border-[#29A0D8] hover:text-[#29A0D8]"
+                    className="text-[10px] sm:text-sm px-2.5 sm:px-4 py-1 sm:py-2 h-auto border-white text-white hover:border-[#29A0D8] hover:text-[#29A0D8]"
                   >
                     Contact Us
                   </Button>
@@ -155,12 +155,12 @@ export default function HeroSection() {
         {/* Previous Arrow */}
         <button
           onClick={prevSlide}
-          className="text-white p-1 w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center transition-all hover:scale-110 rounded-full"
+          className="text-white p-0.5 w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center transition-all hover:scale-110 rounded-full"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4" />
+          <ChevronLeft className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" />
         </button>
-        
+
         {/* Dots */}
         <div className="flex gap-1 sm:gap-1.5 mx-1">
           {slides.map((_, index) => (
@@ -169,7 +169,7 @@ export default function HeroSection() {
               onClick={() => goToSlide(index)}
               className={`rounded-full transition-all ${
                 activeSlide === index
-                  ? "bg-white w-3 h-1.5 sm:w-4 sm:h-2"
+                  ? "bg-white w-2 h-1 sm:w-3 sm:h-1.5"
                   : "bg-white/50 hover:bg-white/70 w-1.5 h-1.5 sm:w-2 sm:h-2"
               }`}
               aria-label={`Go to slide ${index + 1}`}
@@ -180,10 +180,10 @@ export default function HeroSection() {
         {/* Next Arrow */}
         <button
           onClick={nextSlide}
-          className="text-white p-1 w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center transition-all hover:scale-110 rounded-full"
+          className="text-white p-0.5 w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center transition-all hover:scale-110 rounded-full"
           aria-label="Next slide"
         >
-          <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
+          <ChevronRight className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" />
         </button>
       </div>
     </section>

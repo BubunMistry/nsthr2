@@ -71,28 +71,28 @@ export default function ContactForm({
   };
 
   const inputWrapperStyle =
-    'flex items-center gap-4 border rounded-md px-4 py-3 shadow-sm focus-within:ring-2 focus-within:ring-[#29A0D8] bg-white dark:bg-gray-800 transition-all w-full';
+    'flex items-center gap-3 border rounded-md px-3 py-2 shadow-sm focus-within:ring-2 focus-within:ring-[#29A0D8] bg-white dark:bg-gray-800 transition-all w-full';
 
   return (
-    <div className="w-full px-4 sm:px-6 md:px-8 py-3 md:py-8 mx-auto dark:bg-gray-900 rounded-xl relative max-w-4xl">
+    <div className="w-full px-4 sm:px-6 py-4 mx-auto dark:bg-gray-900 rounded-lg relative max-w-xl">
       {onClose && (
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-red-500 z-10 transition-colors"
+          className="absolute top-3 right-3 text-gray-500 hover:text-red-500 z-10 transition-colors"
         >
-          <X className="w-6 h-6" />
+          <X className="w-5 h-5" />
         </button>
       )}
 
-      <h2 className="text-2xl sm:text-3xl font-semibold text-center text-gray-800 dark:text-white mb-8 uppercase tracking-wider">
+      <h2 className="text-xl sm:text-2xl font-semibold text-center text-gray-800 dark:text-white mb-4 uppercase tracking-wide">
         Get Best Employees Now
       </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-4">
         {/* First & Last Name */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div className={inputWrapperStyle}>
-            <User className="text-[#29A0D8] w-6 h-6" />
+            <User className="text-[#29A0D8] w-5 h-5" />
             <Input
               id="first_name"
               name="first_name"
@@ -100,12 +100,12 @@ export default function ContactForm({
               onChange={handleChange}
               required
               placeholder="First Name *"
-              className="flex-1 border-0 outline-none focus-visible:ring-0 bg-transparent"
+              className="flex-1 border-0 outline-none focus-visible:ring-0 bg-transparent text-sm"
             />
           </div>
 
           <div className={inputWrapperStyle}>
-            <User className="text-[#29A0D8] w-6 h-6" />
+            <User className="text-[#29A0D8] w-5 h-5" />
             <Input
               id="last_name"
               name="last_name"
@@ -113,15 +113,15 @@ export default function ContactForm({
               onChange={handleChange}
               required
               placeholder="Last Name *"
-              className="flex-1 border-0 outline-none focus-visible:ring-0 bg-transparent"
+              className="flex-1 border-0 outline-none focus-visible:ring-0 bg-transparent text-sm"
             />
           </div>
         </div>
 
         {/* Email & Mobile */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div className={inputWrapperStyle}>
-            <Mail className="text-[#29A0D8] w-6 h-6" />
+            <Mail className="text-[#29A0D8] w-5 h-5" />
             <Input
               id="email"
               name="email"
@@ -130,12 +130,12 @@ export default function ContactForm({
               onChange={handleChange}
               required
               placeholder="Email *"
-              className="flex-1 border-0 outline-none focus-visible:ring-0 bg-transparent"
+              className="flex-1 border-0 outline-none focus-visible:ring-0 bg-transparent text-sm"
             />
           </div>
 
           <div className={inputWrapperStyle}>
-            <Phone className="text-[#29A0D8] w-6 h-6" />
+            <Phone className="text-[#29A0D8] w-5 h-5" />
             <Input
               id="mobile"
               name="mobile"
@@ -143,62 +143,62 @@ export default function ContactForm({
               onChange={handleChange}
               required
               placeholder="Mobile *"
-              className="flex-1 border-0 outline-none focus-visible:ring-0 bg-transparent"
+              className="flex-1 border-0 outline-none focus-visible:ring-0 bg-transparent text-sm"
             />
           </div>
         </div>
 
         {/* Company & Purpose */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div className={inputWrapperStyle}>
-            <Building className="text-[#29A0D8] w-6 h-6" />
+            <Building className="text-[#29A0D8] w-5 h-5" />
             <Input
               id="company"
               name="company"
               value={formData.company}
               onChange={handleChange}
               placeholder="Company"
-              className="flex-1 border-0 outline-none focus-visible:ring-0 bg-transparent"
+              className="flex-1 border-0 outline-none focus-visible:ring-0 bg-transparent text-sm"
             />
           </div>
 
           <div className={inputWrapperStyle}>
-            <MessageCircle className="text-[#29A0D8] w-6 h-6" />
+            <MessageCircle className="text-[#29A0D8] w-5 h-5" />
             <Input
               id="purpose"
               name="purpose"
               value={formData.purpose}
               onChange={handleChange}
               placeholder="Purpose"
-              className="flex-1 border-0 outline-none focus-visible:ring-0 bg-transparent"
+              className="flex-1 border-0 outline-none focus-visible:ring-0 bg-transparent text-sm"
             />
           </div>
         </div>
 
         {/* Message */}
-        <div className="flex flex-col sm:flex-row sm:items-start gap-3 border rounded-md px-4 py-3 shadow-sm focus-within:ring-2 focus-within:ring-[#29A0D8] bg-white dark:bg-gray-800 transition-all">
-          <MessageCircle className="text-[#29A0D8] w-6 h-6 mt-1 shrink-0" />
+        <div className="flex gap-3 border rounded-md px-3 py-2 shadow-sm focus-within:ring-2 focus-within:ring-[#29A0D8] bg-white dark:bg-gray-800 transition-all">
+          <MessageCircle className="text-[#29A0D8] w-5 h-5 mt-1" />
           <Textarea
             id="message"
             name="message"
             value={formData.message}
             onChange={handleChange}
-            rows={4}
+            rows={3}
             required
             placeholder="Your Message *"
-            className="flex-1 border-0 outline-none focus-visible:ring-0 resize-none bg-transparent"
+            className="flex-1 border-0 outline-none focus-visible:ring-0 resize-none bg-transparent text-sm"
           />
         </div>
 
         {/* Submit Button */}
-        <div className="flex flex-col sm:flex-row justify-end gap-4">
+        <div className="flex justify-end">
           <Button
             type="submit"
-            size="lg"
+            size="sm"
             disabled={isSubmitting}
-            className="w-full sm:w-auto bg-[#29A0D8] hover:bg-[#1E7CAD] text-white font-semibold transition-all duration-300 rounded-lg shadow-md hover:shadow-xl"
+            className="bg-[#29A0D8] hover:bg-[#1E7CAD] text-white font-semibold transition-all duration-300 rounded-md px-6 py-2"
           >
-            {isSubmitting ? 'Sending...' : 'Send Message'}
+            {isSubmitting ? 'Sending...' : 'Send'}
           </Button>
         </div>
       </form>

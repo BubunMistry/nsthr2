@@ -122,11 +122,11 @@ const Navbar = () => {
               alt="nstHr Logo"
               width={130}
               height={50}
-              className="h-auto w-[90px] sm:w-[100px] md:w-[100px] p-2 object-contain transition-all duration-500 group-hover:scale-105"
+              className="h-auto w-[120px] sm:w-[100px] md:w-[100px] object-contain transition-all duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#29A0D8_0%,_transparent_70%)] opacity-0 group-hover:opacity-20 transition-opacity duration-700"></div>
           </div>
-          <span className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-[#29A0D8] to-[#1E7CAD] w-0 group-hover:w-full transition-all duration-500"></span>
+        
         </Link>
 
         {/* Mobile menu button with animation */}

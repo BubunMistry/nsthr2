@@ -40,7 +40,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://nsthr.com/placeholder.svg?height=100&width=80',
+        url: 'https://nsthr.com/nstHr_logo.png',
         width: 1200,
         height: 630,
         alt: 'NSTHR Recruitment Solutions',

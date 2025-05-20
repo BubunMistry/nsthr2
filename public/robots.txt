@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.nsthr.com
+
+# Sitemaps
+Sitemap: https://www.nsthr.com/sitemap.xml

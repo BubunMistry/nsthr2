@@ -1,9 +1,13 @@
 import express from 'express';
-import { submitContactForm, getAllContactForms } from '../controllers/contactFormController.js';
+import { 
+  submitContactForm, 
+  getAllContactForms, 
+  deleteContactForm 
+} from '../controllers/contactFormController.js';
 
 const router = express.Router();
 
 router.post('/submit', submitContactForm);
-router.post('/all', getAllContactForms);
-
+router.get('/all', getAllContactForms); 
+router.delete('/:id', deleteContactForm); 
 export default router;

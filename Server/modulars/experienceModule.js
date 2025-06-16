@@ -1,4 +1,4 @@
-// This module of user experience.
+
 import { pool } from "../utils/db.js";
 
 // 🔹 Add Experience

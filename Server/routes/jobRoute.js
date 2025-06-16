@@ -3,16 +3,22 @@ import {
   createJobController,
   getAllJobsController,
   updateJobController,
-  deleteJobController
+  deleteJobController,
 } from "../controllers/jobController.js";
 import { verifyUser } from "../middleware/verifyUser.js";
 
 const router = express.Router();
 
-// All POST-based routes
-router.post("/create",verifyUser, createJobController);
-router.post("/list", getAllJobsController);
-router.post("/update",verifyUser, updateJobController);
-router.post("/delete",verifyUser, deleteJobController);
+// Create a new job (POST)
+router.post("/create", verifyUser, createJobController);
+
+// Get all jobs (GET) with optional search via query params
+router.get("/list", getAllJobsController);
+
+// Update a job (PUT)
+router.put("/update", verifyUser, updateJobController);
+
+// Delete a job (DELETE)
+router.delete("/delete", verifyUser, deleteJobController);
 
 export default router;
